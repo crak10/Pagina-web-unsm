@@ -54,16 +54,16 @@
                 <a href="https://www.facebook.com/unsmperu" target="_blank" rel="noopener noreferrer" title="Facebook" aria-label="Síguenos en Facebook">
                     <img src="imagenes/redes/logo facebook.png" alt="Facebook">
                 </a>
-                <a href="https://instagram.com/unsm" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Síguenos en Instagram">
+                <a href="https://www.instagram.com/unsmperu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Síguenos en Instagram">
                     <img src="imagenes/redes/logo instagram.png" alt="Instagram">
                 </a>
-                <a href="https://youtube.com/unsm" target="_blank" rel="noopener noreferrer" title="YouTube" aria-label="Visita nuestro canal de YouTube">
+                <a href="https://youtube.com/@unsmperu?si=Lu9kVK7VlDX3qkj6" target="_blank" rel="noopener noreferrer" title="YouTube" aria-label="Visita nuestro canal de YouTube">
                     <img src="imagenes/redes/logo yt.png" alt="YouTube">
                 </a>
-                <a href="https://twitter.com/unsm" target="_blank" rel="noopener noreferrer" title="X (Twitter)" aria-label="Síguenos en X">
+                <a href="https://x.com/unsmperu" target="_blank" rel="noopener noreferrer" title="X (Twitter)" aria-label="Síguenos en X">
                     <img src="imagenes/redes/logo x.png" alt="X">
                 </a>
-                <a href="https://tiktok.com/@unsm" target="_blank" rel="noopener noreferrer" title="TikTok" aria-label="Síguenos en TikTok">
+                <a href="https://www.tiktok.com/@campus.unsm?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" title="TikTok" aria-label="Síguenos en TikTok">
                     <img src="imagenes/redes/logo tiktok.png" alt="TikTok">
                 </a>
             </div>
@@ -74,7 +74,7 @@
                 </span>
                 <span>
                     <img src="imagenes/logo correo.png" alt="" class="contact-icon"> 
-                    <a href="/cdn-cgi/l/email-protection#167f787079647b7365566378657b38737263386673"><span class="__cf_email__" data-cfemail="e58c8b838a97888096a5908b9688cb808190cb9580">[email&#160;protected]</span></a>
+                    informes@unsm.edu.pe
                 </span>
             </div>
         </div>
@@ -251,6 +251,13 @@
                                     <li><a href="#educacion-primaria">Educación Primaria</a></li>
                                     <li><a href="#educacion-secundaria">Educación Secundaria</a></li>
                                     <li><a href="#idiomas">Idiomas</a></li>
+                                    <!-- 🆕 NUEVA CARRERA: PSICOLOGÍA -->
+                                    <li>
+                                        <a href="#psicologia">
+                                            Psicología 
+                                            <span class="badge-nuevo">Nuevo</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
@@ -401,7 +408,7 @@
                             </div>
                             <div class="card-content">
                                 <h3 class="card-title">Formación Continua</h3>
-                                <p class="card-text">Cursos, diplomados y programas de actualización profesional para quienes buscan mantenerse a la vanguardia en su experiencia</p>
+                                <p class="card-text">Programas de actualización profesional, certificaciones y capacitación especializada para el desarrollo continuo</p>
                             </div>
                         </div>
                     </div>
@@ -410,102 +417,100 @@
         </div>
     </section>
 
-    <!-- SECCIÓN ACADÉMICO (6 tarjetas grandes) -->
+    <!-- SECCIÓN ACADÉMICO (6 tarjetas grandes) - CON CARRUSEL EN MÓVIL -->
     <section class="academico section-container">
         <div class="content-wrapper">
             <h2 class="section-title">Académico</h2>
             <div class="section-divider"></div>
             
-            <!-- Carrusel para móvil / Grid para desktop -->
             <div class="academic-carousel-wrapper">
                 <div class="cards-container-academic-six" id="academicCarouselContainer">
                     <!-- Tarjeta 1: CPU - UNSM -->
-                    <a href="#cpu-unsm" class="card-academic-large">
+                    <a href="#cpu" class="card-academic-large academic-carousel-slide">
                         <div class="card-academic-content">
                             <h3 class="card-academic-title-large">CPU - UNSM</h3>
-                            <p class="card-academic-text-large">El Centro Preuniversitario de la UNSM es tu aliado para lograr tu ingreso</p>
+                            <p class="card-academic-text-large">El Centro Preuniversitario brinda preparación académica integral para el ingreso a la universidad</p>
                             <div class="card-academic-divider"></div>
                         </div>
                         <div class="card-academic-icon-large">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                                 <circle cx="9" cy="7" r="4"></circle>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                <polyline points="9 11 12 14 22 4"></polyline>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                             </svg>
                         </div>
                     </a>
 
                     <!-- Tarjeta 2: Centro de Idiomas -->
-                    <a href="#centro-idiomas" class="card-academic-large">
+                    <a href="#centro-idiomas" class="card-academic-large academic-carousel-slide">
                         <div class="card-academic-content">
-                            <h3 class="card-academic-title-large">CENTRO DE IDIOMAS</h3>
-                            <p class="card-academic-text-large">La UNSM, tu universidad multicultural, te ofrece programas certificados de inglés, portugués y más</p>
+                            <h3 class="card-academic-title-large">Centro de Idiomas</h3>
+                            <p class="card-academic-text-large">La UNSM te ofrece programas certificados de inglés, portugués, francés, italiano, quechua y más</p>
                             <div class="card-academic-divider"></div>
                         </div>
                         <div class="card-academic-icon-large">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
-                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                                <path d="M16 3h6v4M8 21V3M2 7h20"></path>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"></path>
+                                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
                             </svg>
                         </div>
                     </a>
 
-                    <!-- Tarjeta 3: Escuela de Posgrado -->
-                    <a href="#escuela-posgrado" class="card-academic-large">
+                    <!-- Tarjeta 3: Campus Virtual -->
+                    <a href="#campus-virtual" class="card-academic-large academic-carousel-slide">
                         <div class="card-academic-content">
-                            <h3 class="card-academic-title-large">ESCUELA DE POSGRADO</h3>
-                            <p class="card-academic-text-large">Nuestra Escuela de Posgrado ofrece programas de maestría y doctorado</p>
+                            <h3 class="card-academic-title-large">Campus Virtual</h3>
+                            <p class="card-academic-text-large">Plataforma Docente de la Universidad Nacional de San Martín para recursos y estudios online</p>
                             <div class="card-academic-divider"></div>
                         </div>
                         <div class="card-academic-icon-large">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
-                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-                            </svg>
-                        </div>
-                    </a>
-
-                    <!-- Tarjeta 4: Campus Virtual -->
-                    <a href="#campus-virtual" class="card-academic-large">
-                        <div class="card-academic-content">
-                            <h3 class="card-academic-title-large">CAMPUS VIRTUAL</h3>
-                            <p class="card-academic-text-large">Ingresa al Aula Virtual y Módulo Docente de la Universidad Nacional de San Martín</p>
-                            <div class="card-academic-divider"></div>
-                        </div>
-                        <div class="card-academic-icon-large">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                 <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                                 <polyline points="9 22 9 12 15 12 15 22"></polyline>
                             </svg>
                         </div>
                     </a>
 
-                    <!-- Tarjeta 5: Investigación y Desarrollo -->
-                    <a href="#investigacion-desarrollo" class="card-academic-large">
+                    <!-- Tarjeta 4: Investigación y Desarrollo -->
+                    <a href="#investigacion" class="card-academic-large academic-carousel-slide">
                         <div class="card-academic-content">
-                            <h3 class="card-academic-title-large">INVESTIGACIÓN Y DESARROLLO</h3>
-                            <p class="card-academic-text-large">La Oficina de Investigación Universitaria es el órgano de línea que genera proyectos</p>
+                            <h3 class="card-academic-title-large">Investigación y Desarrollo</h3>
+                            <p class="card-academic-text-large">La Oficina de Investigación Universitaria se encarga de proyectos de investigación regional</p>
                             <div class="card-academic-divider"></div>
                         </div>
                         <div class="card-academic-icon-large">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                 <circle cx="11" cy="11" r="8"></circle>
                                 <path d="m21 21-4.35-4.35"></path>
-                                <path d="M11 8a3 3 0 0 0-3 3"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <!-- Tarjeta 5: Escuela de Posgrado -->
+                    <a href="#escuela-posgrado" class="card-academic-large academic-carousel-slide">
+                        <div class="card-academic-content">
+                            <h3 class="card-academic-title-large">Escuela de Posgrado</h3>
+                            <p class="card-academic-text-large">Nuestra Escuela de Posgrado ofrece programas de especialización y formación en investigación</p>
+                            <div class="card-academic-divider"></div>
+                        </div>
+                        <div class="card-academic-icon-large">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
                             </svg>
                         </div>
                     </a>
 
                     <!-- Tarjeta 6: CTI - UNSM -->
-                    <a href="#cti-unsm" class="card-academic-large">
+                    <a href="#cti-unsm" class="card-academic-large academic-carousel-slide">
                         <div class="card-academic-content">
                             <h3 class="card-academic-title-large">CTI - UNSM</h3>
                             <p class="card-academic-text-large">El Centro de Tecnologías de Información se encarga de brindar soporte tecnológico</p>
                             <div class="card-academic-divider"></div>
                         </div>
                         <div class="card-academic-icon-large">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                 <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
                                 <line x1="8" y1="21" x2="16" y2="21"></line>
                                 <line x1="12" y1="17" x2="12" y2="21"></line>
@@ -650,11 +655,11 @@
                             <div class="card-image">
                                 <div class="card-overlay-green">
                                     <div class="card-icon-facultad">
-                                        <img src="imagenes/Escudos de Facultades — UNSM/FECOL-UNSM-2021.png" alt="Escudo Facultad de Ecología">
+                                        <img src="imagenes/Escudos de Facultades — UNSM/FE-UNSM-2021.png" alt="Escudo Facultad de Ecología">
                                     </div>
                                     <div class="card-content">
                                         <h3 class="card-title">Ecología</h3>
-                                        <p class="card-text">Conservación y desarrollo sostenible</p>
+                                        <p class="card-text">Preservando el medio ambiente amazónico</p>
                                         <span class="card-button">Ver más</span>
                                     </div>
                                 </div>
@@ -800,10 +805,10 @@
                     </div>
                     <div class="card-content">
                         <div class="news-meta">
-                            <span>📅 05 Nov 2025</span>
+                            <span>📅 5 Nov 2025</span>
                         </div>
                         <h3 class="card-title">Investigación</h3>
-                        <p class="card-text">Proyectos de Investigación de la UNSM obtienen financiamiento internacional</p>
+                        <p class="card-text">Proyecto de Investigación de la UNSM gana reconocimiento internacional</p>
                         <span class="card-button">Leer más</span>
                     </div>
                 </a>
@@ -818,65 +823,44 @@
             <div class="section-divider"></div>
             
             <div class="cards-container-three">
-                <!-- Tarjeta 1: Sistema de Gestión Documentaria (SGD) -->
-                <a href="#sgd" class="card">
-                    <div class="card-image">
-                        <div class="card-overlay-green">
-                            <div class="card-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                    <polyline points="14 2 14 8 20 8"></polyline>
-                                    <line x1="16" y1="13" x2="8" y2="13"></line>
-                                    <line x1="16" y1="17" x2="8" y2="17"></line>
-                                    <polyline points="10 9 9 9 8 9"></polyline>
-                                </svg>
-                            </div>
-                            <div class="card-content">
-                                <h3 class="card-title">Sistema de Gestión Documentaria</h3>
-                                <p class="card-text">Plataforma digital para gestionar, tramitar y hacer seguimiento a documentos oficiales de la UNSM</p>
-                                <span class="card-button">Acceder</span>
-                            </div>
-                        </div>
+                <!-- Tarjeta 1: Sistema de Gestión Documentaria -->
+                <a href="#gestion-documentaria" class="card">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
                     </div>
+                    <h3 class="card-title">Sistema de Gestión Documentaria</h3>
+                    <p class="card-text">Trámite de expedientes y registro electrónico de documentos oficiales</p>
                 </a>
 
                 <!-- Tarjeta 2: Servicios -->
                 <a href="#servicios" class="card">
-                    <div class="card-image">
-                        <div class="card-overlay-green">
-                            <div class="card-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                                </svg>
-                            </div>
-                            <div class="card-content">
-                                <h3 class="card-title">Servicios</h3>
-                                <p class="card-text">Accede a los diferentes servicios administrativos que la UNSM pone a disposición de estudiantes y docentes</p>
-                                <span class="card-button">Ver servicios</span>
-                            </div>
-                        </div>
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
                     </div>
+                    <h3 class="card-title">Servicios</h3>
+                    <p class="card-text">Atención personalizada en biblioteca, registro de títulos, y soporte técnico para estudiantes</p>
                 </a>
 
                 <!-- Tarjeta 3: Mesa de Ayuda -->
                 <a href="#mesa-ayuda" class="card">
-                    <div class="card-image">
-                        <div class="card-overlay-green">
-                            <div class="card-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-                                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                                </svg>
-                            </div>
-                            <div class="card-content">
-                                <h3 class="card-title">Mesa de Ayuda</h3>
-                                <p class="card-text">Centro de soporte técnico y atención para resolver tus consultas y problemas relacionados con sistemas UNSM</p>
-                                <span class="card-button">Solicitar ayuda</span>
-                            </div>
-                        </div>
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
                     </div>
+                    <h3 class="card-title">Mesa de Ayuda</h3>
+                    <p class="card-text">Atención rápida para consultas académicas, trámites administrativos, y soporte para plataforma virtual</p>
                 </a>
             </div>
         </div>
@@ -890,6 +874,33 @@
             
             <div class="enlaces-grid">
                 <!-- Columna 1 -->
+                <a href="#sigau-estudiante" class="enlace-btn">
+                    <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <span>Sigau Estudiante</span>
+                </a>
+                
+                <a href="#sigau-docente" class="enlace-btn">
+                    <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    <span>Sigau Docente</span>
+                </a>
+                
+                <a href="#biblioteca" class="enlace-btn">
+                    <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                    <span>Biblioteca</span>
+                </a>
+
+                <!-- Columna 2 -->
                 <a href="#correo-institucional" class="enlace-btn">
                     <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
@@ -898,101 +909,12 @@
                     <span>Correo Institucional</span>
                 </a>
                 
-                <a href="#biblioteca-central" class="enlace-btn">
-                    <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                    </svg>
-                    <span>Biblioteca Central</span>
-                </a>
-                
-                <a href="#sistema-egresados" class="enlace-btn">
-                    <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-                    </svg>
-                    <span>Sistema de Egresados</span>
-                </a>
-                
-                <a href="#mesa-partes" class="enlace-btn">
-                    <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                        <line x1="9" y1="9" x2="15" y2="9"></line>
-                        <line x1="9" y1="15" x2="15" y2="15"></line>
-                    </svg>
-                    <span>Mesa de Partes Digital</span>
-                </a>
-                
-                <a href="#sigau-docente" class="enlace-btn">
-                    <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="12" cy="7" r="4"></circle>
-                    </svg>
-                    <span>Sigau Docente</span>
-                </a>
-
-                <!-- Columna 2 -->
-                <a href="#convocatoria-personal" class="enlace-btn">
-                    <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="8.5" cy="7" r="4"></circle>
-                        <line x1="20" y1="8" x2="20" y2="14"></line>
-                        <line x1="23" y1="11" x2="17" y2="11"></line>
-                    </svg>
-                    <span>Convocatoria de Personal</span>
-                </a>
-                
-                <a href="#sgd" class="enlace-btn">
+                <a href="#sistema-tramite" class="enlace-btn">
                     <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                         <polyline points="14 2 14 8 20 8"></polyline>
-                        <line x1="16" y1="13" x2="8" y2="13"></line>
-                        <line x1="16" y1="17" x2="8" y2="17"></line>
                     </svg>
-                    <span>Gestión Documental (SGD)</span>
-                </a>
-                
-                <a href="#grados-titulos" class="enlace-btn">
-                    <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-                    </svg>
-                    <span>Grados y Títulos</span>
-                </a>
-                
-                <a href="#servicios-admin" class="enlace-btn">
-                    <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="3"></circle>
-                        <path d="M12 1v6m0 6v6m5.7-13.7l-4.2 4.2m0 6l-4.2 4.2M23 12h-6m-6 0H1m18.7 5.7l-4.2-4.2m0-6l-4.2-4.2"></path>
-                    </svg>
-                    <span>Servicios</span>
-                </a>
-                
-                <a href="#sigau-matricula" class="enlace-btn">
-                    <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                        <polyline points="14 2 14 8 20 8"></polyline>
-                        <line x1="12" y1="18" x2="12" y2="12"></line>
-                        <line x1="9" y1="15" x2="15" y2="15"></line>
-                    </svg>
-                    <span>Sigau Matrícula</span>
-                </a>
-
-                <!-- Columna 3 -->
-                <a href="#bienestar-universitario" class="enlace-btn">
-                    <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                    </svg>
-                    <span>Bienestar Universitario</span>
-                </a>
-                
-                <a href="#cti" class="enlace-btn">
-                    <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                        <line x1="8" y1="21" x2="16" y2="21"></line>
-                        <line x1="12" y1="17" x2="12" y2="21"></line>
-                    </svg>
-                    <span>CTI</span>
+                    <span>Sistema de Trámite</span>
                 </a>
                 
                 <a href="#acreditacion" class="enlace-btn">
@@ -1018,7 +940,18 @@
                     <span>Sigau Bienestar</span>
                 </a>
 
-                <!-- Columna 4 -->
+                <!-- Columna 3 -->
+                <a href="#mesa-partes" class="enlace-btn">
+                    <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                    <span>Mesa de Partes Virtual</span>
+                </a>
+                
                 <a href="#pagos-virtuales" class="enlace-btn">
                     <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <line x1="12" y1="1" x2="12" y2="23"></line>
@@ -1050,6 +983,17 @@
                     </svg>
                     <span>Sigau Tutoría</span>
                 </a>
+
+                <!-- Columna 4 -->
+                <a href="#convocatorias-cas" class="enlace-btn">
+                    <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <span>Convocatorias CAS</span>
+                </a>
                 
                 <a href="#aula-virtual" class="enlace-btn">
                     <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1074,7 +1018,7 @@
                 <p>Jr. Maynas N° 177 - Morales</p>
                 <p>Tarapoto - San Martín - Perú</p>
                 <p>Central Telefónica: (+51) (042) 48 0159</p>
-                <p>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4b22252d2439262e380b3e253826652e2f3e653b2e">[email&#160;protected]</a></p>
+                <p>Email: informes@unsm.edu.pe</p>
             </div>
             
             <div class="footer-section">
@@ -1106,26 +1050,26 @@
                 <div class="footer-social-bottom">
                     <span class="footer-social-title">Síguenos</span>
                     <div class="footer-social">
-                        <a href="https://facebook.com/unsmperu" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <a href="https://www.facebook.com/unsmperu" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                             <img src="imagenes/redes/logo facebook.png" alt="Facebook">
                         </a>
-                        <a href="https://instagram.com/unsm" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <a href="https://www.instagram.com/unsmperu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                             <img src="imagenes/redes/logo instagram.png" alt="Instagram">
                         </a>
-                        <a href="https://youtube.com/unsm" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                        <a href="https://youtube.com/@unsmperu?si=Lu9kVK7VlDX3qkj6" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
                             <img src="imagenes/redes/logo yt.png" alt="YouTube">
                         </a>
-                        <a href="https://twitter.com/unsm" target="_blank" rel="noopener noreferrer" aria-label="X">
+                        <a href="https://x.com/unsmperu" target="_blank" rel="noopener noreferrer" aria-label="X">
                             <img src="imagenes/redes/logo x.png" alt="X">
+                        </a>
+                        <a href="https://www.tiktok.com/@campus.unsm?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                            <img src="imagenes/redes/logo tiktok.png" alt="TikTok">
                         </a>
                     </div>
               </div>
             </div>
         </div>
     </footer>
-    
-    <!-- Cloudflare Email Protection Script -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     
     <!-- JavaScript -->
     <script src="js/script.js"></script>
