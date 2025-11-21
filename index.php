@@ -74,7 +74,7 @@
                 </span>
                 <span>
                     <img src="imagenes/logo correo.png" alt="" class="contact-icon"> 
-                    informes@unsm.edu.pe
+                    <a href="mailto:informes@unsm.edu.pe" class="" data-cfemail="a0c9cec6cfd2cdc5d3e0d5ced3cd8ec5c4d58ed0c5">informes@unsm.edu.pe</a>
                 </span>
             </div>
         </div>
@@ -351,7 +351,7 @@
         <div class="carousel-indicators" id="carouselControls" role="tablist" aria-label="Controles del carrusel"></div>
     </section>
 
-    <!-- SECCIÓN OFERTA ACADÉMICA (3 tarjetas) -->
+    <!-- SECCIÓN OFERTA ACADÉMICA (3 tarjetas) - DISEÑO MEJORADO -->
     <section class="ofertas section-container">
         <div class="content-wrapper">
             <h2 class="section-title">Oferta Académica</h2>
@@ -360,64 +360,46 @@
             <div class="cards-container-three">
                 <!-- Tarjeta 1: Programas de Pregrado -->
                 <a href="#pregrado" class="card">
-                    <div class="card-image">
-                        <div class="card-overlay-green">
-                            <div class="card-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                                </svg>
-                            </div>
-                            <div class="card-content">
-                                <h3 class="card-title">Programas de Pregrado</h3>
-                                <p class="card-text">11 facultades con carreras innovadoras que forman profesionales de alto nivel, listos para liderar y transformar la región</p>
-                            </div>
-                        </div>
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                        </svg>
                     </div>
+                    <h3 class="card-title">Programas de Pregrado</h3>
+                    <p class="card-text">11 facultades con carreras innovadoras que forman profesionales de alto nivel, listos para liderar y transformar la región</p>
                 </a>
 
                 <!-- Tarjeta 2: Escuela de Posgrado -->
                 <a href="#posgrado" class="card">
-                    <div class="card-image">
-                        <div class="card-overlay-green">
-                            <div class="card-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                                    <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-                                </svg>
-                            </div>
-                            <div class="card-content">
-                                <h3 class="card-title">Escuela de Posgrado</h3>
-                                <p class="card-text">Maestrías y doctorados para quienes desean especializarse y convertirse en líderes de investigación y gestión</p>
-                            </div>
-                        </div>
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                        </svg>
                     </div>
+                    <h3 class="card-title">Escuela de Posgrado</h3>
+                    <p class="card-text">Maestrías y doctorados para quienes desean especializarse y convertirse en líderes de investigación y gestión</p>
                 </a>
 
                 <!-- Tarjeta 3: Formación Continua -->
                 <a href="#formacion-continua" class="card">
-                    <div class="card-image">
-                        <div class="card-overlay-green">
-                            <div class="card-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                    <circle cx="9" cy="7" r="4"></circle>
-                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                </svg>
-                            </div>
-                            <div class="card-content">
-                                <h3 class="card-title">Formación Continua</h3>
-                                <p class="card-text">Programas de actualización profesional, certificaciones y capacitación especializada para el desarrollo continuo</p>
-                            </div>
-                        </div>
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
                     </div>
+                    <h3 class="card-title">Formación Continua</h3>
+                    <p class="card-text">Programas de actualización profesional, certificaciones y capacitación especializada para el desarrollo continuo</p>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN ACADÉMICO (6 tarjetas grandes) - CON CARRUSEL EN MÓVIL -->
+        <!-- SECCIÓN ACADÉMICO (6 tarjetas) - DISEÑO MEJORADO -->
     <section class="academico section-container">
         <div class="content-wrapper">
             <h2 class="section-title">Académico</h2>
@@ -426,96 +408,78 @@
             <div class="academic-carousel-wrapper">
                 <div class="cards-container-academic-six" id="academicCarouselContainer">
                     <!-- Tarjeta 1: CPU - UNSM -->
-                    <a href="#cpu" class="card-academic-large academic-carousel-slide">
-                        <div class="card-academic-content">
-                            <h3 class="card-academic-title-large">CPU - UNSM</h3>
-                            <p class="card-academic-text-large">El Centro Preuniversitario brinda preparación académica integral para el ingreso a la universidad</p>
-                            <div class="card-academic-divider"></div>
-                        </div>
-                        <div class="card-academic-icon-large">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <a href="#cpu" class="card academic-carousel-slide">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                                 <circle cx="9" cy="7" r="4"></circle>
                                 <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
                                 <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                             </svg>
                         </div>
+                        <h3 class="card-title">CPU - UNSM</h3>
+                        <p class="card-text">El Centro Preuniversitario brinda preparación académica integral para el ingreso a la universidad</p>
                     </a>
 
                     <!-- Tarjeta 2: Centro de Idiomas -->
-                    <a href="#centro-idiomas" class="card-academic-large academic-carousel-slide">
-                        <div class="card-academic-content">
-                            <h3 class="card-academic-title-large">Centro de Idiomas</h3>
-                            <p class="card-academic-text-large">La UNSM te ofrece programas certificados de inglés, portugués, francés, italiano, quechua y más</p>
-                            <div class="card-academic-divider"></div>
-                        </div>
-                        <div class="card-academic-icon-large">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <a href="#centro-idiomas" class="card academic-carousel-slide">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"></path>
                                 <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
                             </svg>
                         </div>
+                        <h3 class="card-title">Centro de Idiomas</h3>
+                        <p class="card-text">La UNSM te ofrece programas certificados de inglés, portugués, francés, italiano, quechua y más</p>
                     </a>
 
                     <!-- Tarjeta 3: Campus Virtual -->
-                    <a href="#campus-virtual" class="card-academic-large academic-carousel-slide">
-                        <div class="card-academic-content">
-                            <h3 class="card-academic-title-large">Campus Virtual</h3>
-                            <p class="card-academic-text-large">Plataforma Docente de la Universidad Nacional de San Martín para recursos y estudios online</p>
-                            <div class="card-academic-divider"></div>
-                        </div>
-                        <div class="card-academic-icon-large">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <a href="#campus-virtual" class="card academic-carousel-slide">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                                 <polyline points="9 22 9 12 15 12 15 22"></polyline>
                             </svg>
                         </div>
+                        <h3 class="card-title">Campus Virtual</h3>
+                        <p class="card-text">Plataforma Docente de la Universidad Nacional de San Martín para recursos y estudios online</p>
                     </a>
 
                     <!-- Tarjeta 4: Investigación y Desarrollo -->
-                    <a href="#investigacion" class="card-academic-large academic-carousel-slide">
-                        <div class="card-academic-content">
-                            <h3 class="card-academic-title-large">Investigación y Desarrollo</h3>
-                            <p class="card-academic-text-large">La Oficina de Investigación Universitaria se encarga de proyectos de investigación regional</p>
-                            <div class="card-academic-divider"></div>
-                        </div>
-                        <div class="card-academic-icon-large">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <a href="#investigacion" class="card academic-carousel-slide">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="11" cy="11" r="8"></circle>
                                 <path d="m21 21-4.35-4.35"></path>
                             </svg>
                         </div>
+                        <h3 class="card-title">Investigación y Desarrollo</h3>
+                        <p class="card-text">La Oficina de Investigación Universitaria se encarga de proyectos de investigación regional</p>
                     </a>
 
                     <!-- Tarjeta 5: Escuela de Posgrado -->
-                    <a href="#escuela-posgrado" class="card-academic-large academic-carousel-slide">
-                        <div class="card-academic-content">
-                            <h3 class="card-academic-title-large">Escuela de Posgrado</h3>
-                            <p class="card-academic-text-large">Nuestra Escuela de Posgrado ofrece programas de especialización y formación en investigación</p>
-                            <div class="card-academic-divider"></div>
-                        </div>
-                        <div class="card-academic-icon-large">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <a href="#escuela-posgrado" class="card academic-carousel-slide">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
                                 <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
                             </svg>
                         </div>
+                        <h3 class="card-title">Escuela de Posgrado</h3>
+                        <p class="card-text">Nuestra Escuela de Posgrado ofrece programas de especialización y formación en investigación</p>
                     </a>
 
                     <!-- Tarjeta 6: CTI - UNSM -->
-                    <a href="#cti-unsm" class="card-academic-large academic-carousel-slide">
-                        <div class="card-academic-content">
-                            <h3 class="card-academic-title-large">CTI - UNSM</h3>
-                            <p class="card-academic-text-large">El Centro de Tecnologías de Información se encarga de brindar soporte tecnológico</p>
-                            <div class="card-academic-divider"></div>
-                        </div>
-                        <div class="card-academic-icon-large">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <a href="#cti-unsm" class="card academic-carousel-slide">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
                                 <line x1="8" y1="21" x2="16" y2="21"></line>
                                 <line x1="12" y1="17" x2="12" y2="21"></line>
                             </svg>
                         </div>
+                        <h3 class="card-title">CTI - UNSM</h3>
+                        <p class="card-text">El Centro de Tecnologías de Información se encarga de brindar soporte tecnológico</p>
                     </a>
                 </div>
 
@@ -655,8 +619,7 @@
                             <div class="card-image">
                                 <div class="card-overlay-green">
                                     <div class="card-icon-facultad">
-                                        <img src="imagenes/Escudos de Facultades — UNSM/FE-UNSM-2021.png" alt="Escudo Facultad de Ecología">
-                                    </div>
+                                        <img src="imagenes/facultades carreras/ecologia fac.jpg" alt="Escudo Facultad de Ecología"></div>
                                     <div class="card-content">
                                         <h3 class="card-title">Ecología</h3>
                                         <p class="card-text">Preservando el medio ambiente amazónico</p>
@@ -866,139 +829,173 @@
         </div>
     </section>
 
-    <!-- SECCIÓN ENLACES DE INTERÉS -->
+            <!-- SECCIÓN ENLACES DE INTERÉS - BOTONES VERDES V2 -->
     <section class="enlaces-interes">
         <div class="content-wrapper">
-            <h2 class="section-title-white">Enlaces de Interés</h2>
-            <div class="section-divider-white"></div>
+            <h2 class="section-title-enlaces">Enlaces de Interés</h2>
+            <div class="section-divider-enlaces"></div>
             
-            <div class="enlaces-grid">
-                <!-- Columna 1 -->
-                <a href="#sigau-estudiante" class="enlace-btn">
-                    <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="12" cy="7" r="4"></circle>
-                    </svg>
-                    <span>Sigau Estudiante</span>
-                </a>
-                
-                <a href="#sigau-docente" class="enlace-btn">
-                    <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="9" cy="7" r="4"></circle>
-                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                    </svg>
-                    <span>Sigau Docente</span>
-                </a>
-                
-                <a href="#biblioteca" class="enlace-btn">
-                    <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                    </svg>
-                    <span>Biblioteca</span>
-                </a>
-
-                <!-- Columna 2 -->
-                <a href="#correo-institucional" class="enlace-btn">
-                    <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <div class="enlaces-grid-buttons">
+                <!-- COLUMNA 1 -->
+                <a href="#correo-institucional" class="enlace-btn-green">
+                    <svg class="enlace-btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                         <polyline points="22,6 12,13 2,6"></polyline>
                     </svg>
                     <span>Correo Institucional</span>
                 </a>
                 
-                <a href="#sistema-tramite" class="enlace-btn">
-                    <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <a href="#biblioteca-central" class="enlace-btn-green">
+                    <svg class="enlace-btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                    <span>Biblioteca Central</span>
+                </a>
+                
+                <a href="#sistema-egresados" class="enlace-btn-green">
+                    <svg class="enlace-btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                    </svg>
+                    <span>Sistema de Egresados</span>
+                </a>
+                
+                <a href="#mesa-partes-digital" class="enlace-btn-green">
+                    <svg class="enlace-btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                         <polyline points="14 2 14 8 20 8"></polyline>
                     </svg>
-                    <span>Sistema de Trámite</span>
+                    <span>Mesa de Partes Digital</span>
                 </a>
                 
-                <a href="#acreditacion" class="enlace-btn">
-                    <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <a href="#sigau-docente" class="enlace-btn-green">
+                    <svg class="enlace-btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                    </svg>
+                    <span>Sigau Docente</span>
+                </a>
+
+                <!-- COLUMNA 2 -->
+                <a href="#convocatoria-personal" class="enlace-btn-green">
+                    <svg class="enlace-btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="8.5" cy="7" r="4"></circle>
+                        <line x1="20" y1="8" x2="20" y2="14"></line>
+                        <line x1="23" y1="11" x2="17" y2="11"></line>
+                    </svg>
+                    <span>Convocatoria de Personal</span>
+                </a>
+                
+                <a href="#gestion-documental" class="enlace-btn-green">
+                    <svg class="enlace-btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                    </svg>
+                    <span>Gestión Documental (SGD)</span>
+                </a>
+                
+                <a href="#grados-titulos" class="enlace-btn-green">
+                    <svg class="enlace-btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                    </svg>
+                    <span>Grados y Títulos</span>
+                </a>
+                
+                <a href="#servicios" class="enlace-btn-green">
+                    <svg class="enlace-btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M12 1v6m0 6v6"></path>
+                    </svg>
+                    <span>Servicios</span>
+                </a>
+                
+                <a href="#sigau-matricula" class="enlace-btn-green">
+                    <svg class="enlace-btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <span>Sigau Matrícula</span>
+                </a>
+
+                <!-- COLUMNA 3 -->
+                <a href="#bienestar-universitario" class="enlace-btn-green">
+                    <svg class="enlace-btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28"></path>
+                    </svg>
+                    <span>Bienestar Universitario</span>
+                </a>
+                
+                <a href="#cti" class="enlace-btn-green">
+                    <svg class="enlace-btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                    </svg>
+                    <span>CTI</span>
+                </a>
+                
+                <a href="#acreditacion" class="enlace-btn-green">
+                    <svg class="enlace-btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <polyline points="20 6 9 17 4 12"></polyline>
-                        <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"></path>
+                        <circle cx="12" cy="12" r="10"></circle>
                     </svg>
                     <span>Oficina de Acreditación</span>
                 </a>
                 
-                <a href="#sigau-intranet" class="enlace-btn">
-                    <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                <a href="#sigau-intranet" class="enlace-btn-green">
+                    <svg class="enlace-btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                     </svg>
                     <span>Sigau Intranet</span>
                 </a>
                 
-                <a href="#sigau-bienestar" class="enlace-btn">
-                    <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                <a href="#sigau-bienestar" class="enlace-btn-green">
+                    <svg class="enlace-btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06"></path>
                     </svg>
                     <span>Sigau Bienestar</span>
                 </a>
 
-                <!-- Columna 3 -->
-                <a href="#mesa-partes" class="enlace-btn">
-                    <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                        <polyline points="14 2 14 8 20 8"></polyline>
-                        <line x1="16" y1="13" x2="8" y2="13"></line>
-                        <line x1="16" y1="17" x2="8" y2="17"></line>
-                        <polyline points="10 9 9 9 8 9"></polyline>
-                    </svg>
-                    <span>Mesa de Partes Virtual</span>
-                </a>
-                
-                <a href="#pagos-virtuales" class="enlace-btn">
-                    <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <!-- COLUMNA 4 -->
+                <a href="#pagos-virtuales" class="enlace-btn-green">
+                    <svg class="enlace-btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <line x1="12" y1="1" x2="12" y2="23"></line>
-                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5"></path>
                     </svg>
                     <span>Pagos Virtuales</span>
                 </a>
                 
-                <a href="#repositorio-digital" class="enlace-btn">
-                    <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                <a href="#repositorio-digital" class="enlace-btn-green">
+                    <svg class="enlace-btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14"></path>
                     </svg>
                     <span>Repositorio Digital</span>
                 </a>
                 
-                <a href="#museo-regional" class="enlace-btn">
-                    <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <a href="#museo-regional" class="enlace-btn-green">
+                    <svg class="enlace-btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
                     </svg>
                     <span>Museo Regional</span>
                 </a>
                 
-                <a href="#sigau-tutoria" class="enlace-btn">
-                    <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="9" cy="7" r="4"></circle>
-                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                <a href="#sigau-tutoria" class="enlace-btn-green">
+                    <svg class="enlace-btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                        <path d="M2 17l10 5 10-5"></path>
                     </svg>
                     <span>Sigau Tutoría</span>
                 </a>
-
-                <!-- Columna 4 -->
-                <a href="#convocatorias-cas" class="enlace-btn">
-                    <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                        <line x1="16" y1="2" x2="16" y2="6"></line>
-                        <line x1="8" y1="2" x2="8" y2="6"></line>
-                        <line x1="3" y1="10" x2="21" y2="10"></line>
-                    </svg>
-                    <span>Convocatorias CAS</span>
-                </a>
                 
-                <a href="#aula-virtual" class="enlace-btn">
-                    <svg class="enlace-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                <a href="#aula-virtual" class="enlace-btn-green">
+                    <svg class="enlace-btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                        <line x1="10" y1="12" x2="14" y2="12"></line>
                     </svg>
                     <span>Aula Virtual</span>
                 </a>
@@ -1018,7 +1015,7 @@
                 <p>Jr. Maynas N° 177 - Morales</p>
                 <p>Tarapoto - San Martín - Perú</p>
                 <p>Central Telefónica: (+51) (042) 48 0159</p>
-                <p>Email: informes@unsm.edu.pe</p>
+                <p>Email: <a href="mailto:informes@unsm.edu.pe" class="" data-cfemail="2b42454d4459464e586b5e455846054e4f5e055b4e">informes@unsm.edu.pe</a></p>
             </div>
             
             <div class="footer-section">
@@ -1066,12 +1063,12 @@
                             <img src="imagenes/redes/logo tiktok.png" alt="TikTok">
                         </a>
                     </div>
-              </div>
+                </div>
             </div>
         </div>
     </footer>
-    
-    <!-- JavaScript -->
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
