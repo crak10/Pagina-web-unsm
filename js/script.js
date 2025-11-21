@@ -1,74 +1,109 @@
+'use strict';
+
+/**
+ * Objeto principal UNSM
+ * Maneja toda la lógica del sitio web
+ */
 const UNSM = {
-    // Estado general
-    currentSlide: 0,
-    totalSlides: 0,
-    autoSlideInterval: null,
-
-    currentFacultadesSlide: 0,
-    totalFacultadesSlides: 11, // Ahora son 11 facultades individuales
-
-    currentAcademicSlide: 0,
-    totalAcademicSlides: 6,
+    // ============================================
+    // ESTADO DE LA APLICACIÓN
+    // ============================================
+    state: {
+        currentSlide: 0,
+        totalSlides: 0,
+        autoSlideInterval: null,
+        currentFacultadesSlide: 0,
+        totalFacultadesSlides: 11,
+        currentAcademicSlide: 0,
+        totalAcademicSlides: 6,
+        isMenuOpen: false,
+    },
 
     // ============================================
     // INICIALIZACIÓN GLOBAL
     // ============================================
     init() {
-        console.log('========================================');
-        console.log('🚀 INICIANDO SITIO UNSM');
-        console.log('========================================');
+        try {
+            console.log('========================================');
+            console.log('🚀 INICIANDO SITIO UNSM');
+            console.log('========================================');
 
-        this.initMainCarousel();
-        console.log('✅ Carrusel principal OK');
+            this.initMainCarousel();
+            console.log('✅ Carrusel principal inicializado');
 
-        this.initFacultadesCarousel();
-        console.log('✅ Carrusel facultades OK');
+            this.initFacultadesCarousel();
+            console.log('✅ Carrusel de facultades inicializado');
 
-        this.initAcademicCarousel();
-        console.log('✅ Carrusel académico OK');
+            this.initAcademicCarousel();
+            console.log('✅ Carrusel académico inicializado');
 
-        this.initMobileMenu();
-        console.log('✅ Menú móvil OK');
+            this.initMobileMenu();
+            console.log('✅ Menú móvil inicializado');
 
-        this.exposeGlobalFunctions();
-        console.log('✅ Funciones globales expuestas OK');
+            this.initAccessibility();
+            console.log('✅ Mejoras de accesibilidad aplicadas');
 
-        console.log('========================================');
-        console.log('✅ SITIO COMPLETAMENTE CARGADO');
-        console.log('========================================');
+            this.exposeGlobalFunctions();
+            console.log('✅ Funciones globales expuestas');
+
+            this.initPerformanceOptimizations();
+            console.log('✅ Optimizaciones de performance aplicadas');
+
+            console.log('========================================');
+            console.log('✅ SITIO COMPLETAMENTE CARGADO');
+            console.log('========================================');
+        } catch (error) {
+            console.error('❌ Error durante la inicialización:', error);
+        }
     },
 
     // ============================================
     // EXPONER FUNCIONES GLOBALES
     // ============================================
     exposeGlobalFunctions() {
-        // Exponer funciones del carrusel principal al scope global
         window.moveSlide = (direction) => {
             this.moveSlide(direction);
             this.resetAutoSlide();
         };
         
-        // Exponer funciones del carrusel de facultades al scope global
-        window.moveFacultadesSlide = (direction) => this.moveFacultadesSlide(direction);
+        window.moveFacultadesSlide = (direction) => {
+            this.moveFacultadesSlide(direction);
+        };
         
-        // Exponer funciones del carrusel académico al scope global
-        window.moveAcademicSlide = (direction) => this.moveAcademicSlide(direction);
+        window.moveAcademicSlide = (direction) => {
+            this.moveAcademicSlide(direction);
+        };
         
-        console.log('✅ Funciones globales disponibles: moveSlide(), moveFacultadesSlide(), moveAcademicSlide()');
+        console.log('✅ Funciones globales disponibles');
     },
 
     // ============================================
     // CARRUSEL PRINCIPAL
     // ============================================
     initMainCarousel() {
-        this.totalSlides = document.querySelectorAll('.carousel-slide').length;
-        if (this.totalSlides === 0) return;
+        const slides = document.querySelectorAll('.carousel-slide');
+        this.state.totalSlides = slides.length;
+        
+        if (this.state.totalSlides === 0) {
+            console.warn('⚠️ No se encontraron slides del carrusel principal');
+            return;
+        }
 
         this.createCarouselDots();
         this.startAutoSlide();
         
-        // NO agregamos event listeners porque los botones ya tienen onclick
-        // Esto evita el doble disparo
+        // Precarga de imágenes para mejor performance
+        this.preloadCarouselImages();
+    },
+
+    preloadCarouselImages() {
+        const slides = document.querySelectorAll('.carousel-slide img');
+        slides.forEach((img, index) => {
+            if (index > 0) { // Skip primera imagen que ya está cargada
+                const preloadImg = new Image();
+                preloadImg.src = img.src;
+            }
+        });
     },
 
     createCarouselDots() {
@@ -76,9 +111,15 @@ const UNSM = {
         if (!controlsContainer) return;
 
         controlsContainer.innerHTML = '';
-        for (let i = 0; i < this.totalSlides; i++) {
+        const fragment = document.createDocumentFragment();
+        
+        for (let i = 0; i < this.state.totalSlides; i++) {
             const dot = document.createElement('button');
             dot.classList.add('carousel-dot');
+            dot.setAttribute('aria-label', `Ir al slide ${i + 1}`);
+            dot.setAttribute('role', 'tab');
+            dot.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+            
             if (i === 0) dot.classList.add('active');
 
             dot.addEventListener('click', () => {
@@ -86,43 +127,57 @@ const UNSM = {
                 this.resetAutoSlide();
             });
 
-            controlsContainer.appendChild(dot);
+            fragment.appendChild(dot);
         }
+        
+        controlsContainer.appendChild(fragment);
     },
 
     updateDots() {
         const dots = document.querySelectorAll('.carousel-dot');
         dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === this.currentSlide);
+            const isActive = index === this.state.currentSlide;
+            dot.classList.toggle('active', isActive);
+            dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
         });
     },
 
     moveSlide(direction) {
-        this.currentSlide += direction;
+        this.state.currentSlide += direction;
 
-        if (this.currentSlide >= this.totalSlides) this.currentSlide = 0;
-        else if (this.currentSlide < 0) this.currentSlide = this.totalSlides - 1;
+        if (this.state.currentSlide >= this.state.totalSlides) {
+            this.state.currentSlide = 0;
+        } else if (this.state.currentSlide < 0) {
+            this.state.currentSlide = this.state.totalSlides - 1;
+        }
 
         this.updateCarousel();
     },
 
     goToSlide(index) {
-        this.currentSlide = index;
-        this.updateCarousel();
+        if (index >= 0 && index < this.state.totalSlides) {
+            this.state.currentSlide = index;
+            this.updateCarousel();
+        }
     },
 
     updateCarousel() {
         const container = document.getElementById('carouselContainer');
         if (!container) return;
 
-        const offset = -this.currentSlide * 100;
+        const offset = -this.state.currentSlide * 100;
         container.style.transform = `translateX(${offset}%)`;
         this.updateDots();
     },
 
     startAutoSlide() {
-        if (this.autoSlideInterval) clearInterval(this.autoSlideInterval);
-        this.autoSlideInterval = setInterval(() => this.moveSlide(1), 5000);
+        if (this.state.autoSlideInterval) {
+            clearInterval(this.state.autoSlideInterval);
+        }
+        
+        this.state.autoSlideInterval = setInterval(() => {
+            this.moveSlide(1);
+        }, 5000);
     },
 
     resetAutoSlide() {
@@ -130,39 +185,56 @@ const UNSM = {
     },
 
     // ============================================
-    // ============================================
     // CARRUSEL DE FACULTADES
     // ============================================
     initFacultadesCarousel() {
         console.log('🎓 Inicializando carrusel de facultades...');
         this.createFacultadesDots();
-        console.log('✅ Carrusel de facultades completamente inicializado');
+        this.handleFacultadesResize();
+        
+        // Event listener para resize
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                this.handleFacultadesResize();
+            }, 250);
+        });
+    },
+
+    handleFacultadesResize() {
+        this.createFacultadesDots();
+        this.updateFacultadesCarousel();
     },
 
     createFacultadesDots() {
         const dotsContainer = document.getElementById('facultadesDots');
         if (!dotsContainer) return;
 
-        dotsContainer.innerHTML = '';
-        
-        // En desktop: 6 dots (2 facultades por dot)
-        // En móvil: 11 dots (1 facultad por dot)
         const isMobile = window.innerWidth <= 768;
         const totalDots = isMobile ? 11 : 6;
+        
+        dotsContainer.innerHTML = '';
+        const fragment = document.createDocumentFragment();
 
         for (let i = 0; i < totalDots; i++) {
             const dot = document.createElement('button');
             dot.classList.add('carousel-dot');
+            dot.setAttribute('aria-label', `Grupo de facultades ${i + 1}`);
+            dot.setAttribute('role', 'tab');
+            dot.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+            
             if (i === 0) dot.classList.add('active');
 
             dot.addEventListener('click', () => {
-                // En desktop, cada dot representa 2 facultades
-                // En móvil, cada dot representa 1 facultad
                 const targetSlide = isMobile ? i : i * 2;
                 this.goToFacultadesSlide(targetSlide);
             });
-            dotsContainer.appendChild(dot);
+            
+            fragment.appendChild(dot);
         }
+        
+        dotsContainer.appendChild(fragment);
     },
 
     updateFacultadesDots() {
@@ -170,40 +242,36 @@ const UNSM = {
         const isMobile = window.innerWidth <= 768;
         
         dots.forEach((dot, index) => {
-            // En desktop: activar dot según posición par (0,2,4,6,8,10 -> dots 0,1,2,3,4,5)
-            // En móvil: activar dot según posición exacta
             const isActive = isMobile ? 
-                index === this.currentFacultadesSlide : 
-                index === Math.floor(this.currentFacultadesSlide / 2);
+                index === this.state.currentFacultadesSlide : 
+                index === Math.floor(this.state.currentFacultadesSlide / 2);
+            
             dot.classList.toggle('active', isActive);
+            dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
         });
     },
 
     moveFacultadesSlide(direction) {
-        console.log(`📍 Moviendo carrusel de facultades: ${direction > 0 ? 'siguiente' : 'anterior'}`);
-        console.log(`📍 Slide actual: ${this.currentFacultadesSlide}`);
-        
         const isMobile = window.innerWidth <= 768;
-        const step = isMobile ? 1 : 2; // En desktop saltar de 2 en 2, en móvil de 1 en 1
+        const step = isMobile ? 1 : 2;
         
-        this.currentFacultadesSlide += (direction * step);
+        this.state.currentFacultadesSlide += (direction * step);
         
-        if (this.currentFacultadesSlide >= this.totalFacultadesSlides) {
-            this.currentFacultadesSlide = 0;
-        } else if (this.currentFacultadesSlide < 0) {
-            // En desktop, ir al último par (slide 10)
-            // En móvil, ir al último slide (slide 10)
-            this.currentFacultadesSlide = isMobile ? this.totalFacultadesSlides - 1 : 10;
+        if (this.state.currentFacultadesSlide >= this.state.totalFacultadesSlides) {
+            this.state.currentFacultadesSlide = 0;
+        } else if (this.state.currentFacultadesSlide < 0) {
+            this.state.currentFacultadesSlide = isMobile ? 
+                this.state.totalFacultadesSlides - 1 : 10;
         }
         
-        console.log(`📍 Nuevo slide: ${this.currentFacultadesSlide}`);
         this.updateFacultadesCarousel();
     },
 
     goToFacultadesSlide(index) {
-        console.log(`📍 Ir al slide: ${index}`);
-        this.currentFacultadesSlide = index;
-        this.updateFacultadesCarousel();
+        if (index >= 0 && index < this.state.totalFacultadesSlides) {
+            this.state.currentFacultadesSlide = index;
+            this.updateFacultadesCarousel();
+        }
     },
 
     updateFacultadesCarousel() {
@@ -214,25 +282,61 @@ const UNSM = {
         }
 
         const isMobile = window.innerWidth <= 768;
-        // En desktop cada slide es 50% de ancho, en móvil 100%
         const slideWidth = isMobile ? 100 : 50;
-        const offset = -this.currentFacultadesSlide * slideWidth;
+        const offset = -this.state.currentFacultadesSlide * slideWidth;
         
         container.style.transform = `translateX(${offset}%)`;
-        console.log(`✅ Transform aplicado: translateX(${offset}%)`);
-        
         this.updateFacultadesDots();
+        
+        // Manejo de loop infinito
+        this.handleFacultadesInfiniteLoop(container, slideWidth);
     },
+
+    handleFacultadesInfiniteLoop(container, slideWidth) {
+        const totalSlides = this.state.totalFacultadesSlides;
+        
+        if (this.state.currentFacultadesSlide >= totalSlides) {
+            setTimeout(() => {
+                container.style.transition = 'none';
+                this.state.currentFacultadesSlide = 0;
+                container.style.transform = 'translateX(0%)';
+                setTimeout(() => {
+                    container.style.transition = 'transform 0.5s ease';
+                }, 50);
+            }, 500);
+        }
+        
+        if (this.state.currentFacultadesSlide < 0) {
+            setTimeout(() => {
+                container.style.transition = 'none';
+                this.state.currentFacultadesSlide = totalSlides - 1;
+                const lastOffset = -this.state.currentFacultadesSlide * slideWidth;
+                container.style.transform = `translateX(${lastOffset}%)`;
+                setTimeout(() => {
+                    container.style.transition = 'transform 0.5s ease';
+                }, 50);
+            }, 500);
+        }
+    },
+
     // ============================================
     // CARRUSEL ACADÉMICO (solo móvil)
     // ============================================
     initAcademicCarousel() {
         if (window.innerWidth <= 768) {
             this.createAcademicDots();
-            
-            // NO agregamos event listeners porque los botones ya tienen onclick
-            // Esto evita el doble disparo
         }
+        
+        // Event listener para resize
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                if (window.innerWidth <= 768) {
+                    this.createAcademicDots();
+                }
+            }, 250);
+        });
     },
 
     createAcademicDots() {
@@ -240,40 +344,60 @@ const UNSM = {
         if (!dotsContainer) return;
 
         dotsContainer.innerHTML = '';
-        for (let i = 0; i < this.totalAcademicSlides; i++) {
+        const fragment = document.createDocumentFragment();
+        
+        for (let i = 0; i < this.state.totalAcademicSlides; i++) {
             const dot = document.createElement('button');
             dot.classList.add('carousel-dot');
+            dot.setAttribute('aria-label', `Tarjeta académica ${i + 1}`);
+            dot.setAttribute('role', 'tab');
+            dot.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+            
             if (i === 0) dot.classList.add('active');
 
-            dot.addEventListener('click', () => this.goToAcademicSlide(i));
-            dotsContainer.appendChild(dot);
+            dot.addEventListener('click', () => {
+                this.goToAcademicSlide(i);
+            });
+            
+            fragment.appendChild(dot);
         }
+        
+        dotsContainer.appendChild(fragment);
     },
 
     updateAcademicDots() {
         const dots = document.querySelectorAll('#academicCarouselDots .carousel-dot');
         dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === this.currentAcademicSlide);
+            const isActive = index === this.state.currentAcademicSlide;
+            dot.classList.toggle('active', isActive);
+            dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
         });
     },
 
     moveAcademicSlide(direction) {
-        this.currentAcademicSlide += direction;
-        if (this.currentAcademicSlide >= this.totalAcademicSlides) this.currentAcademicSlide = 0;
-        else if (this.currentAcademicSlide < 0) this.currentAcademicSlide = this.totalAcademicSlides - 1;
+        this.state.currentAcademicSlide += direction;
+        
+        if (this.state.currentAcademicSlide >= this.state.totalAcademicSlides) {
+            this.state.currentAcademicSlide = 0;
+        } else if (this.state.currentAcademicSlide < 0) {
+            this.state.currentAcademicSlide = this.state.totalAcademicSlides - 1;
+        }
+        
         this.updateAcademicCarousel();
     },
 
     goToAcademicSlide(index) {
-        this.currentAcademicSlide = index;
-        this.updateAcademicCarousel();
+        if (index >= 0 && index < this.state.totalAcademicSlides) {
+            this.state.currentAcademicSlide = index;
+            this.updateAcademicCarousel();
+        }
     },
 
     updateAcademicCarousel() {
         const container = document.getElementById('academicCarouselContainer');
         if (!container) return;
 
-        const offset = -this.currentAcademicSlide * 100;
+        const offset = -this.state.currentAcademicSlide * 100;
         container.style.transform = `translateX(${offset}%)`;
         this.updateAcademicDots();
     },
@@ -283,37 +407,41 @@ const UNSM = {
     // ============================================
     initMobileMenu() {
         console.log('🔧 Iniciando menú móvil...');
+        
         const toggle = document.querySelector('.mobile-menu-toggle');
         const nav = document.querySelector('.main-nav');
         const dropdowns = document.querySelectorAll('.dropdown');
+        const hasSubmenu = document.querySelectorAll('.has-submenu');
 
         if (!toggle || !nav) {
             console.error('❌ Elementos del menú no encontrados');
             return;
         }
 
+        // Crear overlay
         let overlay = document.querySelector('.menu-overlay');
         if (!overlay) {
             overlay = document.createElement('div');
             overlay.className = 'menu-overlay';
             document.body.appendChild(overlay);
-            console.log('✅ Overlay creado');
         }
 
-        let menuAbierto = false;
-
+        // Toggle del menú
         const toggleMenu = (e) => {
             if (e) e.preventDefault();
-            menuAbierto = !menuAbierto;
-            nav.classList.toggle('active', menuAbierto);
-            toggle.classList.toggle('active', menuAbierto);
-            overlay.classList.toggle('active', menuAbierto);
-            document.body.style.overflow = menuAbierto ? 'hidden' : '';
-            toggle.setAttribute('aria-expanded', menuAbierto ? 'true' : 'false');
+            
+            this.state.isMenuOpen = !this.state.isMenuOpen;
+            
+            nav.classList.toggle('active', this.state.isMenuOpen);
+            toggle.classList.toggle('active', this.state.isMenuOpen);
+            overlay.classList.toggle('active', this.state.isMenuOpen);
+            
+            document.body.style.overflow = this.state.isMenuOpen ? 'hidden' : '';
+            toggle.setAttribute('aria-expanded', this.state.isMenuOpen ? 'true' : 'false');
         };
 
         const cerrarMenu = () => {
-            menuAbierto = false;
+            this.state.isMenuOpen = false;
             nav.classList.remove('active');
             toggle.classList.remove('active');
             overlay.classList.remove('active');
@@ -321,7 +449,7 @@ const UNSM = {
             toggle.setAttribute('aria-expanded', 'false');
         };
 
-        // Eventos
+        // Event listeners
         toggle.addEventListener('click', toggleMenu);
         toggle.addEventListener('touchstart', (e) => { 
             e.preventDefault(); 
@@ -330,40 +458,39 @@ const UNSM = {
         
         overlay.addEventListener('click', cerrarMenu);
 
-        // Manejo de dropdowns (primer nivel)
+        // Manejo de dropdowns de primer nivel
         dropdowns.forEach(dropdown => {
             const link = dropdown.querySelector('a');
             if (link) {
-                const toggleDropdown = (e) => {
+                link.addEventListener('click', (e) => {
                     if (window.innerWidth <= 768) {
                         e.preventDefault();
                         dropdown.classList.toggle('active');
                     }
-                };
-                link.addEventListener('click', toggleDropdown);
+                });
             }
         });
 
-        // Manejo de submenús multinivel (segundo nivel) - NUEVO
-        const facultadesConSubmenu = document.querySelectorAll('.has-submenu');
-        facultadesConSubmenu.forEach(item => {
+        // Manejo de submenús multinivel (segundo nivel)
+        hasSubmenu.forEach(item => {
             const link = item.querySelector('a');
             if (link) {
-                const toggleSubmenu = (e) => {
+                link.addEventListener('click', (e) => {
                     if (window.innerWidth <= 768) {
                         e.preventDefault();
-                        e.stopPropagation(); // Evitar que se propague al dropdown padre
+                        e.stopPropagation();
                         item.classList.toggle('active');
                     }
-                };
-                link.addEventListener('click', toggleSubmenu);
+                });
             }
         });
 
-        // Cerrar menú al hacer clic en links (excepto dropdowns y has-submenu)
+        // Cerrar menú al hacer clic en links (excepto dropdowns)
         nav.querySelectorAll('a:not(.dropdown > a):not(.has-submenu > a)').forEach(link => {
             link.addEventListener('click', () => {
-                if (window.innerWidth <= 768) cerrarMenu();
+                if (window.innerWidth <= 768) {
+                    cerrarMenu();
+                }
             });
         });
 
@@ -372,69 +499,194 @@ const UNSM = {
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(() => {
-                if (window.innerWidth > 768) cerrarMenu();
-                if (window.innerWidth <= 768) this.initAcademicCarousel();
+                if (window.innerWidth > 768) {
+                    cerrarMenu();
+                }
             }, 250);
         });
 
-        console.log('✅ Menú móvil COMPLETAMENTE inicializado');
+        console.log('✅ Menú móvil completamente inicializado');
+    },
+
+    // ============================================
+    // MEJORAS DE ACCESIBILIDAD
+    // ============================================
+    initAccessibility() {
+        // Manejo de navegación por teclado en carruseles
+        this.initKeyboardNavigation();
+        
+        // Mejorar focus visible en elementos interactivos
+        this.improveFocusVisibility();
+        
+        // Anunciar cambios de slide a lectores de pantalla
+        this.setupAriaLive();
+    },
+
+    initKeyboardNavigation() {
+        document.addEventListener('keydown', (e) => {
+            // Carrusel principal
+            if (e.target.closest('.carousel')) {
+                if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    this.moveSlide(-1);
+                    this.resetAutoSlide();
+                } else if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    this.moveSlide(1);
+                    this.resetAutoSlide();
+                }
+            }
+        });
+    },
+
+    improveFocusVisibility() {
+        // Agregar clase cuando se navega por teclado
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-nav');
+            }
+        });
+
+        document.addEventListener('mousedown', () => {
+            document.body.classList.remove('keyboard-nav');
+        });
+    },
+
+    setupAriaLive() {
+        const carousel = document.querySelector('.carousel');
+        if (carousel) {
+            const liveRegion = document.createElement('div');
+            liveRegion.setAttribute('aria-live', 'polite');
+            liveRegion.setAttribute('aria-atomic', 'true');
+            liveRegion.className = 'sr-only';
+            carousel.appendChild(liveRegion);
+
+            // Actualizar región live cuando cambie el slide
+            const originalUpdateCarousel = this.updateCarousel.bind(this);
+            this.updateCarousel = function() {
+                originalUpdateCarousel();
+                liveRegion.textContent = `Slide ${this.state.currentSlide + 1} de ${this.state.totalSlides}`;
+            };
+        }
+    },
+
+    // ============================================
+    // OPTIMIZACIONES DE PERFORMANCE
+    // ============================================
+    initPerformanceOptimizations() {
+        // Lazy loading para imágenes que no son del primer viewport
+        this.initLazyLoading();
+        
+        // Debounce para eventos de resize
+        this.setupResizeDebounce();
+        
+        // Prefetch de recursos importantes
+        this.prefetchResources();
+    },
+
+    initLazyLoading() {
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                        }
+                        observer.unobserve(img);
+                    }
+                });
+            }, {
+                rootMargin: '50px'
+            });
+
+            // Observar imágenes con data-src
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+    },
+
+    setupResizeDebounce() {
+        let resizeTimer;
+        const handleResize = () => {
+            // Acciones al redimensionar
+            this.handleFacultadesResize();
+        };
+
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(handleResize, 250);
+        });
+    },
+
+    prefetchResources() {
+        // Prefetch de páginas importantes
+        const prefetchLinks = [
+            '/admision',
+            '/facultades',
+            '/posgrado'
+        ];
+
+        prefetchLinks.forEach(link => {
+            const prefetchLink = document.createElement('link');
+            prefetchLink.rel = 'prefetch';
+            prefetchLink.href = link;
+            document.head.appendChild(prefetchLink);
+        });
+    },
+
+    // ============================================
+    // UTILIDADES
+    // ============================================
+    debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    },
+
+    throttle(func, limit) {
+        let inThrottle;
+        return function(...args) {
+            if (!inThrottle) {
+                func.apply(this, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        };
     }
 };
 
 // ============================================
-// EVENTO PRINCIPAL
+// INICIALIZACIÓN AL CARGAR EL DOM
 // ============================================
-document.addEventListener('DOMContentLoaded', () => UNSM.init());
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => UNSM.init());
+} else {
+    UNSM.init();
+}
+
 // ============================================
-// MEJORA V3: CARRUSEL INFINITO PARA FACULTADES
+// MANEJO DE ERRORES GLOBAL
 // ============================================
+window.addEventListener('error', (event) => {
+    console.error('Error global capturado:', event.error);
+});
 
-// Sobrescribir la función updateFacultadesCarousel para hacerla infinita
-UNSM.updateFacultadesCarousel = function() {
-    const container = document.getElementById('facultadesCarouselContainer');
-    if (!container) {
-        console.error('❌ No se encontró el contenedor del carrusel de facultades');
-        return;
-    }
+window.addEventListener('unhandledrejection', (event) => {
+    console.error('Promise rechazada no manejada:', event.reason);
+});
 
-    const isMobile = window.innerWidth <= 768;
-    const slideWidth = isMobile ? 100 : 50;
-    const offset = -this.currentFacultadesSlide * slideWidth;
-    
-    container.style.transform = `translateX(${offset}%)`;
-    container.style.transition = 'transform 0.5s ease';
-    
-    console.log(`✅ Transform aplicado: translateX(${offset}%)`);
-    
-    this.updateFacultadesDots();
-    
-    // Manejo de loop infinito
-    const totalSlides = this.totalFacultadesSlides;
-    
-    // Si llegamos al final, volver al inicio después de la transición
-    if (this.currentFacultadesSlide >= totalSlides) {
-        setTimeout(() => {
-            container.style.transition = 'none';
-            this.currentFacultadesSlide = 0;
-            container.style.transform = `translateX(0%)`;
-            setTimeout(() => {
-                container.style.transition = 'transform 0.5s ease';
-            }, 50);
-        }, 500);
-    }
-    
-    // Si estamos antes del inicio, ir al final
-    if (this.currentFacultadesSlide < 0) {
-        setTimeout(() => {
-            container.style.transition = 'none';
-            this.currentFacultadesSlide = totalSlides - 1;
-            const lastOffset = -this.currentFacultadesSlide * slideWidth;
-            container.style.transform = `translateX(${lastOffset}%)`;
-            setTimeout(() => {
-                container.style.transition = 'transform 0.5s ease';
-            }, 50);
-        }, 500);
-    }
-};
-
-console.log('✅ Carrusel infinito activado para Facultades');
+// ============================================
+// EXPORTAR PARA USO EN MÓDULOS (OPCIONAL)
+// ============================================
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = UNSM;
+}
