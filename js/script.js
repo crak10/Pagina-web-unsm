@@ -1,10 +1,3 @@
-// ============================================
-// PROYECTO UNSM - SCRIPT PRINCIPAL
-// Autor: Luighy Andre Alvarado Reyna
-// Versión: 2.0 - MEJORADO
-// Fecha: Noviembre 2025
-// ============================================
-
 const UNSM = {
     // Estado general
     currentSlide: 0,
@@ -392,3 +385,56 @@ const UNSM = {
 // EVENTO PRINCIPAL
 // ============================================
 document.addEventListener('DOMContentLoaded', () => UNSM.init());
+// ============================================
+// MEJORA V3: CARRUSEL INFINITO PARA FACULTADES
+// ============================================
+
+// Sobrescribir la función updateFacultadesCarousel para hacerla infinita
+UNSM.updateFacultadesCarousel = function() {
+    const container = document.getElementById('facultadesCarouselContainer');
+    if (!container) {
+        console.error('❌ No se encontró el contenedor del carrusel de facultades');
+        return;
+    }
+
+    const isMobile = window.innerWidth <= 768;
+    const slideWidth = isMobile ? 100 : 50;
+    const offset = -this.currentFacultadesSlide * slideWidth;
+    
+    container.style.transform = `translateX(${offset}%)`;
+    container.style.transition = 'transform 0.5s ease';
+    
+    console.log(`✅ Transform aplicado: translateX(${offset}%)`);
+    
+    this.updateFacultadesDots();
+    
+    // Manejo de loop infinito
+    const totalSlides = this.totalFacultadesSlides;
+    
+    // Si llegamos al final, volver al inicio después de la transición
+    if (this.currentFacultadesSlide >= totalSlides) {
+        setTimeout(() => {
+            container.style.transition = 'none';
+            this.currentFacultadesSlide = 0;
+            container.style.transform = `translateX(0%)`;
+            setTimeout(() => {
+                container.style.transition = 'transform 0.5s ease';
+            }, 50);
+        }, 500);
+    }
+    
+    // Si estamos antes del inicio, ir al final
+    if (this.currentFacultadesSlide < 0) {
+        setTimeout(() => {
+            container.style.transition = 'none';
+            this.currentFacultadesSlide = totalSlides - 1;
+            const lastOffset = -this.currentFacultadesSlide * slideWidth;
+            container.style.transform = `translateX(${lastOffset}%)`;
+            setTimeout(() => {
+                container.style.transition = 'transform 0.5s ease';
+            }, 50);
+        }, 500);
+    }
+};
+
+console.log('✅ Carrusel infinito activado para Facultades');
