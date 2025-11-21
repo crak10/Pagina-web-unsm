@@ -1,44 +1,89 @@
-* {
+   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 :root {
+    /* Colores principales */
     --color-primary: #359444;
     --color-primary-dark: #2a7a35;
     --color-primary-light: #4caf50;
+    
+    /* Colores de texto */
     --color-text: #333;
     --color-text-light: #666;
+    --color-text-dark: #1a1a1a;
+    
+    /* Fondos */
     --color-bg-light: #f5f5f5;
+    --color-bg-grey: #F4F6F8;
     --color-white: #ffffff;
+    
+    /* Efectos */
     --color-shadow: rgba(0, 0, 0, 0.1);
     --transition-speed: 0.3s;
+    
+    /* Espaciados */
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --spacing-lg: 40px;
+    --spacing-xl: 60px;
+    
+    /* Fuentes */
+    --font-family-base: 'Arial', sans-serif;
+    --font-size-base: 16px;
+    --line-height-base: 1.6;
 }
+
+/* ============================================
+   TIPOGRAFÍA BASE
+   ============================================ */
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: var(--font-family-base);
     color: var(--color-text);
-    line-height: 1.6;
+    line-height: var(--line-height-base);
+    background-color: var(--color-bg-grey);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/* Skip to content link para accesibilidad */
+/* ============================================
+   ACCESIBILIDAD
+   ============================================ */
+
 .skip-to-content {
     position: absolute;
     top: -40px;
     left: 0;
     background: var(--color-primary);
     color: white;
-    padding: 8px;
+    padding: 8px 16px;
     text-decoration: none;
     z-index: 100;
+    border-radius: 0 0 4px 0;
+    font-weight: 600;
 }
 
 .skip-to-content:focus {
     top: 0;
+    outline: 3px solid var(--color-primary-light);
+    outline-offset: 2px;
 }
 
-/* Header Superior */
+/* Mejoras de foco para accesibilidad */
+*:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* ============================================
+   HEADER SUPERIOR
+   ============================================ */
+
 .top-header {
     background: linear-gradient(90deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
     padding: 8px 0;
@@ -53,7 +98,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 var(--spacing-md);
 }
 
 .social-icons {
@@ -67,7 +112,6 @@ body {
     width: 36px;
     height: 36px;
     background: white;
-    border: none;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -81,8 +125,6 @@ body {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    filter: none;
-    opacity: 1;
 }
 
 .social-icons a:hover,
@@ -90,8 +132,6 @@ body {
     background: rgba(255, 255, 255, 0.9);
     transform: scale(1.08);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
 }
 
 .contact-info {
@@ -114,11 +154,21 @@ body {
     filter: brightness(0) invert(1);
 }
 
-.contact-icon {
-    display: inline-block;
+.contact-info a {
+    color: white;
+    text-decoration: none;
+    transition: opacity var(--transition-speed);
 }
 
-/* Header Principal */
+.contact-info a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+/* ============================================
+   HEADER PRINCIPAL
+   ============================================ */
+
 .main-header {
     background: white;
     box-shadow: 0 2px 5px var(--color-shadow);
@@ -134,7 +184,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 20px;
+    padding: 12px var(--spacing-md);
     position: relative;
 }
 
@@ -142,7 +192,11 @@ body {
     display: flex;
     align-items: center;
     z-index: 1001;
-    pointer-events: auto;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
 }
 
 .logo img {
@@ -151,7 +205,10 @@ body {
     object-fit: contain;
 }
 
-/* Botón Menú Móvil - MEJORADO PARA VISIBILIDAD */
+/* ============================================
+   BOTÓN MENÚ MÓVIL
+   ============================================ */
+
 .mobile-menu-toggle {
     display: none;
     flex-direction: column;
@@ -163,10 +220,9 @@ body {
     padding: 12px;
     z-index: 1002;
     position: relative;
-    transition: all 0.3s ease;
+    transition: all var(--transition-speed) ease;
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
-    pointer-events: auto;
     min-width: 48px;
     min-height: 48px;
     justify-content: center;
@@ -179,7 +235,7 @@ body {
     height: 3px;
     background: var(--color-primary);
     border-radius: 3px;
-    transition: all 0.3s ease;
+    transition: all var(--transition-speed) ease;
     display: block;
 }
 
@@ -193,19 +249,8 @@ body {
     background: white;
 }
 
-.mobile-menu-toggle:focus {
-    outline: 3px solid var(--color-primary);
-    outline-offset: 4px;
-}
-
-.mobile-menu-toggle:active {
-    transform: scale(0.95);
-}
-
-/* Animación del botón hamburguesa */
 .mobile-menu-toggle.active {
     background: var(--color-primary);
-    border-color: var(--color-primary-dark);
 }
 
 .mobile-menu-toggle.active span {
@@ -224,49 +269,15 @@ body {
     transform: rotate(-45deg) translate(8px, -8px);
 }
 
-/* Botón cerrar dentro del menú móvil */
-.mobile-menu-close {
-    display: none;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: var(--color-primary);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    width: 48px;
-    height: 48px;
-    font-size: 28px;
-    cursor: pointer;
-    z-index: 1003;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    align-items: center;
-    justify-content: center;
-    -webkit-tap-highlight-color: transparent;
-}
+/* ============================================
+   NAVEGACIÓN PRINCIPAL
+   ============================================ */
 
-.mobile-menu-close span {
-    line-height: 1;
-    display: block;
-}
-
-.mobile-menu-close:hover {
-    background: var(--color-primary-dark);
-    transform: scale(1.05);
-}
-
-.mobile-menu-close:active {
-    transform: scale(0.95);
-}
-
-/* Navegación */
 .main-nav {
     display: flex;
     align-items: center;
 }
 
-/* Logo del menú móvil - oculto en desktop */
 .mobile-nav-logo {
     display: none;
 }
@@ -274,7 +285,7 @@ body {
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 20px;
+    gap: var(--spacing-md);
 }
 
 .nav-menu li {
@@ -290,21 +301,18 @@ body {
     transition: color var(--transition-speed);
     display: block;
     padding: 10px 5px;
+    letter-spacing: 0.5px;
 }
 
 .nav-menu a:hover,
 .nav-menu a:focus {
     color: var(--color-primary);
-    outline: none;
 }
 
-.nav-menu a:focus-visible {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
-    border-radius: 4px;
-}
+/* ============================================
+   DROPDOWN MENU
+   ============================================ */
 
-/* Dropdown Menu */
 .dropdown {
     position: relative;
 }
@@ -317,7 +325,7 @@ body {
     min-width: 280px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     border-radius: 8px;
-    padding: 10px 0;
+    padding: var(--spacing-sm) 0;
     list-style: none;
     opacity: 0;
     visibility: hidden;
@@ -339,7 +347,7 @@ body {
 }
 
 .dropdown-menu a {
-    padding: 12px 20px;
+    padding: 12px var(--spacing-md);
     font-size: 12px;
     color: var(--color-text-light);
     border-left: 3px solid transparent;
@@ -354,14 +362,14 @@ body {
     padding-left: 25px;
 }
 
-/* Dropdown con dos columnas para OFICINAS */
+/* Dropdown de dos columnas para OFICINAS */
 .dropdown-wide .dropdown-menu {
     min-width: 650px;
 }
 
 .dropdown-columns {
     display: flex;
-    gap: 20px;
+    gap: var(--spacing-md);
     padding: 15px;
 }
 
@@ -374,10 +382,11 @@ body {
     font-weight: bold;
     color: var(--color-primary);
     font-size: 13px;
-    padding: 10px 20px;
+    padding: var(--spacing-sm) var(--spacing-md);
     margin-bottom: 5px;
     border-bottom: 2px solid var(--color-primary);
     text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .dropdown-column li {
@@ -399,14 +408,13 @@ body {
     background: var(--color-bg-light);
     color: var(--color-primary);
     border-left-color: var(--color-primary);
-    padding-left: 20px;
+    padding-left: var(--spacing-md);
 }
 
 /* ============================================
    SUBMENÚS MULTINIVEL - FACULTADES
    ============================================ */
 
-/* Indicador visual de que hay submenú */
 .has-submenu > a::after {
     content: " ▸";
     float: right;
@@ -415,7 +423,6 @@ body {
     transition: transform 0.2s ease;
 }
 
-/* Contenedor del submenú de carreras */
 .submenu-carreras {
     position: absolute;
     left: 100%;
@@ -424,7 +431,7 @@ body {
     min-width: 280px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     border-radius: 8px;
-    padding: 10px 0;
+    padding: var(--spacing-sm) 0;
     list-style: none;
     opacity: 0;
     visibility: hidden;
@@ -434,7 +441,6 @@ body {
     margin-left: 5px;
 }
 
-/* Mostrar submenú al hacer hover */
 .has-submenu:hover .submenu-carreras,
 .has-submenu:focus-within .submenu-carreras {
     opacity: 1;
@@ -442,19 +448,17 @@ body {
     transform: translateX(0);
 }
 
-/* Efecto hover en elementos con submenú */
 .has-submenu:hover > a::after {
     transform: translateX(3px);
 }
 
-/* Estilos de los links de carreras */
 .submenu-carreras li {
     padding: 0;
 }
 
 .submenu-carreras a {
     display: block;
-    padding: 10px 20px;
+    padding: 10px var(--spacing-md);
     font-size: 11px;
     color: var(--color-text-light);
     text-decoration: none;
@@ -470,12 +474,11 @@ body {
     padding-left: 25px;
 }
 
-/* Ajuste específico para el dropdown de facultades */
 .dropdown-facultades .dropdown-menu {
     min-width: 300px;
 }
 
-/* Badge "Nuevo" para carreras nuevas */
+/* Badge "Nuevo" */
 .badge-nuevo {
     display: inline-block;
     background: var(--color-primary);
@@ -502,19 +505,18 @@ body {
     }
 }
 
-/* Asegurar que los items con submenú tengan posición relativa */
 .has-submenu {
     position: relative;
 }
 
 /* ============================================
-   CORRECCIÓN CRÍTICA #3 - LOGOS GOB.PE
-   Agregar más espaciado entre logos
+   LOGOS GOB.PE
    ============================================ */
+
 .gob-logos {
     display: flex;
     align-items: center;
-    gap: 25px; /* Aumentado de 15px a 25px */
+    gap: 25px;
 }
 
 .portal-trans-logo {
@@ -529,13 +531,12 @@ body {
     object-fit: contain;
 }
 
-/* Logos dentro del menú móvil - NUEVO */
 .mobile-nav-gob-logos {
-    display: none; /* Oculto por defecto en desktop */
+    display: none;
     justify-content: center;
     align-items: center;
     gap: 25px;
-    padding: 30px 20px 25px;
+    padding: 30px var(--spacing-md) 25px;
     border-top: 2px solid var(--color-bg-light);
     margin-top: auto;
     background: white;
@@ -553,16 +554,16 @@ body {
 }
 
 /* ============================================
-   CORRECCIÓN CRÍTICA #1 - CARRUSEL PRINCIPAL
-   Asegurar que las imágenes se vean correctamente
+   CARRUSEL PRINCIPAL
    ============================================ */
+
 .carousel {
     position: relative;
     width: 100%;
-    height: 600px; /* Altura fija para desktop */
+    height: 600px;
     overflow: hidden;
     margin-bottom: 0;
-    background: #000; /* Fondo negro temporal para ver el contenedor */
+    background: #000;
 }
 
 .carousel-container {
@@ -570,55 +571,52 @@ body {
     transition: transform 0.5s ease-in-out;
     height: 100%;
     width: 100%;
+    will-change: transform;
 }
 
 .carousel-slide {
     min-width: 100%;
-        width: 100%;
+    width: 100%;
     height: 100%;
     position: relative;
-    flex-shrink: 0; /* Evita que los slides se compriman */
+    flex-shrink: 0;
 }
 
 .carousel-slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block; /* Asegurar que la imagen se muestre */
+    display: block;
 }
 
 .carousel-overlay {
     position: absolute;
     top: 0;
+    left: 0;
     right: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, 
-        transparent 0%, 
-        rgba(42, 122, 53, 0.2) 20%, 
-        rgba(42, 122, 53, 0.45) 50%, 
-        rgba(42, 122, 53, 0.65) 75%, 
-        rgba(42, 122, 53, 0.75) 100%);
+    bottom: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: white;
-    padding: 40px;
+    padding: var(--spacing-lg);
+    text-align: center;
 }
 
-.carousel-overlay h1 {
+.carousel-overlay h1,
+.carousel-overlay h2 {
     font-size: 48px;
     margin-bottom: 15px;
-    text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 700;
 }
 
 .carousel-overlay p {
     font-size: 22px;
     margin-bottom: 25px;
-    text-align: center;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
 }
 
 .carousel-button {
@@ -642,12 +640,21 @@ body {
     color: white;
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    outline: none;
 }
 
-.carousel-button:focus-visible {
-    outline: 3px solid white;
-    outline-offset: 3px;
+/* Botón mejorado para hero */
+.btn-inscribete {
+    background: var(--color-primary) !important;
+    color: white !important;
+    padding: 18px 45px !important;
+    font-size: 1.1rem !important;
+    box-shadow: 0 4px 15px rgba(53, 148, 68, 0.3);
+}
+
+.btn-inscribete:hover {
+    background: var(--color-primary-dark) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(53, 148, 68, 0.4);
 }
 
 /* Controles del Carrusel */
@@ -656,9 +663,9 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(53, 148, 68, 0.6);
     color: white;
-    border: none;
+    border: 2px solid rgba(255, 255, 255, 0.3);
     padding: 15px;
     font-size: 30px;
     cursor: pointer;
@@ -676,31 +683,25 @@ body {
 .carousel-next:hover,
 .carousel-prev:focus,
 .carousel-next:focus {
-    background: rgba(255, 255, 255, 0.5);
-    outline: none;
-}
-
-.carousel-prev:focus-visible,
-.carousel-next:focus-visible {
-    outline: 3px solid var(--color-primary);
+    background: rgba(53, 148, 68, 0.9);
 }
 
 .carousel-prev {
-    left: 20px;
+    left: var(--spacing-md);
 }
 
 .carousel-next {
-    right: 20px;
+    right: var(--spacing-md);
 }
 
 /* Indicadores del Carrusel */
 .carousel-indicators {
     position: absolute;
-    bottom: 20px;
+    bottom: var(--spacing-md);
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 10px;
+    gap: var(--spacing-sm);
     z-index: 10;
 }
 
@@ -717,7 +718,6 @@ body {
 .carousel-dot:hover,
 .carousel-dot:focus {
     background: rgba(255, 255, 255, 0.8);
-    outline: none;
 }
 
 .carousel-dot.active {
@@ -726,150 +726,242 @@ body {
     border-radius: 6px;
 }
 
-/* Secciones */
+/* ============================================
+   SECCIONES GENERALES
+   ============================================ */
+
 .section-container {
-    padding: 40px 0;
+    padding: var(--spacing-xl) 0;
 }
 
 .content-wrapper {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 var(--spacing-md);
 }
 
 .section-title {
     text-align: center;
     font-size: 36px;
     color: var(--color-primary);
-    margin-bottom: 10px;
+    margin-bottom: var(--spacing-sm);
     font-weight: 700;
     text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .section-divider {
     width: 80px;
     height: 4px;
     background: var(--color-primary);
-    margin: 0 auto 40px;
+    margin: 0 auto var(--spacing-lg);
     border-radius: 2px;
 }
 
-/* Contenedor de Tarjetas - 3 columnas */
+/* ============================================
+   CONTENEDORES DE TARJETAS
+   ============================================ */
+
 .cards-container-three {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
     margin: 0 auto;
-    align-items: stretch; /* Asegurar que todas las tarjetas tengan la misma altura */
+    align-items: stretch;
 }
 
-/* Contenedor de Tarjetas - 2 columnas */
 .cards-container-two {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px; /* Aumentado de 25px a 30px para más separación */
+    gap: 30px;
     margin: 0 auto;
-    align-items: stretch; /* Asegurar que todas las tarjetas tengan la misma altura */
+    align-items: stretch;
 }
 
-/* Contenedor de Tarjetas - 3 columnas para noticias */
 .cards-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
     margin: 0 auto;
-    align-items: stretch; /* Asegurar que todas las tarjetas tengan la misma altura */
+    align-items: stretch;
 }
 
-/* Estilos de Tarjetas */
+/* ============================================
+   ESTILOS DE TARJETAS BASE
+   ============================================ */
+
 .card {
     background: white;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     transition: all var(--transition-speed);
     text-decoration: none;
     color: inherit;
     display: flex;
     flex-direction: column;
-    height: 100%; /* Asegurar que la tarjeta ocupe toda la altura disponible */
+    height: 100%;
+    border: 3px solid transparent;
 }
 
 .card:hover,
 .card:focus {
     transform: translateY(-8px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    outline: none;
+    border-color: var(--color-primary);
 }
 
-.card:focus-visible {
-    outline: 3px solid var(--color-primary);
-    outline-offset: 3px;
-}
-
-/* ============================================
-   CORRECCIÓN CRÍTICA #2 - TARJETAS FACULTADES
-   Reducir tamaño y mejorar espaciado
-   ============================================ */
 .card-image {
     width: 100%;
     position: relative;
     overflow: hidden;
-    min-height: 160px; /* Reducido de 180px a 160px */
-    height: 160px; /* Reducido de 180px a 160px */
+    min-height: 160px;
+    height: 160px;
     background: var(--color-primary);
-    flex-shrink: 0; /* No permitir que se encoja */
+    flex-shrink: 0;
 }
 
-/* Tarjetas de facultades específicamente - MÁS COMPACTAS */
-.facultades .card-image {
-    height: 240px; /* Altura específica para facultades */
+/* ============================================
+   OFERTA ACADÉMICA - DISEÑO LIMPIO
+   ============================================ */
+
+.ofertas {
+    background: var(--color-bg-grey);
 }
 
-.facultades .card-overlay-green {
-    padding: 20px 20px; /* Padding reducido */
-    /* Degradado: transparente arriba para ver las fotos, verde oscuro abajo para leer el texto */
-    background: linear-gradient(
-        to bottom,
-        rgba(53, 148, 68, 0.3) 0%,      /* Muy transparente arriba */
-        rgba(42, 122, 53, 0.6) 50%,     /* Media opacidad en centro */
-        rgba(30, 90, 40, 0.85) 100%     /* Más oscuro abajo para contraste del texto */
-    ) !important;
+.ofertas .card {
+    background: white;
+    padding: 40px 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    min-height: 280px;
 }
 
-.facultades .card:hover .card-overlay-green {
-    background: linear-gradient(
-        to bottom,
-        rgba(76, 175, 80, 0.35) 0%,
-        rgba(53, 148, 68, 0.65) 50%,
-        rgba(42, 122, 53, 0.88) 100%
-    ) !important;
+.ofertas .card .card-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--spacing-md);
 }
 
-.facultades .card-icon-facultad {
-    width: 70px; /* Reducido de 75px */
-    height: 70px;
-    margin-bottom: 12px; /* Reducido de 15px */
+.ofertas .card .card-icon svg {
+    width: 40px;
+    height: 40px;
+    stroke: white;
 }
 
-.facultades .card-title {
-    font-size: 17px; /* Reducido */
-    margin-bottom: 8px; /* Reducido */
+.ofertas .card .card-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin: 0 0 15px 0;
 }
 
-.facultades .card-text {
-    font-size: 13px; /* Reducido */
-    margin-bottom: 10px; /* Reducido */
+.ofertas .card .card-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-text-light);
+    margin: 0;
 }
 
-.facultades .card-button {
-    padding: 7px 18px; /* Reducido */
-    font-size: 12px; /* Reducido */
+/* ============================================
+   ACADÉMICO - DISEÑO CENTRADO
+   ============================================ */
+
+.academico {
+    background: #FAFBFC;
+    padding: var(--spacing-xl) 0;
 }
 
-/* Overlay verde con gradiente - REDUCIDO PARA OFERTA ACADÉMICA */
+.academico .card {
+    background: white;
+    padding: 40px 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    min-height: 280px;
+}
 
-/* Contenedor de facultades - Sin padding lateral para carrusel */
+.academico .card .card-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #E8F4EA 0%, #D5ECD9 100%);
+    border: 3px solid var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--spacing-md);
+    transition: all var(--transition-speed);
+}
+
+.academico .card .card-icon svg {
+    width: 40px;
+    height: 40px;
+    stroke: var(--color-primary);
+}
+
+.academico .card:hover .card-icon {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    transform: scale(1.1);
+}
+
+.academico .card:hover .card-icon svg {
+    stroke: white;
+}
+
+.academico .card .card-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin: 0 0 15px 0;
+}
+
+.academico .card .card-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-text-light);
+    margin: 0;
+}
+
+.cards-container-academic-six {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 100%;
+}
+
+/* Carrusel académico (oculto en desktop) */
+.academic-carousel-wrapper {
+    position: relative;
+}
+
+.academic-carousel-prev,
+.academic-carousel-next {
+    display: none;
+}
+
+.academic-carousel-indicators {
+    display: none;
+}
+
+/* ============================================
+   FACULTADES - DEGRADADO ELEGANTE
+   ============================================ */
+
+.facultades {
+    background: var(--color-bg-light);
+}
+
 .facultades .content-wrapper {
     padding-left: 0;
     padding-right: 0;
@@ -877,81 +969,47 @@ body {
 
 .facultades .section-title,
 .facultades .section-divider {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
 }
-.card-overlay-green {
+
+.facultades .card-image {
+    height: 240px;
+}
+
+.facultades .card-overlay-green {
+    background: linear-gradient(
+        to bottom, 
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 40%,
+        rgba(53, 148, 68, 0.85) 100%
+    );
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        to bottom,
-        rgba(53, 148, 68, 0.75) 0%,
-        rgba(42, 122, 53, 0.85) 100%
-    );
+    right: 0;
+    bottom: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px; /* Reducido de 25px a 20px */
-    transition: background 0.3s ease;
+    justify-content: flex-end;
+    padding: 30px;
+    border-radius: 0;
+    transition: all 0.4s ease;
 }
 
-/* Oferta Académica específica - MÁS COMPACTO */
-.ofertas .card-overlay-green {
-    padding: 30px 25px; /* Ajuste específico para oferta académica */
-    min-height: 220px; /* Altura controlada */
-    height: 220px; /* Altura fija para uniformidad */
-}
-
-.ofertas .card-image {
-    height: 220px; /* Altura fija para tarjetas de oferta académica */
-}
-
-.ofertas .card-icon {
-    width: 55px; /* Reducido */
-    height: 55px;
-    margin-bottom: 18px;
-}
-
-.ofertas .card-title {
-    font-size: 19px; /* Reducido */
-    margin-bottom: 12px;
-}
-
-.ofertas .card-text {
-    font-size: 14px; /* Reducido */
-    line-height: 1.6;
-}
-
-.card:hover .card-overlay-green {
+.facultades .card:hover .card-overlay-green {
     background: linear-gradient(
-        to bottom,
-        rgba(76, 175, 80, 0.78) 0%,
-        rgba(53, 148, 68, 0.88) 100%
+        to bottom, 
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.3) 40%,
+        rgba(53, 148, 68, 0.95) 100%
     );
 }
 
-.card-icon {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 20px;
-    color: white;
-}
-
-.card-icon svg {
-    width: 100%;
-    height: 100%;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-}
-
-/* Escudos de facultades - REDUCIDO */
 .card-icon-facultad {
-    width: 75px; /* Reducido de 90px a 75px */
-    height: 75px; /* Reducido de 90px a 75px */
-    margin-bottom: 15px; /* Reducido de 20px a 15px */
+    width: 75px;
+    height: 75px;
+    margin-bottom: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -962,7 +1020,7 @@ body {
     height: 100%;
     object-fit: contain;
     filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.3));
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-speed) ease;
 }
 
 .card:hover .card-icon-facultad img {
@@ -974,74 +1032,34 @@ body {
     color: white;
 }
 
-/* Card content para noticias - Flexbox para altura uniforme */
-/* Sección Noticias */
-.noticias {
-    background: var(--color-bg-light);
-}
-
-/* Tarjetas de noticias con borde verde superior */
-.noticias .card {
-    border-top: 4px solid var(--color-primary);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-}
-
-.noticias .card:hover {
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-}
-
-.noticias .card-content {
-    padding: 25px 20px;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1; /* Ocupar el espacio restante */
-    color: var(--color-text);
-}
-
-.noticias .card-title {
-    color: var(--color-text);
-    margin-bottom: 10px;
-}
-
-.noticias .card-text {
-    color: var(--color-text-light);
-    flex-grow: 1; /* Ocupar espacio disponible */
-}
-
-.noticias .card-button {
-    align-self: flex-start; /* Alinear el botón al inicio */
-    margin-top: auto; /* Empujar al final */
-}
-
 .card-title {
-    font-size: 18px; /* Reducido de 20px a 18px */
+    font-size: 18px;
     font-weight: 700;
-    margin-bottom: 10px; /* Reducido de 12px a 10px */
+    margin-bottom: var(--spacing-sm);
     line-height: 1.3;
     color: white;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .card-text {
-    font-size: 14px; /* Reducido de 15px a 14px */
+    font-size: 14px;
     line-height: 1.6;
     color: #ffffff;
-    margin-bottom: 12px; /* Reducido de 15px a 12px */
+    margin-bottom: 12px;
 }
 
-/* Botón dentro de las tarjetas */
 .card-button {
     display: inline-block;
     background: rgba(255, 255, 255, 0.25);
     color: white;
-    padding: 8px 20px; /* Reducido de 10px 24px */
+    padding: 8px var(--spacing-md);
     border-radius: 25px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 13px; /* Reducido de 14px a 13px */
-    margin-top: 10px; /* Reducido de 12px a 10px */
-    transition: all 0.3s ease;
+    font-size: 13px;
+    margin-top: var(--spacing-sm);
+    transition: all var(--transition-speed) ease;
     border: 2px solid rgba(255, 255, 255, 0.4);
 }
 
@@ -1053,161 +1071,53 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* ============================================
-   SECCIÓN ACADÉMICO - 6 TARJETAS GRANDES
-   ============================================ */
-
-.academico {
-    background: #f5f5f5;
-}
-
-/* Wrapper para el carrusel académico */
-.academic-carousel-wrapper {
-    position: relative;
-    overflow: hidden;
-}
-
-.cards-container-academic-six {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 20px;
-    align-items: stretch; /* Asegurar que todas las tarjetas tengan la misma altura */
-}
-
-.card-academic-large {
-    background: white;
-    border-radius: 12px;
-    border-top: 4px solid var(--color-primary);
-    padding: 35px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 20px;
-    min-height: 280px;
-    height: 100%; /* Asegurar altura uniforme */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-decoration: none;
-    color: var(--color-text);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-}
-
-.card-academic-large:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-}
-
-.card-academic-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.card-academic-title-large {
-    color: var(--color-primary);
-    font-size: 22px;
-    font-weight: 700;
-    line-height: 1.3;
-    margin: 0;
-    text-transform: uppercase;
-}
-
-.card-academic-text-large {
-    color: #555;
-    font-size: 16px;
-    line-height: 1.7;
-    margin: 0;
-    flex-grow: 1;
-}
-
-.card-academic-divider {
-    width: 60px;
-    height: 4px;
-    background: var(--color-primary);
-    margin-top: auto;
-}
-
-.card-academic-icon-large {
-    width: 120px;
-    height: 120px;
-    flex-shrink: 0;
-}
-
-.card-academic-icon-large svg {
-    width: 100%;
-    height: 100%;
-}
-
-/* Color verde para el stroke del SVG en tarjetas académicas */
-.card-academic-large svg {
-    stroke: var(--color-primary);
-}
-
-/* Controles del carrusel académico (ocultos en desktop) */
-.academic-carousel-prev,
-.academic-carousel-next {
-    display: none;
-}
-
-.academic-carousel-indicators {
-    display: none;
-}
-
-/* ============================================
-   CARRUSEL DE FACULTADES
-   ============================================ */
-
+/* Carrusel de facultades */
 .facultades-carousel-wrapper {
     position: relative;
     overflow: hidden;
     width: 100%;
     margin: 0 auto;
-    padding: 0 20px; /* Padding lateral para espacio */
+    padding: 0 var(--spacing-md);
 }
 
 .facultades-carousel-container {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    margin: 0 -10px; /* Compensar padding de slides */
+    margin: 0 -10px;
 }
 
 .facultades-carousel-slide {
     min-width: 50%;
     width: 50%;
     flex-shrink: 0;
-    padding: 0 10px; /* Espacio entre tarjetas con padding */
+    padding: 0 10px;
     box-sizing: border-box;
 }
 
-
-/* Botones del carrusel de facultades */
 .facultades-prev,
 .facultades-next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: var(--color-primary);
+    background: rgba(53, 148, 68, 0.6);
     color: white;
-    border: none;
-    width: 32px; /* Reducido 30%: de 45px a 32px */
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    width: 32px;
     height: 32px;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 18px; /* Reducido proporcionalmente */
+    font-size: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    transition: all var(--transition-speed) ease;
     z-index: 10;
-    box-shadow: 0 3px 8px rgba(53, 148, 68, 0.3); /* Sombra más sutil */
+    box-shadow: 0 3px 8px rgba(53, 148, 68, 0.3);
 }
 
 .facultades-prev:hover,
 .facultades-next:hover {
-    background: var(--color-primary-dark);
+    background: rgba(53, 148, 68, 0.9);
     transform: translateY(-50%) scale(1.1);
 }
 
@@ -1219,73 +1129,177 @@ body {
     right: -20px;
 }
 
-/* Indicadores del carrusel de facultades */
 .facultades-carousel-indicators {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: var(--spacing-sm);
     margin-top: 30px;
 }
 
-/* Indicadores específicos para facultades */
 #facultadesDots {
     position: relative;
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: var(--spacing-sm);
     margin-top: 30px;
     z-index: 10;
 }
 
-/* Sección Noticias */
+/* Imágenes de fondo para facultades */
+a[href="#ciencias-agrarias"] .card-image {
+    background-image: url('../imagenes/facultades carreras/agrarias fac.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+a[href="#ciencias-salud"] .card-image {
+    background-image: url('../imagenes/facultades carreras/salud fac.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+a[href="#ingenieria-agroindustrial"] .card-image {
+    background-image: url('../imagenes/facultades carreras/agroindustria fac.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+a[href="#ingenieria-civil"] .card-image {
+    background-image: url('../imagenes/facultades carreras/ingenieria civil y arquitectura fac.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+a[href="#ingenieria-sistemas"] .card-image {
+    background-image: url('../imagenes/facultades carreras/sistemas fac.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+a[href="#ecologia"] .card-image {
+    background-image: url('../imagenes/facultades carreras/ecologia fac.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+a[href="#educacion"] .card-image {
+    background-image: url('../imagenes/facultades carreras/educacion y humanidades fac.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+a[href="#ciencias-economicas"] .card-image {
+    background-image: url('../imagenes/facultades carreras/ciencias economicas.png');
+    background-size: cover;
+    background-position: center;
+}
+
+a[href="#derecho"] .card-image {
+    background-image: url('../imagenes/facultades carreras/derecho fac.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+a[href="#medicina-humana"] .card-image {
+    background-image: url('../imagenes/facultades carreras/medicina fac.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+a[href="#medicina-veterinaria"] .card-image {
+    background-image: url('../imagenes/facultades carreras/veterinaria fac.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* ============================================
+   SECCIÓN NOTICIAS
+   ============================================ */
+
 .noticias {
     background: var(--color-bg-light);
 }
 
+.noticias .card {
+    border-top: 4px solid var(--color-primary);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.noticias .card:hover {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.noticias .card-content {
+    padding: 25px var(--spacing-md);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    color: var(--color-text);
+}
+
+.noticias .card-title {
+    color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
+}
+
+.noticias .card-text {
+    color: var(--color-text-light);
+    flex-grow: 1;
+}
+
+.noticias .card-button {
+    align-self: flex-start;
+    margin-top: auto;
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+.noticias .card-button:hover {
+    background: var(--color-primary-dark);
+}
+
+.news-meta {
+    font-size: 13px;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-sm);
+}
+
+.news-category {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--color-primary);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
 /* ============================================
-   SECCIÓN ADMINISTRATIVOS
+   ADMINISTRATIVOS
    ============================================ */
 
 .administrativos {
     background: var(--color-bg-light);
 }
 
-/* NUEVO ESTILO: Tarjetas blancas con borde verde superior */
 .administrativos .card {
     background: white;
     border-top: 4px solid var(--color-primary);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    border-radius: 12px;
     padding: 35px 30px;
     min-height: 280px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.administrativos .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-}
-
-/* Ocultar el overlay verde antiguo */
-.administrativos .card-overlay-green {
-    background: transparent;
-    padding: 0;
-    min-height: auto;
-    height: auto;
-}
-
-.administrativos .card-image {
-    display: none; /* Ya no necesitamos el sistema de imagen con overlay */
 }
 
 .administrativos .card-icon {
     width: 70px;
     height: 70px;
-    margin-bottom: 20px;
+    margin-bottom: var(--spacing-md);
 }
 
 .administrativos .card-icon svg {
@@ -1309,24 +1323,25 @@ body {
 }
 
 /* ============================================
-   SECCIÓN ENLACES DE INTERÉS
+   ENLACES DE INTERÉS
    ============================================ */
 
 .enlaces-interes {
     background: white;
-    padding: 60px 0;
+    padding: var(--spacing-xl) 0;
 }
 
-.section-title-white {
-    font-size: 36px;
+.section-title-enlaces {
+    font-size: 2.5rem;
     font-weight: 700;
+    color: var(--color-primary);
     text-align: center;
     margin-bottom: 15px;
-    color: var(--color-primary);
     text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.section-divider-white {
+.section-divider-enlaces {
     width: 80px;
     height: 4px;
     background: var(--color-primary);
@@ -1334,80 +1349,65 @@ body {
     border-radius: 2px;
 }
 
-.enlaces-grid {
+.enlaces-grid-buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    max-width: 1400px;
+    gap: 25px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
 }
 
-.enlace-btn {
-    background: var(--color-primary);
-    padding: 18px 20px;
-    border-radius: 8px;
+.enlace-btn-green {
     display: flex;
     align-items: center;
-    gap: 15px;
-    text-decoration: none;
+    gap: 12px;
+    padding: 16px 24px;
+    background: var(--color-primary);
     color: white;
-    font-weight: 600;
-    font-size: 14px;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all var(--transition-speed) ease;
+    box-shadow: 0 2px 8px rgba(53, 148, 68, 0.2);
 }
 
-.enlace-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+.enlace-btn-green:hover,
+.enlace-btn-green:focus {
     background: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(53, 148, 68, 0.3);
 }
 
-.enlace-icon {
+.enlace-btn-icon {
     width: 24px;
     height: 24px;
     flex-shrink: 0;
-    color: white;
+    stroke: white;
 }
 
-.enlace-btn span {
-    flex: 1;
+.enlace-btn-green span {
     line-height: 1.3;
 }
 
-.news-meta {
-    font-size: 13px;
-    color: var(--color-text-light);
-    margin-bottom: 10px;
-}
+/* ============================================
+   FOOTER
+   ============================================ */
 
-.news-category {
-    background: rgba(255, 255, 255, 0.9);
-    color: var(--color-primary);
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-/* Footer */
 footer {
     background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
     color: white;
-    padding: 50px 0 20px;
+    padding: 50px 0 var(--spacing-md);
 }
 
 .footer-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 var(--spacing-md);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 50px;
-    margin-bottom: 40px;
+    margin-bottom: var(--spacing-lg);
 }
 
 .footer-section h3 {
@@ -1417,7 +1417,7 @@ footer {
 }
 
 .footer-section p {
-    margin-bottom: 10px;
+    margin-bottom: var(--spacing-sm);
     font-size: 14px;
     line-height: 1.6;
 }
@@ -1427,7 +1427,7 @@ footer {
 }
 
 .footer-links li {
-    margin-bottom: 10px;
+    margin-bottom: var(--spacing-sm);
 }
 
 .footer-links a {
@@ -1437,7 +1437,8 @@ footer {
     font-size: 14px;
 }
 
-.footer-links a:hover {
+.footer-links a:hover,
+.footer-links a:focus {
     color: rgba(255, 255, 255, 0.8);
     text-decoration: underline;
 }
@@ -1466,26 +1467,27 @@ footer {
     filter: brightness(0) invert(1);
 }
 
-.footer-social a:hover {
+.footer-social a:hover,
+.footer-social a:focus {
     background: rgba(255, 255, 255, 0.3);
     transform: scale(1.1);
 }
 
 .footer-bottom {
     text-align: center;
-    padding-top: 20px;
+    padding-top: var(--spacing-md);
     border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .footer-bottom-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 var(--spacing-md);
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: var(--spacing-md);
 }
 
 .footer-bottom-content > p {
@@ -1513,7 +1515,7 @@ footer {
     display: flex;
     align-items: center;
     gap: 15px;
-    margin-bottom: 20px;
+    margin-bottom: var(--spacing-md);
 }
 
 .footer-logo {
@@ -1525,8 +1527,55 @@ footer {
 .footer-description {
     font-size: 13px;
     line-height: 1.6;
-    margin-bottom: 20px;
+    margin-bottom: var(--spacing-md);
     text-align: justify;
+}
+
+/* ============================================
+   OVERLAY DEL MENÚ MÓVIL
+   ============================================ */
+
+.menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    transition: opacity var(--transition-speed);
+}
+
+.menu-overlay.active {
+    display: block;
+}
+
+/* ============================================
+   RESPONSIVE - TABLET
+   ============================================ */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .cards-container-three {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .cards-container-academic-six {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .enlaces-grid-buttons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+    }
+    
+    .footer-section:first-child {
+        grid-column: 1 / -1;
+    }
 }
 
 /* ============================================
@@ -1534,7 +1583,14 @@ footer {
    ============================================ */
 
 @media (max-width: 768px) {
-    /* Header superior - OPTIMIZADO PARA MÓVIL */
+    /* Variables ajustadas para móvil */
+    :root {
+        --spacing-md: 15px;
+        --spacing-lg: 30px;
+        --spacing-xl: 50px;
+    }
+    
+    /* Header superior */
     .top-header-content {
         flex-direction: column;
         gap: 12px;
@@ -1544,7 +1600,7 @@ footer {
     .social-icons {
         justify-content: center;
         flex-wrap: wrap;
-        gap: 10px;
+        gap: var(--spacing-sm);
     }
     
     .social-icons a {
@@ -1553,24 +1609,18 @@ footer {
         -webkit-tap-highlight-color: transparent;
     }
     
-    .social-icons a:active {
-        transform: scale(0.95);
-    }
-    
     .contact-info {
         flex-direction: column;
-        gap: 10px;
+        gap: var(--spacing-sm);
         text-align: center;
         font-size: 13px;
     }
     
     .contact-info a {
-        color: white;
-        text-decoration: none;
         word-break: break-all;
     }
     
-    /* Header principal - OPTIMIZADO PARA MÓVIL */
+    /* Header principal */
     .main-header-content {
         padding: 12px 15px;
         min-height: 70px;
@@ -1578,34 +1628,27 @@ footer {
     
     .logo img {
         height: 60px;
-        max-width: 100%;
-        object-fit: contain;
     }
     
-    /* Mostrar botón hamburguesa - MÁS A LA DERECHA */
+    /* Mostrar botón hamburguesa */
     .mobile-menu-toggle {
         display: flex;
         position: absolute;
-        right: 15px; /* Posicionado a la derecha */
+        right: 15px;
         z-index: 1002;
     }
     
-    /* Mostrar botón de cerrar en menú móvil */
-    .mobile-menu-close {
-        display: flex;
-    }
-    
-    /* OCULTAR logos gob.pe del header en móvil */
+    /* Ocultar logos gob.pe del header */
     .gob-logos {
-        display: none !important; /* Ocultamos completamente en móvil */
+        display: none !important;
     }
     
-    /* MOSTRAR logos dentro del menú móvil */
+    /* Mostrar logos dentro del menú móvil */
     .mobile-nav-gob-logos {
         display: flex !important;
     }
     
-    /* Menú móvil - OPTIMIZADO PARA MEJOR USABILIDAD */
+    /* Menú móvil */
     .main-nav {
         position: fixed;
         right: -100%;
@@ -1621,19 +1664,18 @@ footer {
         overflow-y: auto;
         z-index: 1001;
         display: flex;
-        -webkit-overflow-scrolling: touch; /* Smooth scrolling en iOS */
+        -webkit-overflow-scrolling: touch;
     }
     
     .main-nav.active {
         right: 0;
     }
     
-    /* Logo en menú móvil - MEJOR PRESENTACIÓN */
-    /* Logo en menú móvil - FIJO EN LA PARTE SUPERIOR */
+    /* Logo en menú móvil */
     .mobile-nav-logo {
         display: block;
         text-align: center;
-        padding: 20px 20px 25px;
+        padding: var(--spacing-md) var(--spacing-md) 25px;
         border-bottom: 2px solid var(--color-bg-light);
         background: white;
         position: fixed;
@@ -1653,7 +1695,6 @@ footer {
     .mobile-nav-logo img {
         height: 65px;
         width: auto;
-        object-fit: contain;
     }
     
     .nav-menu {
@@ -1661,7 +1702,7 @@ footer {
         gap: 0;
         width: 100%;
         padding-top: 110px;
-        padding-bottom: 20px;
+        padding-bottom: var(--spacing-md);
     }
     
     .nav-menu li {
@@ -1670,11 +1711,11 @@ footer {
     }
     
     .nav-menu a {
-        padding: 18px 20px;
+        padding: 18px var(--spacing-md);
         width: 100%;
         font-size: 15px;
         font-weight: 600;
-        min-height: 54px; /* Área táctil mínima */
+        min-height: 54px;
         display: flex;
         align-items: center;
         -webkit-tap-highlight-color: transparent;
@@ -1695,16 +1736,16 @@ footer {
         padding: 0;
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.3s ease;
+        transition: max-height var(--transition-speed) ease;
         background: var(--color-bg-light);
     }
     
     .dropdown.active .dropdown-menu {
-        max-height: 1500px; /* Aumentado para mostrar todas las oficinas */
+        max-height: 1500px;
     }
     
     .dropdown-menu a {
-        padding: 15px 20px 15px 40px;
+        padding: 15px var(--spacing-md) 15px 40px;
         border-left: none;
     }
     
@@ -1718,32 +1759,25 @@ footer {
     }
     
     .dropdown-column a {
-        padding: 15px 20px 15px 40px;
+        padding: 15px var(--spacing-md) 15px 40px;
     }
     
-    
-    /* Alinear headers de dropdown CENTRADOS en móvil */
     .dropdown-header {
         text-align: center;
-        padding: 15px 20px;
+        padding: 15px var(--spacing-md);
         font-size: 14px;
         font-weight: 700;
-        color: var(--color-primary);
         background: rgba(53, 148, 68, 0.05);
-        margin: 10px 0;
+        margin: var(--spacing-sm) 0;
     }
-    /* ============================================
-       SUBMENÚS MULTINIVEL - MÓVIL
-       ============================================ */
     
-    /* Ocultar indicador de flecha en móvil */
+    /* Submenús en móvil */
     .has-submenu > a::after {
         content: " ▾";
         float: right;
         transform: none !important;
     }
     
-    /* Submenú de carreras en móvil */
     .submenu-carreras {
         position: static;
         opacity: 1;
@@ -1754,271 +1788,144 @@ footer {
         padding: 0;
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.3s ease;
-        background: #e8f5e9; /* Fondo verde muy claro para diferenciar */
+        transition: max-height var(--transition-speed) ease;
+        background: #e8f5e9;
         margin: 0;
     }
     
-    /* Mostrar submenú cuando la facultad está activa */
     .has-submenu.active .submenu-carreras {
         max-height: 500px;
     }
     
-    /* Estilos de los links de carreras en móvil */
     .submenu-carreras a {
-        padding: 12px 20px 12px 60px !important; /* Más indentación */
+        padding: 12px var(--spacing-md) 12px 60px !important;
         font-size: 13px !important;
         border-left: none !important;
     }
     
-    /* Ajuste del dropdown de facultades en móvil */
-    .dropdown-facultades .dropdown-menu {
-        min-width: auto;
-    }
-    
-    /* Asegurar que max-height de facultades sea suficiente */
     .dropdown-facultades.active .dropdown-menu {
-        max-height: 2500px !important; /* Aumentado para todas las facultades y carreras */
+        max-height: 2500px !important;
     }
     
-    /* Carrusel principal - FORMATO RECTANGULAR PARA MÓVIL */
+    /* Carrusel principal */
     .carousel {
-        height: 380px; /* Altura reducida para formato más rectangular */
-        position: relative;
-        width: 100%;
-        background: #f0f7f3; /* Fondo verde claro si hay espacios laterales */
-        overflow: hidden;
-    }
-    
-    .carousel-container {
-        display: flex;
-        width: 100%;
-        height: 100%;
-        transition: transform 0.5s ease-in-out;
-    }
-    
-    
-    .carousel-slide {
-        position: relative;
         height: 380px;
-        overflow: hidden;
-        min-width: 100%;
-        width: 100%;
-        max-width: 100%;
-        flex-shrink: 0;
         background: #f0f7f3;
     }
     
-    .carousel-slide img {
-        width: 100%;
+    .carousel-slide {
         height: 380px;
-        object-fit: cover; /* Cover para cubrir todo el espacio sin blancos */
-        object-position: center;
-        position: relative;
-        z-index: 1;
     }
     
-    .carousel-image {
+    .carousel-slide img {
         height: 380px;
-        object-fit: cover; /* Cover para cubrir todo el espacio sin blancos */
-        object-position: center;
-        background: #f0f7f3; /* Fondo verde */
+        object-fit: cover;
     }
     
     .carousel-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
         background: linear-gradient(180deg,
             transparent 0%,
             rgba(42, 122, 53, 0.3) 30%,
             rgba(42, 122, 53, 0.6) 60%,
             rgba(42, 122, 53, 0.8) 100%);
-        padding: 25px 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        z-index: 2;
-        pointer-events: none;
+        padding: 25px var(--spacing-md);
     }
     
-    .carousel-overlay * {
-        pointer-events: auto;
-    }
-    
-    
-    .carousel-overlay h1 {
+    .carousel-overlay h1,
+    .carousel-overlay h2 {
         font-size: 27px;
         line-height: 1.3;
         margin-bottom: 14px;
-        text-align: center;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        font-weight: 700;
     }
     
     .carousel-overlay p {
         font-size: 15px;
         line-height: 1.6;
-        margin-bottom: 20px;
-        max-width: 100%;
-        text-align: center;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        margin-bottom: var(--spacing-md);
     }
     
     .carousel-button {
         padding: 16px 36px;
         font-size: 16px;
-        font-weight: 700;
-        border-radius: 30px;
         min-height: 50px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
     }
     
-    /* Oferta Académica - OPTIMIZADA PARA MÓVIL */
-    .ofertas .card {
-        min-height: auto;
-        margin-bottom: 20px;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    .carousel-prev,
+    .carousel-next {
+        width: 50px;
+        height: 50px;
+        font-size: 26px;
+        -webkit-tap-highlight-color: transparent;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
     }
     
-    .ofertas .card-overlay-green {
-        padding: 28px 22px;
-        min-height: 240px;
+    .carousel-prev {
+        left: 15px;
     }
     
-    .ofertas .card-icon {
-        width: 60px;
-        height: 60px;
-        margin-bottom: 18px;
+    .carousel-next {
+        right: 15px;
     }
     
-    .ofertas .card-title {
-        font-size: 19px;
-        margin-bottom: 12px;
-        line-height: 1.3;
+    .carousel-dot {
+        width: 14px;
+        height: 14px;
+        margin: 0 6px;
     }
     
-    .ofertas .card-text {
-        font-size: 14px;
-        line-height: 1.6;
+    .carousel-dot.active {
+        width: 35px;
     }
     
-    /* Administrativos - OPTIMIZADOS PARA MÓVIL */
-    .administrativos .card {
-        margin-bottom: 20px;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    }
-    
-    .administrativos .card-overlay-green {
-        padding: 28px 22px;
-        min-height: 220px;
-        height: auto;
-    }
-    
-    .administrativos .card-image {
-        height: 220px;
-    }
-    
-    .administrativos .card-icon {
-        width: 60px;
-        height: 60px;
-        margin-bottom: 18px;
-    }
-    
-    .administrativos .card-title {
-        font-size: 19px;
-        margin-bottom: 12px;
-        line-height: 1.3;
-    }
-    
-    .administrativos .card-text {
-        font-size: 14px;
-        line-height: 1.6;
-    }
-    
-    /* Enlaces de Interés - OPTIMIZADOS PARA MÓVIL */
-    .enlaces-interes {
-        padding: 50px 0;
-    }
-    
-    .section-title-white {
-        font-size: 30px;
-        margin-bottom: 15px;
-    }
-    
-    .section-divider-white {
-        margin-bottom: 40px;
-    }
-    
-    .enlaces-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
-        padding: 0 15px;
-    }
-    
-    .enlace-btn {
-        padding: 16px 20px;
-        font-size: 14px;
-        border-radius: 10px;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
-    }
-    
-    .enlace-btn:active {
-        transform: translateY(-1px);
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-    }
-    
-    .enlace-icon {
-        width: 24px;
-        height: 24px;
-    }
-    
-    /* Tarjetas en 1 columna - MEJOR ESPACIADO */
+    /* Tarjetas en 1 columna */
     .cards-container-three,
     .cards-container-two,
     .cards-container {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: var(--spacing-md);
         padding: 0 15px;
     }
     
-    /* Mejoras generales de tarjetas en móvil */
-    .card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        -webkit-tap-highlight-color: transparent;
+    /* Oferta Académica móvil */
+    .ofertas .card {
+        padding: 35px 25px;
+        min-height: 260px;
     }
     
-    .card:active {
-        transform: scale(0.98);
+    .ofertas .card .card-icon {
+        width: 70px;
+        height: 70px;
     }
     
-    /* Botones más táctiles en móvil */
-    .card-button,
-    .carousel-button {
-        min-height: 44px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        -webkit-tap-highlight-color: transparent;
-        touch-action: manipulation;
+    .ofertas .card .card-icon svg {
+        width: 35px;
+        height: 35px;
     }
     
-    .card-button:active,
-    .carousel-button:active {
-        transform: scale(0.97);
+    .ofertas .card .card-title {
+        font-size: 1.25rem;
     }
     
-    /* Sección académica - Carrusel en móvil */
+    /* Académico móvil */
+    .academico .card {
+        padding: 35px 25px;
+        min-height: 260px;
+    }
+    
+    .academico .card .card-icon {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .academico .card .card-icon svg {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .academico .card .card-title {
+        font-size: 1.25rem;
+    }
+    
     .cards-container-academic-six {
         display: block;
         position: relative;
@@ -2042,69 +1949,35 @@ footer {
         padding: 0 15px;
     }
     
-    .card-academic-large {
-        min-width: 100%;
-        width: 100%;
-        max-width: 100%;
-        flex-shrink: 0;
-        padding: 40px 30px; /* Aumentado de 30px 25px a 40px 30px */
-        margin: 0 auto;
-        box-sizing: border-box;
-        min-height: 320px; /* Aumentado para mejor contenido */
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-    
-    .card-academic-title-large {
-        font-size: 22px;
-        line-height: 1.3;
-        margin-bottom: 12px;
-    }
-    
-    .card-academic-text-large {
-        font-size: 15px;
-        line-height: 1.6;
-        flex-grow: 1;
-    }
-    
-    .card-academic-icon-large {
-        width: 100px;
-        height: 100px;
-        margin-bottom: 15px;
-    }
-    
-    /* Mostrar controles del carrusel académico en móvil - ESTILO SUTIL */
     .academic-carousel-prev,
     .academic-carousel-next {
         display: flex;
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        background: transparent; /* Sin fondo circular */
-        color: var(--color-primary-dark); /* Verde oscuro */
+        background: transparent;
+        color: var(--color-primary-dark);
         border: none;
-        width: 40px; /* Más pequeñas */
+        width: 40px;
         height: 40px;
-        border-radius: 0; /* Sin círculo */
+        border-radius: 0;
         cursor: pointer;
-        font-size: 32px; /* Símbolos más grandes */
+        font-size: 32px;
         font-weight: 700;
         align-items: center;
         justify-content: center;
-        transition: all 0.3s ease;
+        transition: all var(--transition-speed) ease;
         z-index: 10;
-        opacity: 0.7; /* Semi-transparentes */
+        opacity: 0.7;
         -webkit-tap-highlight-color: transparent;
     }
     
     .academic-carousel-prev {
-        left: -15px; /* Más cerca pero fuera de la tarjeta */
+        left: -15px;
     }
     
     .academic-carousel-next {
-        right: -15px; /* Más cerca pero fuera de la tarjeta */
+        right: -15px;
     }
     
     .academic-carousel-prev:hover,
@@ -2114,51 +1987,39 @@ footer {
         transform: translateY(-50%) scale(1.1);
     }
     
-    .academic-carousel-prev:active,
-    .academic-carousel-next:active {
-        color: var(--color-primary);
-        transform: translateY(-50%) scale(0.95);
-    }
-    
     .academic-carousel-indicators {
         display: flex;
         justify-content: center;
-        gap: 10px;
+        gap: var(--spacing-sm);
         margin-top: 45px;
-        margin-bottom: 20px;
+        margin-bottom: var(--spacing-md);
     }
-
-    /* Eliminar padding del content-wrapper para carrusel de facultades */
+    
+    /* Facultades móvil */
     .facultades .content-wrapper {
         padding: 0;
     }
     
-    /* Mantener padding para título y divisor */
     .facultades .section-title,
     .facultades .section-divider {
-        padding: 0 20px;
+        padding: 0 var(--spacing-md);
     }
     
     .facultades-carousel-wrapper {
         padding: 0;
     }
     
-    /* Carrusel de Facultades - ACTUALIZADO: 1 facultad por slide en móvil */
     .facultades-carousel-slide {
         min-width: 100%;
         width: 100%;
         padding: 0 15px;
-        box-sizing: border-box;
     }
     
     .facultades-carousel-slide .card {
         width: 100%;
-        max-width: 100%;
         margin: 0;
-        box-sizing: border-box;
     }
     
-    /* 2. Ajustar flechas del carrusel de facultades en móvil */
     .facultades-prev {
         left: -15px;
     }
@@ -2171,25 +2032,24 @@ footer {
     .facultades-next {
         width: 40px;
         height: 40px;
+        font-size: 20px;
+    }
     
-    /* 2b. Ajustar indicadores del carrusel de facultades en móvil */
     .facultades-carousel-indicators {
         margin-top: 45px;
-        margin-bottom: 20px;
+        margin-bottom: var(--spacing-md);
     }
-
-    /* Dots de facultades en móvil - Asegurar que se vean todos */
+    
     #facultadesDots {
         display: flex !important;
         justify-content: center;
         flex-wrap: nowrap;
         gap: 8px;
         margin-top: 35px;
-        padding: 0 10px;
+        padding: 0 var(--spacing-sm);
         width: 100%;
-        overflow-x: visible;
     }
-
+    
     #facultadesDots .carousel-dot {
         flex-shrink: 0;
         width: 12px;
@@ -2197,80 +2057,17 @@ footer {
         min-width: 12px;
         min-height: 12px;
     }
-
+    
     #facultadesDots .carousel-dot.active {
         width: 28px;
     }
-        font-size: 20px;
-    }
-    
-    /* Controles del carrusel principal - MEJORADOS PARA MÓVIL */
-    .carousel-prev,
-    .carousel-next {
-        width: 50px;
-        height: 50px;
-        font-size: 26px;
-        -webkit-tap-highlight-color: transparent;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-    }
-    
-    .carousel-prev {
-        left: 15px;
-    }
-    
-    .carousel-next {
-        right: 15px;
-    }
-    
-    .carousel-prev:active,
-    .carousel-next:active {
-        transform: translateY(-50%) scale(0.95);
-    }
-    
-    /* Dots del carrusel - MEJOR TÁCTIL Y MÁS GRANDES */
-    .carousel-dot {
-        width: 14px;
-        height: 14px;
-        min-width: 14px;
-        min-height: 14px;
-        padding: 0;
-        margin: 0 6px;
-    }
-    
-    .carousel-dot.active {
-        width: 35px;
-    }
-    
-    /* Controles del carrusel - Mejor posicionamiento */
-    .carousel-controls {
-        bottom: 25px;
-    }
-    
-    /* Facultades - Ajustes móvil */
-    .card-image {
-        min-height: 160px; /* Aún más reducido en móvil */
-        height: 160px; /* Altura fija en móvil */
-    }
-    
-    .ofertas .card-image {
-        height: 240px; /* Altura fija para oferta académica en móvil */
-    }
-    
-    /* Facultades - OPTIMIZADAS PARA MÓVIL */
-    .facultades .card {
-        margin-bottom: 20px;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    }
     
     .facultades .card-image {
-        height: 220px; /* Aumentado para mejor visualización */
+        height: 220px;
     }
     
     .facultades .card-overlay-green {
-        padding: 22px 20px;
-        min-height: auto;
+        padding: 22px var(--spacing-md);
     }
     
     .facultades .card-icon-facultad {
@@ -2282,73 +2079,75 @@ footer {
     .facultades .card-title {
         font-size: 18px;
         margin-bottom: 8px;
-        line-height: 1.3;
     }
     
     .facultades .card-text {
         font-size: 13px;
         margin-bottom: 12px;
-        line-height: 1.5;
     }
     
     .facultades .card-button {
         padding: 10px 24px;
         font-size: 13px;
-        font-weight: 600;
-        border-radius: 25px;
     }
     
-    .card-icon-facultad {
-        width: 70px;
-        height: 70px;
-        object-fit: contain;
+    /* Administrativos móvil */
+    .administrativos .card {
+        margin-bottom: var(--spacing-md);
     }
     
-    .card-title {
-        font-size: 18px;
-        line-height: 1.3;
+    .administrativos .card-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 18px;
     }
     
-    .card-text {
+    .administrativos .card-title {
+        font-size: 19px;
+        margin-bottom: 12px;
+    }
+    
+    .administrativos .card-text {
         font-size: 14px;
-        line-height: 1.6;
     }
     
-    /* Optimización de imágenes en móvil */
-    img {
-        max-width: 100%;
-        height: auto;
-        image-rendering: -webkit-optimize-contrast;
+    /* Enlaces de Interés móvil */
+    .enlaces-interes {
+        padding: 50px 0;
     }
     
-    /* Mejora de rendimiento en animaciones */
-    .card,
-    .enlace-btn,
-    .carousel-prev,
-    .carousel-next,
-    .carousel-dot {
-        will-change: auto;
-        backface-visibility: hidden;
-        -webkit-backface-visibility: hidden;
+    .section-title-enlaces {
+        font-size: 30px;
+        margin-bottom: 15px;
     }
     
-    /* Smooth scroll general */
-    html {
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
+    .enlaces-grid-buttons {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 0 15px;
     }
     
-    /* Mejorar rendimiento de scroll */
-    body {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
+    .enlace-btn-green {
+        padding: 16px var(--spacing-md);
+        font-size: 14px;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
     }
     
-    /* Footer - OPTIMIZADO PARA MÓVIL */
+    .enlace-btn-green:active {
+        transform: translateY(-1px);
+    }
+    
+    .enlace-icon {
+        width: 24px;
+        height: 24px;
+    }
+    
+    /* Footer móvil */
     .footer-content {
         grid-template-columns: 1fr;
         gap: 35px;
-        padding: 0 20px;
+        padding: 0 var(--spacing-md);
     }
     
     .footer-logo-section {
@@ -2380,7 +2179,7 @@ footer {
     .footer-bottom-content {
         flex-direction: column;
         text-align: center;
-        gap: 20px;
+        gap: var(--spacing-md);
     }
     
     .footer-social-bottom {
@@ -2392,7 +2191,7 @@ footer {
         justify-content: center;
     }
     
-    /* Títulos de sección - MEJOR LEGIBILIDAD */
+    /* Títulos de sección móvil */
     .section-title {
         font-size: 30px;
         margin-bottom: 15px;
@@ -2402,441 +2201,13 @@ footer {
     .section-container {
         padding: 50px 0;
     }
-    
-    .container {
-        padding: 0 15px;
-    }
 }
 
-/* Tablet */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .cards-container-three {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .cards-container-academic-six {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    /* Enlaces de Interés - 2 columnas en tablet */
-    .enlaces-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    /* Footer - 2 columnas en tablet */
-    .footer-content {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 40px;
-    }
-    
-    .footer-section:first-child {
-        grid-column: 1 / -1;
-    }
-}
-
-/* Overlay del menú móvil */
-.menu-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-    transition: opacity 0.3s ease;
-}
-
-.menu-overlay.active {
-    display: block;
-}
-/* ============================================
-   IMÁGENES DE FONDO PARA FACULTADES
-   ============================================ */
-
-/* Ciencias Agrarias */
-a[href="#ciencias-agrarias"] .card-image {
-    background-image: url('../imagenes/facultades carreras/agrarias fac.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-/* Ciencias de la Salud */
-a[href="#ciencias-salud"] .card-image {
-    background-image: url('../imagenes/facultades carreras/salud fac.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-
-/* Ingeniería Agroindustrial */
-a[href="#ingenieria-agroindustrial"] .card-image {
-    background-image: url('../imagenes/facultades carreras/agroindustria fac.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-/* Ingeniería Civil y Arquitectura */
-a[href="#ingenieria-civil"] .card-image {
-    background-image: url('../imagenes/facultades carreras/ingenieria civil y arquitectura fac.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-/* Ingeniería de Sistemas */
-a[href="#ingenieria-sistemas"] .card-image {
-    background-image: url('../imagenes/facultades carreras/sistemas fac.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-/* Ecología */
-a[href="#ecologia"] .card-image {
-    background-image: url('../imagenes/facultades carreras/ecologia fac.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-/* Educación y Humanidades */
-a[href="#educacion"] .card-image {
-    background-image: url('../imagenes/facultades carreras/educacion y humanidades fac.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-/* Ciencias Económicas */
-a[href="#ciencias-economicas"] .card-image {
-    background-image: url('../imagenes/facultades carreras/ciencias economicas.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-/* Derecho y Ciencias Políticas */
-a[href="#derecho"] .card-image {
-    background-image: url('../imagenes/facultades carreras/derecho fac.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-/* Medicina Humana */
-a[href="#medicina-humana"] .card-image {
-    background-image: url('../imagenes/facultades carreras/medicina fac.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-/* Medicina Veterinaria - CORREGIDO */
-a[href="#medicina-veterinaria"] .card-image {
-    background-image: url('../imagenes/facultades carreras/veterinaria fac.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-/* ============================================
-   MEJORAS DE DISEÑO - NOVIEMBRE 2025
-   Autor: Luighy Andre Alvarado Reyna
-   ============================================ */
-
-/* ============================================
-   MEJORA 1: Oferta Académica - Tarjetas Blancas Limpias
-   ============================================ */
-
-.ofertas .card {
-    background: white;
-    border-radius: 12px;
-    padding: 40px 30px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    min-height: 280px;
-}
-
-.ofertas .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 25px rgba(53,148,68,0.15);
-}
-
-.ofertas .card .card-icon {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, #359444 0%, #2a7536 100%);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-}
-
-.ofertas .card .card-icon svg {
-    width: 40px;
-    height: 40px;
-    stroke: white;
-}
-
-.ofertas .card .card-title {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: #1a1a1a;
-    margin: 0 0 15px 0;
-}
-
-.ofertas .card .card-text {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #666;
-    margin: 0;
-}
-
-/* ============================================
-   MEJORA 2: Académico - Diseño Centrado Limpio
-   ============================================ */
-
-.academico .card {
-    background: white;
-    border-radius: 12px;
-    padding: 40px 30px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    min-height: 280px;
-}
-
-.academico .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 25px rgba(53,148,68,0.15);
-}
-
-.academico .card .card-icon {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, #359444 0%, #2a7536 100%);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-}
-
-.academico .card .card-icon svg {
-    width: 40px;
-    height: 40px;
-    stroke: white;
-}
-
-.academico .card .card-title {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: #1a1a1a;
-    margin: 0 0 15px 0;
-}
-
-.academico .card .card-text {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #666;
-    margin: 0;
-}
-
-.cards-container-academic-six {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    width: 100%;
-}
-
-/* ============================================
-   MEJORA 3: Enlaces de Interés - Lista Limpia
-   ============================================ */
-
-.enlaces-interes {
-    background: linear-gradient(135deg, #359444 0%, #2a7536 100%);
-    padding: 80px 0;
-}
-
-.enlaces-grid-clean {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
-    margin-top: 50px;
-}
-
-.enlaces-column {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.enlace-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 15px 20px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 8px;
-    text-decoration: none;
-    color: white;
-    transition: all 0.3s ease;
-    border-left: 3px solid transparent;
-}
-
-.enlace-item:hover {
-    background: white;
-    color: #359444;
-    border-left-color: #359444;
-    transform: translateX(8px);
-}
-
-.enlace-icon-small {
-    width: 24px;
-    height: 24px;
-    flex-shrink: 0;
-    stroke: currentColor;
-}
-
-.enlace-item span {
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1.4;
-}
-
-/* ============================================
-   MEJORA 4: Facultades - Degradado Elegante
-   ============================================ */
-
-.facultades .card-overlay-green {
-    background: linear-gradient(
-        to bottom, 
-        rgba(0,0,0,0) 0%,
-        rgba(0,0,0,0.2) 40%,
-        rgba(53,148,68,0.85) 100%
-    );
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 30px;
-    border-radius: 12px;
-    transition: all 0.4s ease;
-}
-
-.facultades .card:hover .card-overlay-green {
-    background: linear-gradient(
-        to bottom, 
-        rgba(0,0,0,0) 0%,
-        rgba(0,0,0,0.3) 40%,
-        rgba(53,148,68,0.95) 100%
-    );
-}
-
-/* ============================================
-   RESPONSIVE - MÓVIL
-   ============================================ */
-
-@media screen and (max-width: 768px) {
-    /* Oferta Académica */
-    .ofertas .card {
-        padding: 35px 25px;
-        min-height: 260px;
-    }
-    
-    .ofertas .card .card-icon {
-        width: 70px;
-        height: 70px;
-    }
-    
-    .ofertas .card .card-icon svg {
-        width: 35px;
-        height: 35px;
-    }
-    
-    .ofertas .card .card-title {
-        font-size: 1.25rem;
-    }
-    
-    /* Académico */
-    .academico .card {
-        padding: 35px 25px;
-        min-height: 260px;
-    }
-    
-    .academico .card .card-icon {
-        width: 70px;
-        height: 70px;
-    }
-    
-    .academico .card .card-icon svg {
-        width: 35px;
-        height: 35px;
-    }
-    
-    .academico .card .card-title {
-        font-size: 1.25rem;
-    }
-    
-    .cards-container-academic-six {
-        display: flex;
-        overflow-x: hidden;
-        scroll-behavior: smooth;
-        gap: 0;
-    }
-    
-    .academico .card.academic-carousel-slide {
-        min-width: 100%;
-        flex-shrink: 0;
-    }
-    
-    /* Enlaces de Interés */
-    .enlaces-grid-clean {
-        grid-template-columns: 1fr;
-        gap: 15px;
-        margin-top: 30px;
-    }
-    
-    .enlaces-column {
-        gap: 12px;
-    }
-    
-    .enlace-item {
-        padding: 12px 16px;
-        gap: 12px;
-    }
-    
-    .enlace-icon-small {
-        width: 20px;
-        height: 20px;
-    }
-    
-    .enlace-item span {
-        font-size: 0.95rem;
-    }
-}
-
-@media screen and (max-width: 480px) {
+/* Móvil pequeño */
+@media (max-width: 480px) {
     .ofertas .card,
     .academico .card {
-        padding: 30px 20px;
+        padding: 30px var(--spacing-md);
         min-height: 240px;
         gap: 15px;
     }
@@ -2857,7 +2228,7 @@ a[href="#medicina-veterinaria"] .card-image {
     .ofertas .card .card-title,
     .academico .card .card-title {
         font-size: 1.15rem;
-        margin-bottom: 10px;
+        margin-bottom: var(--spacing-sm);
     }
     
     .ofertas .card .card-text,
@@ -2865,221 +2236,6 @@ a[href="#medicina-veterinaria"] .card-image {
         font-size: 0.9rem;
     }
     
-    .enlace-item {
-        padding: 10px 14px;
-    }
-    
-    .enlace-item span {
-        font-size: 0.9rem;
-    }
-}
-
-/* ============================================
-   FIN DE MEJORAS
-   ============================================ */
-
-/* ============================================
-   MEJORAS ADICIONALES V2 - NOVIEMBRE 2025
-   Regla del Fondo + Hero + Diferenciación
-   ============================================ */
-
-/* ============================================
-   MEJORA A: REGLA DEL FONDO - Crear Profundidad
-   ============================================ */
-
-body {
-    background-color: #F4F6F8;
-    margin: 0;
-    padding: 0;
-}
-
-/* Asegurar que todas las tarjetas blancas resalten */
-.ofertas .card,
-.academico .card,
-.administrativos .card {
-    background: #FFFFFF;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-}
-
-.ofertas .card:hover,
-.academico .card:hover,
-.administrativos .card:hover {
-    box-shadow: 0 6px 20px rgba(53,148,68,0.12);
-}
-
-/* ============================================
-   MEJORA B: HERO MEJORADO - Overlay + Botón
-   ============================================ */
-
-.carousel-overlay {
-    background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.2) 0%,
-        rgba(0,0,0,0.4) 100%
-    ) !important;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 20px;
-}
-
-/* Botón Hero - Protagonista */
-.carousel-button,
-.btn-inscribete {
-    background: #359444 !important;
-    color: white !important;
-    padding: 18px 45px !important;
-    font-size: 1.1rem !important;
-    font-weight: 600 !important;
-    border: none !important;
-    border-radius: 50px !important;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0 4px 15px rgba(53,148,68,0.3);
-}
-
-.carousel-button:hover,
-.btn-inscribete:hover {
-    background: #2a7536 !important;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(53,148,68,0.4);
-}
-
-/* ============================================
-   MEJORA C: DIFERENCIACIÓN VISUAL
-   Académico con fondo gris suave
-   ============================================ */
-
-.academico {
-    background-color: #FAFBFC;
-    padding: 80px 0;
-}
-
-.academico .card .card-icon {
-    background: linear-gradient(135deg, #E8F4EA 0%, #D5ECD9 100%);
-    border: 3px solid #359444;
-}
-
-.academico .card .card-icon svg {
-    stroke: #359444;
-}
-
-.academico .card:hover .card-icon {
-    background: linear-gradient(135deg, #359444 0%, #2a7536 100%);
-    transform: scale(1.1);
-}
-
-.academico .card:hover .card-icon svg {
-    stroke: white;
-}
-
-/* ============================================
-   MEJORA D: ENLACES DE INTERÉS - Botones Verdes
-   ============================================ */
-
-.enlaces-interes {
-    background: white;
-    padding: 80px 0;
-}
-
-.section-title-enlaces {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #1a1a1a;
-    text-align: center;
-    margin-bottom: 15px;
-}
-
-.section-divider-enlaces {
-    width: 80px;
-    height: 4px;
-    background: #359444;
-    margin: 0 auto 50px;
-    border-radius: 2px;
-}
-
-.enlaces-grid-buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.enlace-btn-green {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 16px 24px;
-    background: #359444;
-    color: white;
-    text-decoration: none;
-    border-radius: 10px;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(53,148,68,0.2);
-}
-
-.enlace-btn-green:hover {
-    background: #2a7536;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(53,148,68,0.3);
-}
-
-.enlace-btn-icon {
-    width: 24px;
-    height: 24px;
-    flex-shrink: 0;
-    stroke: white;
-}
-
-.enlace-btn-green span {
-    line-height: 1.3;
-}
-
-/* ============================================
-   RESPONSIVE
-   ============================================ */
-
-@media screen and (max-width: 1024px) {
-    .enlaces-grid-buttons {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .carousel-button,
-    .btn-inscribete {
-        padding: 15px 35px !important;
-        font-size: 1rem !important;
-    }
-    
-    .academico {
-        background-color: #F4F6F8;
-    }
-    
-    .enlaces-grid-buttons {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-    }
-    
-    .enlace-btn-green {
-        padding: 14px 18px;
-        font-size: 0.95rem;
-    }
-}
-
-@media screen and (max-width: 480px) {
     .carousel-button,
     .btn-inscribete {
         padding: 12px 30px !important;
@@ -3087,13 +2243,12 @@ body {
     }
     
     .enlaces-grid-buttons {
-        grid-template-columns: 1fr;
         gap: 12px;
     }
     
     .enlace-btn-green {
         padding: 12px 16px;
-        gap: 10px;
+        gap: var(--spacing-sm);
     }
     
     .enlace-btn-icon {
@@ -3103,149 +2258,30 @@ body {
 }
 
 /* ============================================
-   FIN MEJORAS V2
+   OPTIMIZACIONES DE PERFORMANCE
    ============================================ */
 
-/* ============================================
-   MEJORAS FINALES V3 - NOVIEMBRE 2025
-   Bordes verdes + Correos + Carrusel infinito
-   ============================================ */
-
-/* ============================================
-   MEJORA 1: HERO - Sin degradado extra
-   ============================================ */
-
-.carousel-overlay {
-    background: transparent !important;
-}
-
-/* ============================================
-   MEJORA 2-3-6: BORDES VERDES EN TARJETAS
-   ============================================ */
-
-/* Oferta Académica */
-.ofertas .card {
-    border: 3px solid transparent;
-    transition: all 0.3s ease;
-}
-
-.ofertas .card:hover {
-    border-color: #359444;
-}
-
-/* Académico */
-.academico .card {
-    border: 3px solid transparent;
-}
-
-.academico .card:hover {
-    border-color: #359444;
-}
-
-/* Administrativos */
-.administrativos .card {
-    border: 3px solid transparent;
-}
-
-.administrativos .card:hover {
-    border-color: #359444;
-}
-
-/* ============================================
-   MEJORA 7: ENLACES DE INTERÉS - Título Verde
-   ============================================ */
-
-.section-title-enlaces {
-    color: #359444 !important;
-}
-
-/* ============================================
-   MEJORA 8: CARRUSEL - Botones menos notorios
-   ============================================ */
-
+/* Mejora de rendimiento en animaciones */
+.card,
+.enlace-btn-green,
 .carousel-prev,
 .carousel-next,
-.facultades-carousel-prev,
-.facultades-carousel-next,
-.academic-carousel-prev,
-.academic-carousel-next {
-    background: rgba(53,148,68,0.6) !important;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    border: 2px solid rgba(255,255,255,0.3);
+.carousel-dot,
+.mobile-menu-toggle {
+    will-change: auto;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
-.carousel-prev:hover,
-.carousel-next:hover,
-.facultades-carousel-prev:hover,
-.facultades-carousel-next:hover,
-.academic-carousel-prev:hover,
-.academic-carousel-next:hover {
-    background: rgba(53,148,68,0.9) !important;
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
 }
 
-/* ============================================
-   MEJORA 9: CARRUSEL INFINITO - Sin espacios
-   ============================================ */
-
-.facultades-carousel-container {
-    overflow: hidden;
-}
-
-.facultades-carousel-slide {
-    min-width: 50%;
-}
-
-/* En desktop, asegurar que no haya espacios */
-@media screen and (min-width: 769px) {
-    .facultades-carousel-container {
-        display: flex;
-        transition: transform 0.5s ease;
-    }
-}
-
-/* ============================================
-   MEJORA 10: MÓVIL - Estilo consistente
-   ============================================ */
-
-@media screen and (max-width: 768px) {
-    /* Oferta Académica */
-    .ofertas .card {
-        border: 2px solid #E8F4EA;
-    }
-    
-    .ofertas .card:hover {
-        border-color: #359444;
-    }
-    
-    /* Académico */
-    .academico .card {
-        border: 2px solid #E8F4EA;
-    }
-    
-    .academico .card:hover {
-        border-color: #359444;
-    }
-    
-    /* Administrativos */
-    .administrativos .card {
-        border: 2px solid #E8F4EA;
-    }
-    
-    .administrativos .card:hover {
-        border-color: #359444;
-    }
-    
-    /* Botones carrusel móvil más pequeños */
-    .carousel-prev,
-    .carousel-next,
-    .facultades-carousel-prev,
-    .facultades-carousel-next,
-    .academic-carousel-prev,
-    .academic-carousel-next {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
-    }
+/* Optimización de imágenes */
+img {
+    max-width: 100%;
+    height: auto;
+    image-rendering: -webkit-optimize-contrast;
 }
