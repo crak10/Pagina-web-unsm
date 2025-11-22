@@ -185,7 +185,7 @@ const UNSM = {
     },
 
     // ============================================
-    // CARRUSEL DE FACULTADES
+    // CARRUSEL DE FACULTADES CON SCROLL INFINITO
     // ============================================
     initFacultadesCarousel() {
         console.log('🎓 Inicializando carrusel de facultades...');
@@ -241,10 +241,14 @@ const UNSM = {
         const dots = document.querySelectorAll('#facultadesDots .carousel-dot');
         const isMobile = window.innerWidth <= 768;
         
+        // Normalizar el índice para loop infinito
+        let normalizedIndex = this.state.currentFacultadesSlide % this.state.totalFacultadesSlides;
+        if (normalizedIndex < 0) normalizedIndex = this.state.totalFacultadesSlides + normalizedIndex;
+        
         dots.forEach((dot, index) => {
             const isActive = isMobile ? 
-                index === this.state.currentFacultadesSlide : 
-                index === Math.floor(this.state.currentFacultadesSlide / 2);
+                index === normalizedIndex : 
+                index === Math.floor(normalizedIndex / 2);
             
             dot.classList.toggle('active', isActive);
             dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
@@ -256,14 +260,6 @@ const UNSM = {
         const step = isMobile ? 1 : 2;
         
         this.state.currentFacultadesSlide += (direction * step);
-        
-        if (this.state.currentFacultadesSlide >= this.state.totalFacultadesSlides) {
-            this.state.currentFacultadesSlide = 0;
-        } else if (this.state.currentFacultadesSlide < 0) {
-            this.state.currentFacultadesSlide = isMobile ? 
-                this.state.totalFacultadesSlides - 1 : 10;
-        }
-        
         this.updateFacultadesCarousel();
     },
 
@@ -283,40 +279,17 @@ const UNSM = {
 
         const isMobile = window.innerWidth <= 768;
         const slideWidth = isMobile ? 100 : 50;
-        const offset = -this.state.currentFacultadesSlide * slideWidth;
         
+        // Normalizar índice para loop infinito
+        if (this.state.currentFacultadesSlide >= this.state.totalFacultadesSlides) {
+            this.state.currentFacultadesSlide = 0;
+        } else if (this.state.currentFacultadesSlide < 0) {
+            this.state.currentFacultadesSlide = this.state.totalFacultadesSlides - (isMobile ? 1 : 2);
+        }
+        
+        const offset = -this.state.currentFacultadesSlide * slideWidth;
         container.style.transform = `translateX(${offset}%)`;
         this.updateFacultadesDots();
-        
-        // Manejo de loop infinito
-        this.handleFacultadesInfiniteLoop(container, slideWidth);
-    },
-
-    handleFacultadesInfiniteLoop(container, slideWidth) {
-        const totalSlides = this.state.totalFacultadesSlides;
-        
-        if (this.state.currentFacultadesSlide >= totalSlides) {
-            setTimeout(() => {
-                container.style.transition = 'none';
-                this.state.currentFacultadesSlide = 0;
-                container.style.transform = 'translateX(0%)';
-                setTimeout(() => {
-                    container.style.transition = 'transform 0.5s ease';
-                }, 50);
-            }, 500);
-        }
-        
-        if (this.state.currentFacultadesSlide < 0) {
-            setTimeout(() => {
-                container.style.transition = 'none';
-                this.state.currentFacultadesSlide = totalSlides - 1;
-                const lastOffset = -this.state.currentFacultadesSlide * slideWidth;
-                container.style.transform = `translateX(${lastOffset}%)`;
-                setTimeout(() => {
-                    container.style.transition = 'transform 0.5s ease';
-                }, 50);
-            }, 500);
-        }
     },
 
     // ============================================
