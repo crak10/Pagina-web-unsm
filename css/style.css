@@ -154,6 +154,11 @@ body {
     filter: brightness(0) invert(1);
 }
 
+.contact-info span span {
+    color: white;
+    font-weight: 400;
+}
+
 .contact-info a {
     color: white;
     text-decoration: none;
@@ -1145,73 +1150,6 @@ body {
     z-index: 10;
 }
 
-/* Imágenes de fondo para facultades */
-a[href="#ciencias-agrarias"] .card-image {
-    background-image: url('../imagenes/facultades carreras/agrarias fac.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
-a[href="#ciencias-salud"] .card-image {
-    background-image: url('../imagenes/facultades carreras/salud fac.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
-a[href="#ingenieria-agroindustrial"] .card-image {
-    background-image: url('../imagenes/facultades carreras/agroindustria fac.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
-a[href="#ingenieria-civil"] .card-image {
-    background-image: url('../imagenes/facultades carreras/ingenieria civil y arquitectura fac.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
-a[href="#ingenieria-sistemas"] .card-image {
-    background-image: url('../imagenes/facultades carreras/sistemas fac.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
-a[href="#ecologia"] .card-image {
-    background-image: url('../imagenes/facultades carreras/ecologia fac.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
-a[href="#educacion"] .card-image {
-    background-image: url('../imagenes/facultades carreras/educacion y humanidades fac.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
-a[href="#ciencias-economicas"] .card-image {
-    background-image: url('../imagenes/facultades carreras/ciencias economicas.png');
-    background-size: cover;
-    background-position: center;
-}
-
-a[href="#derecho"] .card-image {
-    background-image: url('../imagenes/facultades carreras/derecho fac.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
-a[href="#medicina-humana"] .card-image {
-    background-image: url('../imagenes/facultades carreras/medicina fac.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
-a[href="#medicina-veterinaria"] .card-image {
-    background-image: url('../imagenes/facultades carreras/veterinaria fac.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
 /* ============================================
    SECCIÓN NOTICIAS
    ============================================ */
@@ -1422,6 +1360,11 @@ footer {
     line-height: 1.6;
 }
 
+.footer-section address p span {
+    color: white;
+    font-style: normal;
+}
+
 .footer-links {
     list-style: none;
 }
@@ -1616,7 +1559,7 @@ footer {
         font-size: 13px;
     }
     
-    .contact-info a {
+    .contact-info span span {
         word-break: break-all;
     }
     
