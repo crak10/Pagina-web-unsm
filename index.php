@@ -102,11 +102,11 @@
             <div class="contact-info">
                 <span>
                     <img src="imagenes/logo telefono.png" alt="Teléfono" class="contact-icon" width="18" height="18"> 
-                    <a href="tel:+51042480159" aria-label="Llamar al teléfono central">(+51) (042) 48 0159</a>
+                    <span>(+51) (042) 48 0159</span>
                 </span>
                 <span>
                     <img src="imagenes/logo correo.png" alt="Correo" class="contact-icon" width="18" height="18"> 
-                    <a href="mailto:informes@unsm.edu.pe" aria-label="Enviar correo a informes">informes@unsm.edu.pe</a>
+                    <span>informes@unsm.edu.pe</span>
                 </span>
             </div>
         </div>
@@ -550,7 +550,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN FACULTADES CON CARRUSEL -->
+        <!-- SECCIÓN FACULTADES CON CARRUSEL INFINITO -->
         <section class="facultades section-container" aria-labelledby="facultades-title">
             <div class="content-wrapper">
                 <h2 id="facultades-title" class="section-title">Nuestras Facultades</h2>
@@ -558,203 +558,7 @@
                 
                 <div class="facultades-carousel-wrapper">
                     <div class="facultades-carousel-container" id="facultadesCarouselContainer" role="region" aria-label="Carrusel de facultades">
-                        <!-- Facultad 1: Ciencias Agrarias -->
-                        <article class="facultades-carousel-slide">
-                            <a href="#ciencias-agrarias" class="card" aria-labelledby="agrarias-title">
-                                <div class="card-image">
-                                    <div class="card-overlay-green">
-                                        <div class="card-icon-facultad">
-                                            <img src="imagenes/Escudos de Facultades — UNSM/FCA-UNSM-2021.png" alt="Escudo de la Facultad de Ciencias Agrarias" width="75" height="75">
-                                        </div>
-                                        <div class="card-content">
-                                            <h3 id="agrarias-title" class="card-title">Ciencias Agrarias</h3>
-                                            <p class="card-text">Formando profesionales en agricultura sostenible</p>
-                                            <span class="card-button">Ver más</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-
-                        <!-- Facultad 2: Ciencias de la Salud -->
-                        <article class="facultades-carousel-slide">
-                            <a href="#ciencias-salud" class="card" aria-labelledby="salud-title">
-                                <div class="card-image">
-                                    <div class="card-overlay-green">
-                                        <div class="card-icon-facultad">
-                                            <img src="imagenes/Escudos de Facultades — UNSM/FCS-UNSM-2021.png" alt="Escudo de la Facultad de Ciencias de la Salud" width="75" height="75">
-                                        </div>
-                                        <div class="card-content">
-                                            <h3 id="salud-title" class="card-title">Ciencias de la Salud</h3>
-                                            <p class="card-text">Excelencia en formación médica y enfermería</p>
-                                            <span class="card-button">Ver más</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-
-                        <!-- Facultad 3: Medicina Humana -->
-                        <article class="facultades-carousel-slide">
-                            <a href="#medicina-humana" class="card" aria-labelledby="medicina-title">
-                                <div class="card-image">
-                                    <div class="card-overlay-green">
-                                        <div class="card-icon-facultad">
-                                            <img src="imagenes/Escudos de Facultades — UNSM/FMH-UNSM-2021.png" alt="Escudo de la Facultad de Medicina Humana" width="75" height="75">
-                                        </div>
-                                        <div class="card-content">
-                                            <h3 id="medicina-title" class="card-title">Medicina Humana</h3>
-                                            <p class="card-text">Formando médicos de excelencia para la región</p>
-                                            <span class="card-button">Ver más</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-
-                        <!-- Facultad 4: Ingeniería Agroindustrial -->
-                        <article class="facultades-carousel-slide">
-                            <a href="#ingenieria-agroindustrial" class="card" aria-labelledby="agroindustrial-title">
-                                <div class="card-image">
-                                    <div class="card-overlay-green">
-                                        <div class="card-icon-facultad">
-                                            <img src="imagenes/Escudos de Facultades — UNSM/FIAI-UNSM-2021.png" alt="Escudo de la Facultad de Ingeniería Agroindustrial" width="75" height="75">
-                                        </div>
-                                        <div class="card-content">
-                                            <h3 id="agroindustrial-title" class="card-title">Ingeniería Agroindustrial</h3>
-                                            <p class="card-text">Innovación en procesamiento agroindustrial</p>
-                                            <span class="card-button">Ver más</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-
-                        <!-- Facultad 5: Ingeniería Civil y Arquitectura -->
-                        <article class="facultades-carousel-slide">
-                            <a href="#ingenieria-civil" class="card" aria-labelledby="civil-title">
-                                <div class="card-image">
-                                    <div class="card-overlay-green">
-                                        <div class="card-icon-facultad">
-                                            <img src="imagenes/Escudos de Facultades — UNSM/FICA-UNSM-2021.png" alt="Escudo de la Facultad de Ingeniería Civil y Arquitectura" width="75" height="75">
-                                        </div>
-                                        <div class="card-content">
-                                            <h3 id="civil-title" class="card-title">Ingeniería Civil y Arquitectura</h3>
-                                            <p class="card-text">Construyendo el futuro de la región</p>
-                                            <span class="card-button">Ver más</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-
-                        <!-- Facultad 6: Ingeniería de Sistemas -->
-                        <article class="facultades-carousel-slide">
-                            <a href="#ingenieria-sistemas" class="card" aria-labelledby="sistemas-title">
-                                <div class="card-image">
-                                    <div class="card-overlay-green">
-                                        <div class="card-icon-facultad">
-                                            <img src="imagenes/Escudos de Facultades — UNSM/FISI-UNSM-2021.png" alt="Escudo de la Facultad de Ingeniería de Sistemas" width="75" height="75">
-                                        </div>
-                                        <div class="card-content">
-                                            <h3 id="sistemas-title" class="card-title">Ingeniería de Sistemas</h3>
-                                            <p class="card-text">Tecnología e innovación digital</p>
-                                            <span class="card-button">Ver más</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-
-                        <!-- Facultad 7: Ecología -->
-                        <article class="facultades-carousel-slide">
-                            <a href="#ecologia" class="card" aria-labelledby="ecologia-title">
-                                <div class="card-image">
-                                    <div class="card-overlay-green">
-                                        <div class="card-icon-facultad">
-                                            <img src="imagenes/Escudos de Facultades — UNSM/FECOL-UNSM-2021.png" alt="Imagen representativa de la Facultad de Ecología" width="75" height="75">
-                                        </div>
-                                        <div class="card-content">
-                                            <h3 id="ecologia-title" class="card-title">Ecología</h3>
-                                            <p class="card-text">Preservando el medio ambiente amazónico</p>
-                                            <span class="card-button">Ver más</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-
-                        <!-- Facultad 8: Educación y Humanidades -->
-                        <article class="facultades-carousel-slide">
-                            <a href="#educacion" class="card" aria-labelledby="educacion-title">
-                                <div class="card-image">
-                                    <div class="card-overlay-green">
-                                        <div class="card-icon-facultad">
-                                            <img src="imagenes/Escudos de Facultades — UNSM/FEH-UNSM-2021.png" alt="Escudo de la Facultad de Educación y Humanidades" width="75" height="75">
-                                        </div>
-                                        <div class="card-content">
-                                            <h3 id="educacion-title" class="card-title">Educación y Humanidades</h3>
-                                            <p class="card-text">Formando los educadores del mañana</p>
-                                            <span class="card-button">Ver más</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-
-                        <!-- Facultad 9: Ciencias Económicas -->
-                        <article class="facultades-carousel-slide">
-                            <a href="#ciencias-economicas" class="card" aria-labelledby="economicas-title">
-                                <div class="card-image">
-                                    <div class="card-overlay-green">
-                                        <div class="card-icon-facultad">
-                                            <img src="imagenes/Escudos de Facultades — UNSM/FCE-UNSM-2021.png" alt="Escudo de la Facultad de Ciencias Económicas" width="75" height="75">
-                                        </div>
-                                        <div class="card-content">
-                                            <h3 id="economicas-title" class="card-title">Ciencias Económicas</h3>
-                                            <p class="card-text">Formando líderes empresariales y económicos</p>
-                                            <span class="card-button">Ver más</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-
-                        <!-- Facultad 10: Derecho y Ciencias Políticas -->
-                        <article class="facultades-carousel-slide">
-                            <a href="#derecho" class="card" aria-labelledby="derecho-title">
-                                <div class="card-image">
-                                    <div class="card-overlay-green">
-                                        <div class="card-icon-facultad">
-                                            <img src="imagenes/Escudos de Facultades — UNSM/FDCP-UNSM-2021.png" alt="Escudo de la Facultad de Derecho y Ciencias Políticas" width="75" height="75">
-                                        </div>
-                                        <div class="card-content">
-                                            <h3 id="derecho-title" class="card-title">Derecho y Ciencias Políticas</h3>
-                                            <p class="card-text">Justicia y derecho para el desarrollo social</p>
-                                            <span class="card-button">Ver más</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-
-                        <!-- Facultad 11: Medicina Veterinaria -->
-                        <article class="facultades-carousel-slide">
-                            <a href="#medicina-veterinaria" class="card" aria-labelledby="veterinaria-title">
-                                <div class="card-image">
-                                    <div class="card-overlay-green">
-                                        <div class="card-icon-facultad">
-                                            <img src="imagenes/Escudos de Facultades — UNSM/MV - UNSM  2021.png" alt="Escudo de la Facultad de Medicina Veterinaria" width="75" height="75">
-                                        </div>
-                                        <div class="card-content">
-                                            <h3 id="veterinaria-title" class="card-title">Medicina Veterinaria</h3>
-                                            <p class="card-text">Cuidado integral de la salud animal</p>
-                                            <span class="card-button">Ver más</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
+                        <!-- Los slides se generarán dinámicamente por JavaScript para incluir clones -->
                     </div>
                     
                     <button class="carousel-prev facultades-prev" onclick="moveFacultadesSlide(-1)" aria-label="Facultades anteriores">
@@ -1080,8 +884,8 @@
                 <address>
                     <p>Jr. Maynas N° 177 - Morales</p>
                     <p>Tarapoto - San Martín - Perú</p>
-                    <p>Central Telefónica: <a href="tel:+51042480159">(+51) (042) 48 0159</a></p>
-                    <p>Email: <a href="mailto:informes@unsm.edu.pe">informes@unsm.edu.pe</a></p>
+                    <p>Central Telefónica: <span>(+51) (042) 48 0159</span></p>
+                    <p>Email: <span>informes@unsm.edu.pe</span></p>
                 </address>
             </section>
             
