@@ -732,35 +732,117 @@ body {
 }
 
 /* ============================================
+   SECCIÓN DESTACADOS
+   ============================================ */
+
+.destacados-section {
+    padding: 0;
+    margin: 0;
+    background: var(--color-bg-grey);
+}
+
+.destacados-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    max-width: 100%;
+}
+
+.destacado-card {
+    position: relative;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    background-color: #2F863C;
+}
+
+.destacado-card img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+    z-index: 0;
+}
+
+.destacado-card:hover img {
+    transform: scale(1.1);
+}
+
+.destacado-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(47, 134, 60, 0.88), rgba(53, 148, 68, 0.92));
+    transition: all 0.4s ease;
+    z-index: 1;
+}
+
+.destacado-card:hover .destacado-overlay {
+    background: linear-gradient(135deg, rgba(47, 134, 60, 0.75), rgba(53, 148, 68, 0.82));
+}
+
+.destacado-card h3 {
+    position: relative;
+    z-index: 2;
+    color: white;
+    font-size: 24px;
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 0 var(--spacing-lg);
+    margin: 0;
+    line-height: 1.4;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.destacado-card:hover h3 {
+    transform: scale(1.08);
+    text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.6);
+}
+
+/* ============================================
    SECCIONES GENERALES
    ============================================ */
 
 .section-container {
-    padding: var(--spacing-xl) 0;
+    padding: 70px 0;
 }
 
 .content-wrapper {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 var(--spacing-md);
+    padding: 0 30px;
 }
 
 .section-title {
     text-align: center;
-    font-size: 36px;
+    font-size: 38px;
     color: var(--color-primary);
-    margin-bottom: var(--spacing-sm);
-    font-weight: 700;
+    margin-bottom: 15px;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
 }
 
 .section-divider {
-    width: 80px;
-    height: 4px;
-    background: var(--color-primary);
-    margin: 0 auto var(--spacing-lg);
-    border-radius: 2px;
+    width: 90px;
+    height: 5px;
+    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    margin: 0 auto 50px;
+    border-radius: 3px;
+    box-shadow: 0 2px 8px rgba(47, 134, 60, 0.3);
 }
 
 /* ============================================
@@ -770,9 +852,10 @@ body {
 .cards-container-three {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+    gap: 35px;
     margin: 0 auto;
     align-items: stretch;
+    padding: 0 20px;
 }
 
 .cards-container-two {
@@ -797,22 +880,26 @@ body {
 
 .card {
     background: white;
-    border-radius: 12px;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    transition: all var(--transition-speed);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
     text-decoration: none;
     color: inherit;
     display: flex;
     flex-direction: column;
     height: 100%;
-    border: 3px solid transparent;
+    border: 1px solid rgba(53, 148, 68, 0.1);
+}
+
+.card a {
+    text-decoration: none;
 }
 
 .card:hover,
 .card:focus {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(53, 148, 68, 0.12);
     border-color: var(--color-primary);
 }
 
@@ -831,49 +918,90 @@ body {
    ============================================ */
 
 .ofertas {
-    background: var(--color-bg-grey);
+    background: #f5f7fa;
+    padding: var(--spacing-xl) 0;
 }
 
 .ofertas .card {
     background: white;
-    padding: 40px 30px;
+    padding: 45px 35px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: var(--spacing-md);
-    min-height: 280px;
+    min-height: 320px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(53, 148, 68, 0.1);
+}
+
+.ofertas .card > a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+}
+
+.ofertas .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 45px rgba(53, 148, 68, 0.15);
+    border-color: var(--color-primary);
 }
 
 .ofertas .card .card-icon {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, #2F863C 0%, #359444 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto var(--spacing-md);
+    margin: 0 auto 20px;
+    box-shadow: 0 6px 20px rgba(47, 134, 60, 0.25);
+    transition: all 0.3s ease;
+}
+
+.ofertas .card:hover .card-icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 10px 30px rgba(47, 134, 60, 0.35);
 }
 
 .ofertas .card .card-icon svg {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     stroke: white;
+    stroke-width: 2.5;
 }
 
 .ofertas .card .card-title {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: var(--color-text-dark);
-    margin: 0 0 15px 0;
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 0 0 16px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+    text-decoration: none;
 }
 
 .ofertas .card .card-text {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: var(--color-text-light);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #666;
     margin: 0;
+    text-decoration: none;
+}
+
+.ofertas .card a {
+    text-decoration: none;
+}
+
+.ofertas .card a:hover .card-title {
+    color: var(--color-primary-dark);
 }
 
 /* ============================================
@@ -887,13 +1015,43 @@ body {
 
 .academico .card {
     background: white;
-    padding: 40px 30px;
+    padding: 0;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--spacing-md);
+    gap: 0;
     min-height: 280px;
+    overflow: hidden;
+}
+
+.academico .card .card-image {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.academico .card .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform var(--transition-speed);
+}
+
+.academico .card:hover .card-image img {
+    transform: scale(1.1);
+}
+
+.academico .card a {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 30px 30px 40px;
+    text-decoration: none;
+    color: inherit;
 }
 
 .academico .card .card-icon {
@@ -926,9 +1084,11 @@ body {
 
 .academico .card .card-title {
     font-size: 1.4rem;
-    font-weight: 600;
-    color: var(--color-text-dark);
+    font-weight: 700;
+    color: var(--color-primary);
     margin: 0 0 15px 0;
+    text-decoration: none;
+    text-transform: uppercase;
 }
 
 .academico .card .card-text {
@@ -936,6 +1096,7 @@ body {
     line-height: 1.6;
     color: var(--color-text-light);
     margin: 0;
+    text-decoration: none;
 }
 
 .cards-container-academic-six {
@@ -1167,6 +1328,13 @@ body {
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
+.noticias .card a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
 .noticias .card-content {
     padding: 25px var(--spacing-md);
     text-align: left;
@@ -1177,13 +1345,16 @@ body {
 }
 
 .noticias .card-title {
-    color: var(--color-text);
+    color: var(--color-primary);
     margin-bottom: var(--spacing-sm);
+    text-decoration: none;
+    font-weight: 700;
 }
 
 .noticias .card-text {
     color: var(--color-text-light);
     flex-grow: 1;
+    text-decoration: none;
 }
 
 .noticias .card-button {
@@ -1234,6 +1405,15 @@ body {
     text-align: center;
 }
 
+.administrativos .card a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
 .administrativos .card-icon {
     width: 70px;
     height: 70px;
@@ -1252,12 +1432,14 @@ body {
     font-weight: 700;
     margin-bottom: 15px;
     text-transform: uppercase;
+    text-decoration: none;
 }
 
 .administrativos .card-text {
     color: #555;
     font-size: 15px;
     line-height: 1.7;
+    text-decoration: none;
 }
 
 /* ============================================
@@ -1343,7 +1525,7 @@ footer {
     margin: 0 auto;
     padding: 0 var(--spacing-md);
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 50px;
     margin-bottom: var(--spacing-lg);
 }
@@ -1384,6 +1566,15 @@ footer {
 .footer-links a:focus {
     color: rgba(255, 255, 255, 0.8);
     text-decoration: underline;
+}
+
+.footer-facebook .fb-page,
+.footer-facebook iframe {
+    width: 100% !important;
+}
+
+.footer-facebook iframe {
+    border-radius: 10px;
 }
 
 .footer-social {
@@ -1499,8 +1690,24 @@ footer {
    ============================================ */
 
 @media (min-width: 769px) and (max-width: 1024px) {
+    /* Sección destacados en tablet */
+    .destacados-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .destacado-card {
+        height: 280px;
+    }
+    
+    .destacado-card h3 {
+        font-size: 22px;
+        letter-spacing: 1.4px;
+        line-height: 1.4;
+    }
+    
     .cards-container-three {
         grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
     }
     
     .cards-container-academic-six {
@@ -1820,33 +2027,57 @@ footer {
         width: 35px;
     }
     
+    /* Sección destacados responsive */
+    .destacados-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .destacado-card {
+        height: 260px;
+    }
+    
+    .destacado-card h3 {
+        font-size: 21px;
+        letter-spacing: 1.3px;
+        padding: 0 var(--spacing-lg);
+        line-height: 1.5;
+    }
+    
     /* Tarjetas en 1 columna */
     .cards-container-three,
     .cards-container-two,
     .cards-container {
         grid-template-columns: 1fr;
-        gap: var(--spacing-md);
-        padding: 0 15px;
+        gap: 25px;
+        padding: 0 20px;
     }
     
     /* Oferta Académica móvil */
     .ofertas .card {
-        padding: 35px 25px;
-        min-height: 260px;
+        padding: 40px 30px;
+        min-height: 280px;
+        border-radius: 14px;
     }
     
     .ofertas .card .card-icon {
-        width: 70px;
-        height: 70px;
+        width: 80px;
+        height: 80px;
+        margin-bottom: 18px;
     }
     
     .ofertas .card .card-icon svg {
-        width: 35px;
-        height: 35px;
+        width: 38px;
+        height: 38px;
     }
     
     .ofertas .card .card-title {
-        font-size: 1.25rem;
+        font-size: 1.3rem;
+        margin-bottom: 14px;
+    }
+    
+    .ofertas .card .card-text {
+        font-size: 0.95rem;
+        line-height: 1.6;
     }
     
     /* Académico móvil */
@@ -2150,9 +2381,17 @@ footer {
 @media (max-width: 480px) {
     .ofertas .card,
     .academico .card {
-        padding: 30px var(--spacing-md);
+        padding: 0;
         min-height: 240px;
-        gap: 15px;
+        gap: 0;
+    }
+    
+    .academico .card a {
+        padding: 20px var(--spacing-md) 30px;
+    }
+    
+    .academico .card .card-image {
+        height: 150px;
     }
     
     .ofertas .card .card-icon,
