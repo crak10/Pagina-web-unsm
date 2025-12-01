@@ -1,0 +1,798 @@
+/* ============================================
+   VARIABLES Y RESET
+   ============================================ */
+
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colores */
+    --color-primary: #359444;
+    --color-primary-dark: #2a7a35;
+    --color-primary-light: #4caf50;
+    --color-white: #ffffff;
+    --color-text: #333333;
+    --color-text-light: #666666;
+    --color-bg-light: #f8f9fa;
+    --color-border: #e0e0e0;
+    
+    /* Espaciados */
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --spacing-lg: 40px;
+    --spacing-xl: 60px;
+    
+    /* Transiciones */
+    --transition: 0.3s ease;
+    
+    /* Sombras */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: var(--color-text);
+    line-height: 1.6;
+    background-color: var(--color-white);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* ============================================
+   HEADER SUPERIOR
+   ============================================ */
+
+.top-header {
+    background-color: var(--color-primary-dark);
+    padding: 8px 0;
+}
+
+.top-header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Redes Sociales */
+.social-media {
+    display: flex;
+    gap: 8px;
+}
+
+.social-media a {
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition);
+    padding: 8px;
+}
+
+.social-media a:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.social-media a img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Contacto en Header */
+.header-contact {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-white);
+    font-size: 14px;
+}
+
+.contact-icon {
+    width: 18px;
+    height: 18px;
+    filter: brightness(0) invert(1);
+}
+
+.contact-item span {
+    color: var(--color-white);
+    font-weight: 400;
+}
+
+/* ============================================
+   HEADER PRINCIPAL
+   ============================================ */
+
+.main-header {
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 80px;
+}
+
+/* Logo */
+.logo {
+    flex-shrink: 0;
+}
+
+.logo img {
+    height: 70px;
+    width: auto;
+}
+
+/* Navegación */
+.main-nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.nav-menu li a {
+    color: var(--color-text);
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    display: block;
+    transition: color var(--transition);
+    letter-spacing: 0.5px;
+}
+
+.nav-menu li a:hover {
+    color: var(--color-primary);
+}
+
+/* Logos Institucionales */
+.institutional-logos {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.logo-transparencia {
+    height: 32px;
+}
+
+.logo-gob {
+    height: 30px;
+}
+
+/* Botón menú móvil */
+.mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.mobile-menu-btn span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-primary);
+    border-radius: 2px;
+    transition: all var(--transition);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.hero {
+    background: linear-gradient(rgba(45, 122, 62, 0.8), rgba(31, 90, 45, 0.9)), 
+                url('../imagenes/frotis unsm.jpg') center/cover no-repeat;
+    padding: 120px var(--spacing-md);
+    text-align: center;
+    color: var(--color-white);
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content p {
+    font-size: 22px;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    padding: 15px 40px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   SECCIONES DE CONTENIDO
+   ============================================ */
+
+.content-section {
+    padding: 60px var(--spacing-md);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.main-footer {
+    background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+    color: var(--color-white);
+    padding: 60px 0 0;
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md) 40px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+}
+
+/* Columna Información */
+.footer-info .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.footer-info .footer-logo img {
+    width: 60px;
+    height: auto;
+}
+
+.footer-info .footer-logo h3 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.footer-description {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    text-align: justify;
+}
+
+.footer-address p {
+    font-size: 14px;
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.footer-address strong {
+    font-weight: 600;
+}
+
+/* Columnas de Enlaces */
+.footer-column h4 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: var(--color-white);
+    font-size: 14px;
+    transition: all var(--transition);
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: rgba(255, 255, 255, 0.8);
+    transform: translateX(5px);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 20px 0;
+}
+
+.footer-bottom-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.copyright {
+    font-size: 14px;
+}
+
+.footer-social {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.social-title {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.footer-social .social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-social .social-icons a {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition);
+    padding: 8px;
+}
+
+.footer-social .social-icons a:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.footer-social .social-icons a img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+/* ============================================
+   RESPONSIVE - TABLET
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+    
+    .footer-info {
+        grid-column: 1 / -1;
+    }
+}
+
+/* ============================================
+   RESPONSIVE - MÓVIL
+   ============================================ */
+
+@media (max-width: 768px) {
+    /* Header Superior */
+    .top-header-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .social-media {
+        justify-content: center;
+    }
+    
+    .header-contact {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    /* Header Principal */
+    .main-header-container {
+        flex-wrap: wrap;
+    }
+    
+    .mobile-menu-btn {
+        display: flex;
+    }
+    
+    .main-nav {
+        display: none;
+        width: 100%;
+        order: 3;
+    }
+    
+    .main-nav.active {
+        display: block;
+    }
+    
+    .nav-menu {
+        flex-direction: column;
+        gap: 0;
+        padding: 20px 0;
+    }
+    
+    .nav-menu li {
+        width: 100%;
+        border-bottom: 1px solid var(--color-border);
+    }
+    
+    .nav-menu li a {
+        padding: 15px;
+    }
+    
+    .institutional-logos {
+        order: 2;
+    }
+    
+    /* Hero */
+    .hero {
+        padding: 80px var(--spacing-md);
+    }
+    
+    .hero-content h1 {
+        font-size: 32px;
+    }
+    
+    .hero-content p {
+        font-size: 18px;
+    }
+    
+    /* Footer */
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .footer-bottom-container {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .footer-social {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+/* ============================================
+   ANIMACIONES Y UTILIDADES
+   ============================================ */
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Selección de texto */
+::selection {
+    background-color: var(--color-primary-light);
+    color: var(--color-white);
+}
+
+::-moz-selection {
+    background-color: var(--color-primary-light);
+    color: var(--color-white);
+}
+
+/* ============================================
+   SECCIÓN AUTORIDADES UNIVERSITARIAS
+   ============================================ */
+
+.authorities-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background-color: var(--color-bg-light);
+}
+
+.section-banner {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    text-align: center;
+    padding: 25px var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.section-banner h2 {
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.authorities-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+    padding: 0 var(--spacing-md);
+}
+
+.authority-card {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition), box-shadow var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.authority-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.authority-image {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #f0f0f0 0%, #ffffff 100%);
+    position: relative;
+}
+
+.authority-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.authority-info {
+    padding: var(--spacing-md);
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.authority-info h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.authority-title {
+    font-size: 16px;
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.btn-resolucion {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: auto;
+}
+
+.btn-resolucion:hover {
+    background-color: var(--color-primary-dark);
+    transform: scale(1.05);
+}
+
+/* ============================================
+   SECCIÓN DECANOS
+   ============================================ */
+
+.deans-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background-color: var(--color-white);
+}
+
+.deans-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+    padding: 0 var(--spacing-md);
+}
+
+.dean-card {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition), box-shadow var(--transition);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-border);
+}
+
+.dean-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.dean-image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #f0f0f0 0%, #ffffff 100%);
+    position: relative;
+}
+
+.dean-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.dean-info {
+    padding: var(--spacing-md);
+    text-align: center;
+}
+
+.dean-info h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.dean-title {
+    font-size: 14px;
+    color: var(--color-primary);
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+/* ============================================
+   RESPONSIVE - AUTORIDADES Y DECANOS
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .authorities-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+    
+    .deans-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+    
+    .authority-image {
+        height: 350px;
+    }
+    
+    .dean-image {
+        height: 280px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-banner h2 {
+        font-size: 24px;
+        padding: 20px var(--spacing-md);
+    }
+    
+    .authorities-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .deans-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .authority-image {
+        height: 320px;
+    }
+    
+    .dean-image {
+        height: 250px;
+    }
+    
+    .authority-info h3 {
+        font-size: 16px;
+    }
+    
+    .dean-info h3 {
+        font-size: 15px;
+    }
+}
