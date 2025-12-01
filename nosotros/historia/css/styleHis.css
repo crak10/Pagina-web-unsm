@@ -1,0 +1,259 @@
+/* ============================================
+   VARIABLES Y RESET
+   ============================================ */
+
+:root {
+    /* Colores */
+    --color-primary: #359444;
+    --color-primary-dark: #2a7a35;
+    --color-primary-light: #4caf50;
+    --color-white: #ffffff;
+    --color-text: #333333;
+    --color-text-light: #666666;
+    --color-bg-light: #f8f9fa;
+    --color-border: #e0e0e0;
+    
+    /* Espaciados */
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --spacing-lg: 40px;
+    --spacing-xl: 60px;
+    
+    /* Transiciones */
+    --transition: 0.3s ease;
+    
+    /* Sombras */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: var(--color-text);
+    line-height: 1.6;
+    background-color: var(--color-white);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* ============================================
+   HEADER SUPERIOR
+   ============================================ */
+/* Nota: Los estilos del header superior están definidos 
+   en ../css/style.css para mantener consistencia. */
+
+/* ============================================
+   HEADER PRINCIPAL
+   ============================================ */
+/* Nota: Los estilos del header principal y menú móvil 
+   están definidos en ../css/style.css para mantener consistencia.
+   Este archivo solo contiene estilos específicos para la página de historia. */
+
+/* Asegurar que el menú tenga el peso de fuente correcto (menos negrita) */
+.nav-menu a {
+    font-weight: 400 !important;
+}
+
+@media (max-width: 768px) {
+    .nav-menu a {
+        font-weight: 500 !important;
+    }
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.hero {
+    background-color: var(--color-primary-light);
+    color: var(--color-white);
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-md);
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* ============================================
+   SECCIÓN DE HISTORIA
+   ============================================ */
+
+.content-section {
+    padding: var(--spacing-lg) var(--spacing-md);
+    background-color: var(--color-bg-light);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.container h2 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
+}
+
+.container p {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-light);
+}
+
+.container img {
+    margin: var(--spacing-md) 0;
+    box-shadow: var(--shadow-md);
+}
+
+/* Estilos específicos para la página de historia */
+.historia-hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+}
+
+.historia-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+}
+
+.historia-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.historia-text {
+    text-align: justify;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text);
+}
+
+.historia-text p {
+    text-align: justify;
+    margin-bottom: var(--spacing-md);
+    text-indent: 2em;
+}
+
+.historia-text p:first-of-type {
+    text-indent: 0;
+}
+
+.historia-text strong {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.historia-firma {
+    text-align: right;
+    font-style: italic;
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-md);
+    border-top: 2px solid var(--color-border);
+    text-indent: 0 !important;
+}
+
+.historia-image {
+    margin-top: var(--spacing-lg);
+    text-align: center;
+}
+
+.historia-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--shadow-lg);
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+    .historia-content {
+        grid-template-columns: 2fr 1fr;
+    }
+    
+    .historia-image {
+        margin-top: 0;
+    }
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.main-footer {
+    background-color: var(--color-primary-dark);
+    color: var(--color-white);
+    padding: var(--spacing-lg) var(--spacing-md);
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing-lg);
+}
+
+.footer-column h4 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-links li {
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-links a {
+    color: var(--color-white);
+    transition: color var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--color-primary-light);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+}
+
+.footer-bottom-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.copyright {
+    font-size: 0.875rem;
+}
+
+.footer-social a {
+    margin: 0 var(--spacing-xs);
+    transition: transform var(--transition);
+}
+
+.footer-social a:hover {
+    transform: scale(1.1);
+}

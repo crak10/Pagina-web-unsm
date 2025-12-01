@@ -1,0 +1,445 @@
+/* ============================================
+   SECCIÓN AUTORIDADES UNIVERSITARIAS
+   ============================================ */
+
+.authorities-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background-color: var(--color-bg-grey);
+}
+
+.section-banner {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    text-align: center;
+    padding: 25px var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.section-banner h2 {
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.authorities-container-wrapper {
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.authorities-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--spacing-lg);
+}
+
+/* Destacar el rector y alinear todo en una misma fila */
+.authority-card-rector {
+    grid-column: 2; /* Centrar el rector en la columna del medio */
+    grid-row: 1;
+    z-index: 1;
+}
+
+.authorities-container .authority-card:not(.authority-card-rector):nth-child(2) {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.authorities-container .authority-card:not(.authority-card-rector):nth-child(3) {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+@media (min-width: 769px) {
+    .authority-card-rector {
+        transform: scale(1.05);
+    }
+}
+
+/* Ocultar clones en desktop */
+@media (min-width: 769px) {
+    .authorities-container .clone-slide {
+        display: none !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .authority-card-rector:hover {
+        transform: scale(1.08) translateY(-5px);
+    }
+}
+
+@media (max-width: 768px) {
+    .authority-card-rector:hover {
+        transform: translateY(-5px);
+    }
+}
+
+/* Carrusel para móvil */
+.authorities-carousel-wrapper {
+    position: relative;
+    display: none;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.authorities-carousel {
+    display: flex;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.authorities-carousel .carousel-slide {
+    min-width: 100%;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+}
+
+/* Controles del carrusel */
+.authorities-carousel-prev,
+.authorities-carousel-next {
+    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.authorities-carousel-prev {
+    left: 10px;
+}
+
+.authorities-carousel-next {
+    right: 10px;
+}
+
+.authorities-carousel-prev:hover,
+.authorities-carousel-next:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Indicadores del carrusel */
+.authorities-carousel-indicators {
+    display: none;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.authorities-carousel-indicators button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(53, 148, 68, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.authorities-carousel-indicators button.active {
+    background: var(--color-primary);
+    transform: scale(1.2);
+}
+
+.authority-card {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition), box-shadow var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.authority-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.authority-image {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #f0f0f0 0%, #ffffff 100%);
+    position: relative;
+}
+
+.authority-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.authority-info {
+    padding: var(--spacing-md);
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.authority-info h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.authority-title {
+    font-size: 16px;
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.btn-resolucion {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: auto;
+}
+
+.btn-resolucion:hover {
+    background-color: var(--color-primary-dark);
+    transform: scale(1.05);
+}
+
+/* ============================================
+   SECCIÓN DECANOS
+   ============================================ */
+
+.deans-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background-color: var(--color-bg-grey);
+}
+
+.deans-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+    padding: 0 var(--spacing-md);
+}
+
+.dean-card {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition), box-shadow var(--transition);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-border);
+}
+
+.dean-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.dean-image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #f0f0f0 0%, #ffffff 100%);
+    position: relative;
+}
+
+.dean-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.dean-info {
+    padding: var(--spacing-md);
+    text-align: center;
+}
+
+.dean-info h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.dean-title {
+    font-size: 14px;
+    color: var(--color-primary);
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+/* ============================================
+   RESPONSIVE - AUTORIDADES Y DECANOS
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .authorities-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-md);
+    }
+    
+    .deans-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+    
+    .authority-image {
+        height: 350px;
+    }
+    
+    .dean-image {
+        height: 280px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-banner h2 {
+        font-size: 24px;
+        padding: 20px var(--spacing-md);
+    }
+    
+    /* Mantener todas las tarjetas en la misma línea */
+    .authorities-section {
+        position: relative;
+    }
+    
+    .authorities-container-wrapper {
+        position: relative;
+        padding: 0;
+    }
+    
+    .authorities-container {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: var(--spacing-sm) !important;
+        padding: var(--spacing-md) !important;
+        overflow: visible !important;
+    }
+    
+    .authorities-container .authority-card {
+        width: 100% !important;
+        min-width: auto !important;
+        max-width: 100% !important;
+        flex-shrink: 1 !important;
+        order: 0 !important;
+        grid-column: auto !important;
+    }
+    
+    /* Ocultar clones en móvil */
+    .authorities-container .clone-slide {
+        display: none !important;
+    }
+    
+    /* Ocultar controles del carrusel */
+    .authorities-carousel-prev,
+    .authorities-carousel-next {
+        display: none !important;
+    }
+    
+    /* Ocultar indicadores del carrusel */
+    .authorities-carousel-indicators {
+        display: none !important;
+    }
+    
+    .authority-card-rector {
+        transform: none;
+    }
+    
+    .authority-card-rector:hover {
+        transform: translateY(-5px);
+    }
+    
+    .deans-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .authority-image {
+        height: 280px;
+    }
+    
+    .authority-info h3 {
+        font-size: 14px;
+    }
+    
+    .authority-title {
+        font-size: 13px;
+    }
+    
+    .btn-resolucion {
+        padding: 10px 20px;
+        font-size: 12px;
+    }
+    
+    .dean-image {
+        height: 250px;
+    }
+    
+    .dean-info h3 {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .authorities-container {
+        gap: var(--spacing-xs) !important;
+        padding: var(--spacing-sm) !important;
+    }
+    
+    .authority-image {
+        height: 240px;
+    }
+    
+    .authority-info {
+        padding: var(--spacing-sm);
+    }
+    
+    .authority-info h3 {
+        font-size: 12px;
+    }
+    
+    .authority-title {
+        font-size: 11px;
+    }
+    
+    .btn-resolucion {
+        padding: 8px 16px;
+        font-size: 11px;
+    }
+}

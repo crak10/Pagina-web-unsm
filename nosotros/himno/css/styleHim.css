@@ -1,0 +1,229 @@
+/* ============================================
+   ESTILOS PARA LA PÁGINA DEL HIMNO
+   ============================================ */
+
+/* Banner Verde Institucional */
+.himno-banner {
+    background-color: #359444;
+    padding: 30px 20px;
+    margin-bottom: 0;
+}
+
+.himno-banner-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.himno-banner-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+}
+
+.himno-banner-left h1 {
+    color: #ffffff;
+    font-size: 48px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.himno-banner-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.line-thick {
+    width: 80px;
+    height: 4px;
+    background-color: #cccccc;
+    border-radius: 2px;
+}
+
+.line-thin {
+    width: 200px;
+    height: 2px;
+    background-color: #cccccc;
+    border-radius: 1px;
+}
+
+.himno-banner-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff;
+}
+
+.himno-icon {
+    font-size: 28px;
+    color: #ffffff;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.himno-banner-right p {
+    color: #ffffff;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Sección del Himno */
+.himno-section {
+    background-color: #ffffff;
+    padding: 60px 20px;
+    min-height: 60vh;
+}
+
+.himno-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.himno-escudo {
+    margin: 0 auto 40px;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.himno-escudo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.himno-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #2a7a35;
+    margin-bottom: 50px;
+    text-align: center;
+    font-style: italic;
+}
+
+.himno-content {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.himno-stanza {
+    margin-bottom: 40px;
+}
+
+.himno-stanza p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333333;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.himno-coro {
+    margin: 50px 0;
+    padding: 30px 0;
+    border-top: 2px solid #e0e0e0;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.coro-label {
+    font-size: 20px;
+    font-weight: 700;
+    color: #359444;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.himno-coro p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333333;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.himno-coro p:not(.coro-label) {
+    font-weight: 500;
+}
+
+.himno-credits {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.himno-credits p {
+    font-size: 16px;
+    color: #666666;
+    text-align: center;
+    font-style: italic;
+}
+
+.himno-credits strong {
+    color: #359444;
+    font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .himno-banner-left h1 {
+        font-size: 36px;
+    }
+    
+    .himno-banner-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .himno-banner-lines {
+        display: none;
+    }
+    
+    .himno-escudo {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .himno-title {
+        font-size: 24px;
+    }
+    
+    .himno-stanza p,
+    .himno-coro p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .himno-banner-left h1 {
+        font-size: 28px;
+    }
+    
+    .himno-escudo {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .himno-title {
+        font-size: 20px;
+    }
+    
+    .himno-stanza p,
+    .himno-coro p {
+        font-size: 14px;
+    }
+}
+

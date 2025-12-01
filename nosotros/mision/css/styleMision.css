@@ -1,0 +1,300 @@
+/* ============================================
+   SECCIÓN MISIÓN Y VISIÓN
+   ============================================ */
+
+:root {
+    --mission-gradient: linear-gradient(135deg, #2F863C 0%, #349c44 55%, #3fcf57 100%);
+}
+
+.mission-hero {
+    background: var(--mission-gradient);
+    color: var(--color-white);
+    padding: var(--spacing-xl) var(--spacing-md);
+    text-align: center;
+}
+
+.mission-hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.mission-hero-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 600;
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: var(--spacing-sm);
+}
+
+.mission-hero h1 {
+    font-size: 44px;
+    margin-bottom: var(--spacing-md);
+}
+
+.mission-hero p {
+    font-size: 18px;
+    line-height: 1.8;
+    opacity: 0.95;
+}
+
+.mission-vision-section {
+    background-color: var(--color-white);
+    margin: var(--spacing-xl) auto;
+    padding: var(--spacing-xl) var(--spacing-md);
+    max-width: 1180px;
+    border-radius: 24px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.05);
+}
+
+.section-header {
+    text-align: left;
+    margin-bottom: var(--spacing-xl);
+    border-left: 6px solid var(--color-primary);
+    padding-left: var(--spacing-md);
+}
+
+.section-subtitle {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 13px;
+}
+
+.section-header h2 {
+    font-size: 36px;
+    margin: var(--spacing-sm) 0;
+}
+
+.section-header p {
+    max-width: 640px;
+    color: var(--color-text-light);
+}
+
+.mission-vision-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.mission-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 170px;
+    gap: var(--spacing-md);
+    align-items: center;
+}
+
+.mission-card {
+    background: var(--color-bg-grey);
+    border-radius: 18px;
+    padding: var(--spacing-lg);
+    border: 1px solid rgba(53, 148, 68, 0.15);
+    position: relative;
+    transition: all var(--transition-speed);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+}
+
+.mission-card::after {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border-radius: 12px;
+    border: 2px dashed transparent;
+    transition: border-color var(--transition-speed);
+}
+
+.mission-card.is-active {
+    background: var(--color-white);
+    transform: translateY(-5px);
+    border-color: rgba(53, 148, 68, 0.4);
+}
+
+.mission-card.is-active::after {
+    border-color: rgba(53, 148, 68, 0.35);
+}
+
+.mission-card-header {
+    margin-bottom: var(--spacing-sm);
+}
+
+.mission-pill-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.mission-pill-label::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    display: inline-block;
+}
+
+.mission-card h3 {
+    font-size: 24px;
+    margin-top: var(--spacing-xs);
+    color: var(--color-text-dark);
+}
+
+.mission-card p {
+    color: var(--color-text);
+    font-size: 18px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.mission-row-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mission-badge {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: none;
+    background: var(--color-primary);
+    color: var(--color-white);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 15px 25px rgba(53, 148, 68, 0.35);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed), background var(--transition-speed);
+}
+
+.mission-badge.is-active,
+.mission-badge:hover {
+    transform: scale(1.05);
+    background: #1d7f3f;
+    box-shadow: 0 20px 35px rgba(29, 127, 63, 0.45);
+}
+
+.mission-actions {
+    margin: 0 auto var(--spacing-xl);
+    padding: 0 var(--spacing-md);
+    max-width: 1180px;
+}
+
+.mission-actions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-md);
+}
+
+.mission-action-card {
+    background: linear-gradient(120deg, #033d1c 0%, #006d33 100%);
+    color: var(--color-white);
+    padding: var(--spacing-lg);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    text-decoration: none;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.mission-action-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 25px 40px rgba(0, 0, 0, 0.25);
+}
+
+.mission-action-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mission-action-card p {
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+.mission-action-card strong {
+    font-size: 22px;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 992px) {
+    .mission-row {
+        grid-template-columns: 1fr;
+    }
+
+    .mission-row-badge {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 768px) {
+    .mission-hero h1 {
+        font-size: 32px;
+    }
+
+    .mission-hero p {
+        font-size: 16px;
+    }
+
+    .mission-vision-section {
+        padding: var(--spacing-lg);
+    }
+
+    .mission-badge {
+        width: 130px;
+        height: 130px;
+    }
+
+    .mission-card h3 {
+        font-size: 20px;
+    }
+
+    .mission-card p {
+        font-size: 16px;
+    }
+
+    .mission-actions-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .mission-hero {
+        padding: var(--spacing-lg) var(--spacing-sm);
+    }
+
+    .mission-vision-section {
+        padding: var(--spacing-md);
+        margin: var(--spacing-lg) auto;
+    }
+
+    .mission-row {
+        gap: var(--spacing-sm);
+    }
+
+    .mission-badge {
+        width: 110px;
+        height: 110px;
+        font-size: 12px;
+        letter-spacing: 0.5px;
+    }
+}
+
