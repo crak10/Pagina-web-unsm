@@ -1,3 +1,24 @@
+<?php
+/**
+ * Cargar WordPress
+ * Integración de WordPress en la página principal
+ */
+$wp_load_path = __DIR__ . DIRECTORY_SEPARATOR . 'wordpress' . DIRECTORY_SEPARATOR . 'wp-load.php';
+$wp_config_path = __DIR__ . DIRECTORY_SEPARATOR . 'wordpress' . DIRECTORY_SEPARATOR . 'wp-config.php';
+
+// Verificar si WordPress está instalado y configurado antes de cargar
+// Solo verificamos wp-load.php y wp-config.php, WordPress verificará los demás archivos internamente
+if (file_exists($wp_load_path) && file_exists($wp_config_path)) {
+    // Intentar cargar WordPress con manejo de errores
+    try {
+        require_once($wp_load_path);
+    } catch (Throwable $e) {
+        // Si hay un error al cargar WordPress, continuar sin él
+        // Esto permite que la página funcione aunque WordPress no esté completamente configurado
+        error_log('Error al cargar WordPress: ' . $e->getMessage());
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -52,7 +73,7 @@
       "description": "Universidad pública en Tarapoto con 11 facultades y programas acreditados de pregrado y posgrado",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Jr. Maynas N° 177 - Morales",
+        "streetAddress": "Jr. Maynas N° 177 - Mo rales",
         "addressLocality": "Tarapoto",
         "addressRegion": "San Martín",
         "postalCode": "22201",
@@ -139,14 +160,14 @@
                     <li class="dropdown">
                         <a href="#nosotros" aria-haspopup="true" aria-expanded="false">NOSOTROS</a>
                         <ul class="dropdown-menu" aria-label="Menú Nosotros">
-                            <li><a href="#autoridades">Autoridades</a></li>
-                            <li><a href="#historia">Historia de la Universidad</a></li>
-                            <li><a href="#mision-vision">Nuestra Misión y Visión</a></li>
-                            <li><a href="#objetivos">Objetivos</a></li>
-                            <li><a href="#organigrama">Organigrama</a></li>
-                            <li><a href="#himno">Himno</a></li>
-                            <li><a href="#directorio">Directorio Institucional</a></li>
-                            <li><a href="#calendario">Calendario Académico</a></li>
+                            <li><a href="nosotros/autoridades/indexAuto.php">Autoridades</a></li>
+                            <li><a href="nosotros/historia/historia.php">Historia de la Universidad</a></li>
+                            <li><a href="nosotros/mision/indexMision.php">Nuestra Misión y Visión</a></li>
+                            <li><a href="nosotros/objetivos/objeIndex.php">Objetivos</a></li>
+                            <li><a href="nosotros/onigrama/indexOni.php">Organigrama</a></li>
+                            <li><a href="nosotros/himno/indexHimno.php">Himno</a></li>
+                            <li><a href="nosotros/directorioInstucional/">Directorio Institucional</a></li>
+                            <li><a href="nosotros/calendarioAcade/">Calendario Académico</a></li>
                         </ul>
                     </li>
                     <li class="dropdown dropdown-wide">
@@ -191,39 +212,30 @@
                     <li class="dropdown dropdown-facultades">
                         <a href="#facultades" aria-haspopup="true" aria-expanded="false">FACULTADES</a>
                         <ul class="dropdown-menu" aria-label="Menú Facultades">
-                            <!-- CIENCIAS AGRARIAS -->
                             <li class="has-submenu">
                                 <a href="#ciencias-agrarias" aria-haspopup="true" aria-expanded="false">Ciencias Agrarias</a>
                                 <ul class="submenu-carreras" aria-label="Carreras de Ciencias Agrarias">
                                     <li><a href="#agronomia">Agronomía</a></li>
                                 </ul>
                             </li>
-                            
-                            <!-- CIENCIAS DE LA SALUD -->
                             <li class="has-submenu">
                                 <a href="#ciencias-salud" aria-haspopup="true" aria-expanded="false">Ciencias de la Salud</a>
                                 <ul class="submenu-carreras" aria-label="Carreras de Ciencias de la Salud">
                                     <li><a href="#obstetricia">Obstetricia</a></li>
                                 </ul>
                             </li>
-                            
-                            <!-- MEDICINA VETERINARIA -->
                             <li class="has-submenu">
                                 <a href="#medicina-veterinaria" aria-haspopup="true" aria-expanded="false">Medicina Veterinaria</a>
                                 <ul class="submenu-carreras" aria-label="Carreras de Medicina Veterinaria">
                                     <li><a href="#medicina-veterinaria-carrera">Medicina Veterinaria</a></li>
                                 </ul>
                             </li>
-                            
-                            <!-- INGENIERÍA AGROINDUSTRIAL -->
                             <li class="has-submenu">
                                 <a href="#ingenieria-agroindustrial" aria-haspopup="true" aria-expanded="false">Ingeniería Agroindustrial</a>
                                 <ul class="submenu-carreras" aria-label="Carreras de Ingeniería Agroindustrial">
                                     <li><a href="#ing-agroindustrial">Ingeniería Agroindustrial</a></li>
                                 </ul>
                             </li>
-                            
-                            <!-- INGENIERÍA CIVIL Y ARQUITECTURA -->
                             <li class="has-submenu">
                                 <a href="#ingenieria-civil" aria-haspopup="true" aria-expanded="false">Ingeniería Civil y Arquitectura</a>
                                 <ul class="submenu-carreras" aria-label="Carreras de Ingeniería Civil y Arquitectura">
@@ -231,16 +243,12 @@
                                     <li><a href="#ingenieria-civil-carrera">Ingeniería Civil</a></li>
                                 </ul>
                             </li>
-                            
-                            <!-- INGENIERÍA DE SISTEMAS E INFORMÁTICA -->
                             <li class="has-submenu">
                                 <a href="#ingenieria-sistemas" aria-haspopup="true" aria-expanded="false">Ingeniería de Sistemas e Informática</a>
                                 <ul class="submenu-carreras" aria-label="Carreras de Ingeniería de Sistemas">
                                     <li><a href="#ing-sistemas">Ingeniería de Sistemas e Informática</a></li>
                                 </ul>
                             </li>
-                            
-                            <!-- ECOLOGÍA -->
                             <li class="has-submenu">
                                 <a href="#ecologia" aria-haspopup="true" aria-expanded="false">Ecología</a>
                                 <ul class="submenu-carreras" aria-label="Carreras de Ecología">
@@ -248,16 +256,12 @@
                                     <li><a href="#ing-sanitaria">Ingeniería Sanitaria</a></li>
                                 </ul>
                             </li>
-                            
-                            <!-- DERECHO Y CIENCIAS POLÍTICAS -->
                             <li class="has-submenu">
                                 <a href="#derecho" aria-haspopup="true" aria-expanded="false">Derecho y Ciencias Políticas</a>
                                 <ul class="submenu-carreras" aria-label="Carreras de Derecho">
                                     <li><a href="#derecho-carrera">Derecho</a></li>
                                 </ul>
                             </li>
-                            
-                            <!-- MEDICINA HUMANA -->
                             <li class="has-submenu">
                                 <a href="#medicina-humana" aria-haspopup="true" aria-expanded="false">Medicina Humana</a>
                                 <ul class="submenu-carreras" aria-label="Carreras de Medicina Humana">
@@ -265,8 +269,6 @@
                                     <li><a href="#enfermeria">Enfermería</a></li>
                                 </ul>
                             </li>
-                            
-                            <!-- CIENCIAS ECONÓMICAS -->
                             <li class="has-submenu">
                                 <a href="#ciencias-economicas" aria-haspopup="true" aria-expanded="false">Ciencias Económicas</a>
                                 <ul class="submenu-carreras" aria-label="Carreras de Ciencias Económicas">
@@ -276,8 +278,6 @@
                                     <li><a href="#turismo">Turismo</a></li>
                                 </ul>
                             </li>
-                            
-                            <!-- EDUCACIÓN Y HUMANIDADES -->
                             <li class="has-submenu">
                                 <a href="#educacion" aria-haspopup="true" aria-expanded="false">Educación y Humanidades</a>
                                 <ul class="submenu-carreras" aria-label="Carreras de Educación">
@@ -386,6 +386,32 @@
             <div class="carousel-indicators" id="carouselControls" role="tablist" aria-label="Controles del carrusel"></div>
         </section>
 
+        <!-- SECCIÓN DESTACADOS -->
+        <section class="destacados-section" aria-labelledby="destacados-title">
+            <div class="destacados-grid">
+                <a href="#investigacion" class="destacado-card investigacion-card">
+                    <img src="imagenes/cuadros/investigacion.jpg" alt="Investigación UNSM" loading="lazy">
+                    <div class="destacado-overlay"></div>
+                    <h3>INVESTIGACIÓN</h3>
+                </a>
+                <a href="#filiales" class="destacado-card filiales-card">
+                    <img src="imagenes/cuadros/filial.jpg" alt="Filiales UNSM" loading="lazy">
+                    <div class="destacado-overlay"></div>
+                    <h3>FILIALES</h3>
+                </a>
+                <a href="#servicios-complementarios" class="destacado-card servicios-card">
+                    <img src="imagenes/cuadros/servicios complementarios.jpg" alt="Servicios Complementarios UNSM" loading="lazy">
+                    <div class="destacado-overlay"></div>
+                    <h3>SERVICIOS COMPLEMENTARIOS</h3>
+                </a>
+                <a href="#bolsa-trabajo" class="destacado-card bolsa-card">
+                    <img src="imagenes/cuadros/bolsa de trabajo.jpg" alt="Bolsa de Trabajo y Red de Egresados UNSM" loading="lazy">
+                    <div class="destacado-overlay"></div>
+                    <h3>BOLSA DE TRABAJO Y RED DE EGRESADOS</h3>
+                </a>
+            </div>
+        </section>
+
         <!-- SECCIÓN OFERTA ACADÉMICA -->
         <section class="ofertas section-container" aria-labelledby="oferta-academica-title">
             <div class="content-wrapper">
@@ -451,6 +477,9 @@
                         <!-- Tarjeta 1: CPU - UNSM -->
                         <article class="card academic-carousel-slide">
                             <a href="#cpu" aria-labelledby="cpu-title">
+                                <div class="card-image">
+                                    <img src="imagenes/academico/centro preuniversitario.png" alt="Centro Preuniversitario UNSM" loading="lazy">
+                                </div>
                                 <div class="card-icon" aria-hidden="true">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
@@ -467,6 +496,9 @@
                         <!-- Tarjeta 2: Centro de Idiomas -->
                         <article class="card academic-carousel-slide">
                             <a href="#centro-idiomas" aria-labelledby="idiomas-title">
+                                <div class="card-image">
+                                    <img src="imagenes/academico/centro de idiomas.png" alt="Centro de Idiomas UNSM" loading="lazy">
+                                </div>
                                 <div class="card-icon" aria-hidden="true">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"></path>
@@ -481,6 +513,9 @@
                         <!-- Tarjeta 3: Campus Virtual -->
                         <article class="card academic-carousel-slide">
                             <a href="#campus-virtual" aria-labelledby="campus-title">
+                                <div class="card-image">
+                                    <img src="imagenes/academico/CAMPUS VIRTUAL.png" alt="Campus Virtual UNSM" loading="lazy">
+                                </div>
                                 <div class="card-icon" aria-hidden="true">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
@@ -495,6 +530,9 @@
                         <!-- Tarjeta 4: Investigación y Desarrollo -->
                         <article class="card academic-carousel-slide">
                             <a href="#investigacion" aria-labelledby="investigacion-title">
+                                <div class="card-image">
+                                    <img src="imagenes/academico/escuela de posgrado.jpg" alt="Investigación y Desarrollo UNSM" loading="lazy">
+                                </div>
                                 <div class="card-icon" aria-hidden="true">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <circle cx="11" cy="11" r="8"></circle>
@@ -509,8 +547,11 @@
                         <!-- Tarjeta 5: Escuela de Posgrado -->
                         <article class="card academic-carousel-slide">
                             <a href="#escuela-posgrado" aria-labelledby="escuela-posgrado-title">
+                                <div class="card-image">
+                                    <img src="imagenes/academico/escuela de posgrado.jpg" alt="Escuela de Posgrado UNSM" loading="lazy">
+                                </div>
                                 <div class="card-icon" aria-hidden="true">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2">
                                         <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
                                         <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
                                     </svg>
@@ -523,8 +564,11 @@
                         <!-- Tarjeta 6: CTI - UNSM -->
                         <article class="card academic-carousel-slide">
                             <a href="#cti-unsm" aria-labelledby="cti-title">
+                                <div class="card-image">
+                                    <img src="imagenes/academico/CTI.png" alt="Centro de Tecnologías de Información UNSM" loading="lazy">
+                                </div>
                                 <div class="card-icon" aria-hidden="true">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2">
                                         <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
                                         <line x1="8" y1="21" x2="16" y2="21"></line>
                                         <line x1="12" y1="17" x2="12" y2="21"></line>
@@ -675,7 +719,7 @@
                                 </svg>
                             </div>
                             <h3 id="servicios-title" class="card-title">Servicios</h3>
-                            <p class="card-text">Atención personalizada en biblioteca, registro de títulos, y soporte técnico para estudiantes</p>
+                            <p class="card-text">Atención personalizada in biblioteca, registro de títulos, y soporte técnico para estudiantes</p>
                         </a>
                     </article>
 
@@ -907,9 +951,26 @@
                     <li><a href="#repositorio">Repositorio Institucional</a></li>
                     <li><a href="#transparencia">Portal de Transparencia</a></li>
                     <li><a href="#libro-reclamaciones">Libro de Reclamaciones</a></li>
-                    <li><a href="#enviar-mensaje">Enviar Mensaje</a></li>
+                    <li><a href="contacto/indexContac.php">Enviar Mensaje</a></li>
                 </ul>
             </nav>
+
+            <section class="footer-section footer-facebook" aria-labelledby="footer-facebook-title">
+                <h3 id="footer-facebook-title" class="footer-title">Facebook UNSM</h3>
+                <div class="fb-page"
+                    data-href="https://www.facebook.com/unsmperu"
+                    data-tabs="timeline"
+                    data-width="320"
+                    data-height="320"
+                    data-small-header="false"
+                    data-adapt-container-width="true"
+                    data-hide-cover="false"
+                    data-show-facepile="true">
+                    <blockquote cite="https://www.facebook.com/unsmperu" class="fb-xfbml-parse-ignore">
+                        <a href="https://www.facebook.com/unsmperu">Universidad Nacional de San Martín - UNSM</a>
+                    </blockquote>
+                </div>
+            </section>
         </div>
         
         <div class="footer-bottom">
@@ -941,5 +1002,7 @@
 
     <!-- Scripts -->
     <script src="js/script.js" defer></script>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v18.0"></script>
 </body>
 </html>
